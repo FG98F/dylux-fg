@@ -1,0 +1,18 @@
+import db from '../lib/database.js'
+
+let handler = async (m, { text, conn }) => {
+    let user = db.data.users[m.sender]
+    user.afk = + new Date
+    user.afkReason = text
+    m.reply(`
+  😴 *AFK* 
+Ahora estas afk hasta que envies un mensaje 
+▢ *Usuario:* ${conn.getName(m.sender)} 
+▢ *Razon:* ${text ? ': ' + text : ''}
+  `)
+}
+handler.help = ['afk <razon>']
+handler.tags = ['fun']
+handler.command = ['afk']
+
+export default handler
