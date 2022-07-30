@@ -41,6 +41,9 @@ global.fgsc = 'https://github.com/FG98F/dylux-fg'
 global.fgyt = 'https://youtube.com/fg98f'
 
 global.wait = '*⌛ _Cargando..._*\n*▰▰▰▱▱▱▱▱▱*'
+global.rwait = '⏰'
+global.dmoji = '🤭'
+global.done = '✅'
 
 global.multiplier = 69 
 
