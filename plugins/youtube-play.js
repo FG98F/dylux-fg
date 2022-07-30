@@ -5,7 +5,9 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
   if (!vid) throw '✳️ Vídeo/Audio no encontrado'
   let { title, description, thumbnail, videoId, durationH, viewH, publishedTime } = vid
   const url = 'https://www.youtube.com/watch?v=' + videoId
-  await conn.sendHydrated(m.chat, `
+  
+m.react(done)
+ await conn.sendHydrated(m.chat, `
   ≡ *FG MUSIC*
 ┌──────────────
 ▢ 📌 *Título* : ${title}
