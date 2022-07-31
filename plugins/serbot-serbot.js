@@ -41,7 +41,7 @@ Escanea este QR para convertirte en un bot temporal
 2. Toque Dispositivos vinculados
 3. Escanea este QR
 
-QR caducará!
+El codigo  QR se cambiara cada 20 segundos
 `.trim(), m)
         }
         if (isNewLogin)
@@ -65,12 +65,12 @@ QR caducará!
 }
 
 
-//handler.help = ['serbot']
-handler.tags = ['serbot']
+handler.help = ['serbot']
+handler.tags = ['main']
 
-handler.command = ['test'] 
+handler.command = ['jadibot', 'serbot'] 
 
-handler.disabled = true
+//handler.disabled = true
 handler.limit = true
 
 export default handler
