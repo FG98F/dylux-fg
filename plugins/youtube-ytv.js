@@ -14,6 +14,7 @@ let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) =
   for (let i in _video) {
     try {
       video = _video[i]
+      if (isNaN(video.fileSize)) continue
       isLimit = limitedSize < video.fileSize
       if (isLimit) continue
       link = await video.download()
