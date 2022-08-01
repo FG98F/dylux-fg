@@ -30,7 +30,7 @@ let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) =
   }
   if ((!(source instanceof ArrayBuffer) || !link || !res.ok) && !isLimit) throw '❎ Error: ' + (lastError || 'no puedo descargar el video')
 
-m.reply(isLimit ? ` ≡  *FG MUSIC*
+/*m.reply(isLimit ? ` ≡  *FG MUSIC*
 ▢ *📌Título* : ${title}
 ▢ *⚖️Peso* : ${video.fileSizeH}
 ▢ *El archivo supera el límite de descarga*
@@ -39,7 +39,9 @@ ${limit} mb
 ▬▬▬▭▭ *300 MB*
 *Premium :*
 300 mb
-▬▬▬▬▬ *300 MB*`: global.wait)
+▬▬▬▬▬ *300 MB*`: global.wait)*/
+m.react(rwait)
+
   let _thumb = {}
   try { _thumb = { thumbnail: await (await fetch(thumbnail)).buffer() } }
   catch (e) { }
@@ -53,6 +55,7 @@ ${limit} mb
     ..._thumb,
     asDocument: chat.useDocument
   })
+  m.react(done)
 }
 handler.help = ['ytmp4 <link yt>']
 handler.tags = ['downloader']
