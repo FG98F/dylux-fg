@@ -6,7 +6,7 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
   let { title, description, thumbnail, videoId, durationH, viewH, publishedTime } = vid
   const url = 'https://www.youtube.com/watch?v=' + videoId
   
-m.react(done)
+m.react('🎧')
  await conn.sendHydrated(m.chat, `
   ≡ *FG MUSIC*
 ┌──────────────
