@@ -34,7 +34,7 @@ const defaultMenu = {
 👥 Usuarios : %totalreg
 ─────────────
 ▢ Crea tu propio bot 
-• https://youtu.be/jeXHB0IIzCM
+• https://youtu.be/W670n7QTKkE
 ▢ Descarga *FGWhatsApp*
 • https://fgmods.epizy.com
 ─────────────
