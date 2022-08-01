@@ -31,7 +31,7 @@ let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) =
   }
   if ((!(source instanceof ArrayBuffer) || !link || !res.ok) && !isLimit) throw '❎ Error: ' + (lastError || 'no puedo descargar el audio')
  
- m.reply(isLimit ? `≡ *FG MUSIC* 
+/* m.reply(isLimit ? `≡ *FG MUSIC* 
   
 ▢ *📌Titulo:* ${title}
 ▢ *⚖️ Peso:* ${audio.fileSizeH}
@@ -41,7 +41,10 @@ ${limit} mb
 ▬▬▬▭▭ *300 MB*
 *Premium :*
 300 mb
-▬▬▬▬▬ *300 MB*`: global.wait) 
+▬▬▬▬▬ *300 MB*`: global.wait) */
+
+m.react(rwait)
+
   if (!isLimit) await conn.sendFile(m.chat, source, title + '.mp3', `
 ≡  *FG MUSIC*
     
@@ -51,6 +54,7 @@ ${limit} mb
 `.trim(), m, null, {
     asDocument: chat.useDocument
   })
+  m.react(done)
 }
 handler.help = ['ytmp3 <link yt>']
 handler.tags = ['downloader']
