@@ -1,4 +1,4 @@
-// TODO: fix 
+// TODO: fix   
 
 import Connection from '../lib/connection.js'
 import Store from '../lib/store.js'
