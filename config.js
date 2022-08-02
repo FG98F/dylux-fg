@@ -44,6 +44,7 @@ global.wait = '*⌛ _Cargando..._*\n*▰▰▰▱▱▱▱▱▱*'
 global.rwait = '⏰'
 global.dmoji = '🤭'
 global.done = '✅'
+global.error = '❌' 
 
 global.multiplier = 69 
 
