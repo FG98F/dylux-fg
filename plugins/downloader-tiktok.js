@@ -2,6 +2,8 @@ import { tiktokdl } from '@bochilteam/scraper'
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 if (!args[0]) throw `✳️ Ingrese un link de Tiktok\n\n 📌 Ejemplo : ${usedPrefix + command} https://vm.tiktok.com/ZMNqyusVD/?k=1`
+if (!args[0].match(/tiktok/gi)) throw `❎ verifica que el link sea de tiktok`
+
     const { author: { nickname }, video, description } = await tiktokdl(args[0])
     const url = video.no_watermark || video.no_watermark2 || video.no_watermark_raw
     if (!url) throw '❎ No puedo descargar videos'
