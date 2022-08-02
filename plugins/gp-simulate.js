@@ -2,7 +2,7 @@
 let handler = async (m, { conn, usedPrefix, command, args: [event], text }) => {
 
 if (!event) return await m.reply(`
-┌─⊷ *EVENTOS
+┌─⊷ *EVENTOS*
 ▢ Bienvenida 
 ▢ Despedida
 ▢ promover
