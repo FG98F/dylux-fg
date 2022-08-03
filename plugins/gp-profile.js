@@ -13,6 +13,8 @@ let { name, exp, limit, lastclaim, registered, regTime, age, level, role } = db.
 let username = conn.getName(who)
 let prem = global.prems.includes(who.split`@`[0])
 let sn = createHash('md5').update(who).digest('hex')
+let user = db.data.users[who]
+user.role = global.rpg.role(user.level).name
 
 let str = `
 ┌───「 *PERFIL* 」
@@ -22,15 +24,15 @@ let str = `
 ▢ *🔗Link:* wa.me/${who.split`@`[0]}${registered ? '\n▢ *🎈Edad*: ' + age + ' años' : ''}
 ▢ *💎 Diamantes :* ${limit}
 ▢ *🆙 Nivel* : ${level}
-▢ *🥇Rango:* ${role}
+▢ *🏆Rango:* ${user.role}
 ▢ *📇 Registrado :* ${registered ? 'Si': 'No'}
 ▢ *⭐ Premium* : ${prem ? 'Si' : 'No'}
 └──────────────`
-conn.sendButton(m.chat, str, igfg, pp, [['👍🏻', ' '], ['🖤', ' ']], m)
-/*
+//conn.sendButton(m.chat, str, igfg, pp, [['👍🏻', ' '], ['🖤', ' ']], m)
+
   let mentionedJid = [who]
     conn.sendFile(m.chat, pp, 'perfil.jpg', str, m, false, { contextInfo: { mentionedJid }})
-    */
+    
 
 }
 handler.help = ['perfil @user']
