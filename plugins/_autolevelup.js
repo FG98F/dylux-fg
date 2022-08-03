@@ -8,12 +8,13 @@ export function before(m) {
     let before = user.level * 1
     while (canLevelUp(user.level, user.exp, global.multiplier))
         user.level++
-
+    user.role = global.rpg.role(user.level).name
     if (before !== user.level) {
         m.reply(`
 *▢ SUBISTE DE NIVEL*
 
  *${before}* ‣  *${user.level}*
+ Rango : *${user.role}*
 	`.trim())
     }
 }
