@@ -29,7 +29,6 @@ const defaultMenu = {
 
 👋🏻 _Hola_ *%name*
 
-🏆 Rango : *%role*
 🧿 Nivel : *%level* 
 👥 Usuarios : %totalreg
 ─────────────
