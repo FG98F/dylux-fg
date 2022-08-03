@@ -20,11 +20,13 @@ Te falta *${max - user.exp}* de *XP* para subir de nivel
     let before = user.level * 1
     while (canLevelUp(user.level, user.exp, global.multiplier)) user.level++
     if (before !== user.level) {
+    	user.role = global.rpg.role(user.level).name
         let teks = `Bien hecho ${conn.getName(m.sender)} Nivel:`
         let str = `
 ┌─⊷ *LEVEL UP*
 ▢ Nivel anterior : *${before}*
 ▢ Nivel actual : *${user.level}*
+▢ Rango : *${user.role}*
 └──────────────
 
 *_Cuanto más interactúes con los bots, mayor será tu nivel_*
