@@ -1,16 +1,18 @@
 import { instagramStalk } from '@bochilteam/scraper'
 
-let handler= async (m, { args, usedPrefix, command }) => {
+let handler= async (m, { conn, args, usedPrefix, command }) => {
     if (!args[0]) throw `✳️ Escriba un Nombre de Usuario\n\n📌Ejemplo : ${usedPrefix + command} fg98._`
     const {
         username,
+        avatar,
         name,
         description,
         followersH,
         followingH,
         postsH,
     } = await instagramStalk(args[0])
-    m.reply(`
+    
+    let igst = `
 ┌──「 *STALKING* 
 ▢ *🔖 Nombre Completo* : ${name} 
 ▢ *🔖 Username* : ${username}
@@ -20,7 +22,10 @@ let handler= async (m, { args, usedPrefix, command }) => {
 
 ▢ *🔗 Link* : https://instagram.com/${username.replace(/^@/, '')}
 └──────────────
-`.trim())
+`
+let pp = await( await conn.getFile(avatar)).data
+conn.sendFile(m.chat, pp, 'igstalk.jpg', igst, m)
+m.react(done)
 }
 
 handler.help = ['igstalk'].map(v => v + ' <username>')
