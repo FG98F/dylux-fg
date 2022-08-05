@@ -1,4 +1,4 @@
-// TODO: fix   
+// TODO: fix 
 
 import Connection from '../lib/connection.js'
 import Store from '../lib/store.js'
@@ -67,10 +67,9 @@ El codigo  QR se cambiara cada 20 segundos
 
 handler.help = ['serbot']
 handler.tags = ['main']
-
 handler.command = ['jadibot', 'serbot'] 
 
-//handler.disabled = true
+handler.disabled = true
 handler.limit = true
 
 export default handler
