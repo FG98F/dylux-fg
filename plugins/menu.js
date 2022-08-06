@@ -13,7 +13,6 @@ let tags = {
    'img': 'IMAGEN',
   'group': 'GRUPO',
   'nable': 'EN/DISABLE OPCIONES', 
-  'premium': 'PREMIUM',
   'nime': 'ANIME',
   'downloader': 'DESCARGAS',
   'tools': 'TOOLS',
