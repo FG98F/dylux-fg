@@ -14,12 +14,10 @@ _Al donar consigues_  *Premium*
 
 • Diamantes ilimitados
 • comandos de *menu premium* desbloqueado
-• Limite de *Descargas +250 MB*, podrá descargar archivos de 300 mb que es lo que permite WhatsApp :'v
 
-Si donas contactame por t.me/fg98f
 `.trim())
 handler.help = ['donar']
 handler.tags = ['main']
-handler.command = ['donar', 'apoyar', 'donate'] 
+handler.command = ['donar', 'apoyar', 'donate', 'premium'] 
 
 export default handler
