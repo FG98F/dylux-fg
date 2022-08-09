@@ -1,5 +1,6 @@
 import { areJidsSameUser } from '@adiwajshing/baileys'
-let handler = async (m, { conn, participants }) => {
+let handler = async (m, { conn, participants, text }) => {
+	if (!text) throw `✳️ Menciona al usuario para expulsar`
     let users = m.mentionedJid.filter(u => !areJidsSameUser(u, conn.user.id))
     let kickedUser = []
     for (let user of users)
