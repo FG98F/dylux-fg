@@ -9,10 +9,10 @@ let type = (command).toLowerCase()
 switch (type) {
 	
 	case 'loli':
-	let img = (await axios.get(`https://raw.githubusercontent.com/FG98F/team-fg/main/img/loli.json`)).data
-	let loli = pickRandom(img)
-	conn.sendFile(m.chat, loli, 'loli.png', '✅ Random Loli', m)
-	m.react(dmoji) 
+	     let img = (await axios.get(`https://raw.githubusercontent.com/FG98F/team-fg/main/img/loli.json`)).data
+	     let loli = pickRandom(img)
+	     conn.sendFile(m.chat, loli, 'loli.png', '✅ Random Loli', m)
+	     m.react(dmoji) 
 	break
 case 'waifu':
   let res = await fetch('https://api.waifu.pics/sfw/waifu')
