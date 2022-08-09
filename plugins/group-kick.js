@@ -1,25 +1,22 @@
-import { areJidsSameUser } from '@adiwajshing/baileys'
-let handler = async (m, { conn, participants, text }) => {
-	if (!text) throw `✳️ Menciona al usuario para expulsar`
-    let users = m.mentionedJid.filter(u => !areJidsSameUser(u, conn.user.id))
-    let kickedUser = []
-    for (let user of users)
-        if (user.endsWith('@s.whatsapp.net') && !(participants.find(v => areJidsSameUser(v.id, user)) || { admin: true }).admin) {
-            const res = await conn.groupParticipantsUpdate(m.chat, [user], 'remove')
-            kickedUser.concat(res)
-            await delay(1 * 1000)
-        }
-    m.reply(`✅ Usuario eliminado ${kickedUser.map(v => '@' + v.split('@')[0])}`, null, { mentions: kickedUser })
+
+let handler = async (m, { conn, participants, usedPrefix, command }) => {
+	
+let kickte = `✳️ Uso correcto del comamdo\n*${usedPrefix + command}* @tag`
+
+if (!m.mentionedJid[0] && !m.quoted) return m.reply(kickte, m.chat, { mentions: conn.parseMention(kickte)}) 
+let user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender
+let owr = m.chat.split`-`[0]
+await conn.groupParticipantsUpdate(m.chat, [user], 'remove')
+m.reply(`✅ Usuario eliminado`) 
 
 }
+
 handler.help = ['kick @user']
 handler.tags = ['group']
-handler.command = ['kick', 'expulsar'] 
+handler.command = ['kick'] 
 
 handler.admin = true
 handler.group = true
 handler.botAdmin = true
 
 export default handler
-
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
