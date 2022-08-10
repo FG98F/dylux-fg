@@ -24,7 +24,7 @@ case 'neko':
     let json = await res.json()
     if (!json.url) throw '❎ Error'
     conn.sendButton(m.chat, `✅ Random ${command}`, igfg, json.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
-   m.react(dmoji) 
+   m.react(dmoji)  
 break
 
 
