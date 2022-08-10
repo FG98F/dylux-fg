@@ -11,35 +11,22 @@ switch (type) {
 	case 'loli':
 	     let img = (await axios.get(`https://raw.githubusercontent.com/FG98F/team-fg/main/img/loli.json`)).data
 	     let loli = pickRandom(img)
-	     conn.sendFile(m.chat, loli, 'loli.png', '✅ Random Loli', m)
+	   //conn.sendFile(m.chat, loli, 'loli.png', `✅ Random ${command}`, m)
+	     conn.sendButton(m.chat, `✅ Random ${command}`, igfg, loli, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
 	     m.react(dmoji) 
 	break
+	
 case 'waifu':
-  let res = await fetch('https://api.waifu.pics/sfw/waifu')
+case 'megumin':
+case 'neko':
+  let res = await fetch(`https://api.waifu.pics/sfw/${command}`)
     if (!res.ok) throw await res.text()
     let json = await res.json()
     if (!json.url) throw '❎ Error'
-  conn.sendFile(m.chat, json.url, 'waifu.png', '✅ Random Waifu', m)
+    conn.sendButton(m.chat, `✅ Random ${command}`, igfg, json.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
    m.react(dmoji) 
 break
 
-case 'neko':
-  let _neko = await fetch('https://api.waifu.pics/sfw/neko')
-  if (!_neko.ok) throw await _neko.text()
-  let neko = await _neko.json()
-  if (!neko.url) throw '❎ Error'
-  conn.sendFile(m.chat, neko.url, 'neko.png', '✅ Random Neko', m)
-  m.react(dmoji) 
-break 
-
-case 'megumin':
-  let _megumin = await fetch('https://api.waifu.pics/sfw/megumin')
-  if (!_megumin.ok) throw await _megumin.text()
-  let megumin = await _megumin.json()
-  if (!megumin.url) throw '❎ Error'
-  conn.sendFile(m.chat, megumin.url, 'megumin.png', '✅ Random Megumin', m)
-  m.react(dmoji) 
-break
 
 default:
  }
