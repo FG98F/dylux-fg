@@ -19,9 +19,6 @@ switch (type) {
 case 'waifu':
 case 'megumin':
 case 'neko':
-case 'kiss':
-case 'pat':
-case 'cry':
   let res = await fetch(`https://api.waifu.pics/sfw/${command}`)
     if (!res.ok) throw await res.text()
     let json = await res.json()
@@ -35,9 +32,9 @@ default:
  }
 }
 
-handler.help = ['waifu', 'neko', 'megumin', 'loli', 'cry', 'kiss', 'pat']
+handler.help = ['waifu', 'neko', 'megumin', 'loli']
 handler.tags = ['nime']
-handler.command = ['waifu', 'neko', 'megumin', 'loli', 'cry', 'kiss', 'pat'] 
+handler.command = ['waifu', 'neko', 'megumin', 'loli'] 
 handler.limit = true
 
 export default handler
