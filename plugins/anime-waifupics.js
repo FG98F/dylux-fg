@@ -19,12 +19,15 @@ switch (type) {
 case 'waifu':
 case 'megumin':
 case 'neko':
+case 'kiss':
+case 'pat':
+case 'cry':
   let res = await fetch(`https://api.waifu.pics/sfw/${command}`)
     if (!res.ok) throw await res.text()
     let json = await res.json()
     if (!json.url) throw '❎ Error'
     conn.sendButton(m.chat, `✅ Random ${command}`, igfg, json.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
-   m.react(dmoji)  
+   m.react(dmoji) 
 break
 
 
@@ -32,9 +35,9 @@ default:
  }
 }
 
-handler.help = ['waifu', 'neko', 'megumin', 'loli']
+handler.help = ['waifu', 'neko', 'megumin', 'loli', 'cry', 'kiss', 'pat']
 handler.tags = ['nime']
-handler.command = ['waifu', 'neko', 'megumin', 'loli'] 
+handler.command = ['waifu', 'neko', 'megumin', 'loli', 'cry', 'kiss', 'pat'] 
 handler.limit = true
 
 export default handler
