@@ -14,6 +14,7 @@ let tags = {
   'group': 'GRUPO',
   'nable': 'EN/DISABLE OPCIONES', 
   'nime': 'ANIME',
+  'rnime': 'ANIME REACCION',
   'downloader': 'DESCARGAS',
   'tools': 'TOOLS',
   'fun': 'FUN',
