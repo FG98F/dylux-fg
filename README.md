@@ -17,6 +17,11 @@
 <h3 align="center">WHATSAPP BOT</h3>
 
 ***
+### Información
+- Cambie número de dueño en [Config](https://github.com/FG98F/dylux-fg/blob/main/config.js#L6)
+- Puede cambiar a la última versión de baileys editando el package.json [esta sección](https://github.com/FG98F/dylux-fg/blob/main/package.json#L42)
+
+
 ### Ejemplo 
 En caso de duda, antes de instalar dylux-bot, pruebe el bot aquí
 
