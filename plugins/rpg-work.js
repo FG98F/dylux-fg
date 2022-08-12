@@ -9,6 +9,7 @@ let handler = async (m, { conn, isPrems}) => {
   if (new Date - db.data.users[m.sender].lastwork < 600000) throw `*Estas cansado* y por lo tanto hay que esperar ${msToTime(time - new Date())} para volver a trabajar!`
   let anu = (await axios.get('https://raw.githubusercontent.com/FG98F/team-fg/main/games/work.json')).data
     let json = pickRandom(anu)
+ db.data.users[m.sender].exp += hasil
 
   m.reply(`
 ‣ ${json.fgwork} *${hasil} XP*
