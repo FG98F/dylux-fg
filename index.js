@@ -16,7 +16,7 @@ const { name, author } = require(join(__dirname, './package.json')) // https://w
 const { say } = cfonts
 const rl = createInterface(process.stdin, process.stdout)
 
-say('DyLux\nWhatsApp Bot', {
+say('DyLux -  FG98', {
   font: 'chrome',
   align: 'center',
   gradient: ['red', 'magenta']
