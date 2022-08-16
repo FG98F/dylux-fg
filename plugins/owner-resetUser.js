@@ -1,3 +1,5 @@
+import db from '../lib/database.js'
+
 let handler = async (m, { conn, text }) => {
 	function no(number){
     return number.replace(/\s/g,'').replace(/([@+-])/g,'')
@@ -32,11 +34,9 @@ let handler = async (m, { conn, text }) => {
 	let users = m.isGroup ? participants.find(u => u.jid == user) : {}
 	let number = user.split('@')[0]
   
-	delete global.db.data.users[user]
+	delete db.data.users[user]
  	
- 	conn.reply(m.chat, `*❏ USUARIO REINICIADO*\n\n✅ Se reinició a @${number} de la *BASE DE DATOS*`, null, {contextInfo: {
-    mentionedJid: [user]
- 	}})
+ 	conn.reply(m.chat, `*❏ USUARIO REINICIADO*\n\n✅ Se reinició a @${number} de la *BASE DE DATOS*`, null, { mentions: [user] })
 
  
  }
