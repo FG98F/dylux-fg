@@ -22,28 +22,23 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       chat.welcome = isEnable
       break
-    // case 'detect':
-    //   if (!m.isGroup) {
-    //     if (!isOwner) {
-    //       global.dfail('group', m, conn)
-    //       throw false
-    //     }
-    //   } else if (!isAdmin) {
-    //     global.dfail('admin', m, conn)
-    //     throw false
-    //   }
-    //   chat.detect = isEnable
-    //   break
-    case 'delete':
-      if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
+      
+      case 'detect':
+      case 'detector':
+        if (!m.isGroup) {
+         if (!isOwner) {
+           global.dfail('group', m, conn)
           throw false
         }
-      }
-      chat.delete = isEnable
-      break
+       } else if (!isAdmin) {
+         global.dfail('admin', m, conn)
+         throw false
+       }
+       chat.detect = isEnable
+     break
+    
     case 'antidelete':
+    case 'delete':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn)
@@ -52,16 +47,9 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       chat.delete = !isEnable
       break
-    // case 'autodelvn':
-    //   if (m.isGroup) {
-    //     if (!(isAdmin || isOwner)) {
-    //       global.dfail('admin', m, conn)
-    //       throw false
-    //     }
-    //   }
-    //   chat.autodelvn = isEnable
-    //   break
+
     case 'document':
+    case 'documento':
     if (m.isGroup) {
         if (!(isAdmin || isOwner)) return dfail('admin', m, conn)
       }
@@ -77,6 +65,8 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       global.opts['self'] = !isEnable
       break
     case 'antilink':
+    case 'antilinkwa':
+    case 'antilinkwha':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn)
@@ -96,40 +86,11 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     chat.nsfw = isEnable          
     break
 
-    // case 'toxic':
-    //   if (m.isGroup) {
-    //     if (!(isAdmin || isOwner)) {
-    //       global.dfail('admin', m, conn)
-    //       throw false
-    //     }
-    //   }
-    //   chat.antiToxic = !isEnable
-    //   break
-    // case 'antitoxic':
-    //   if (m.isGroup) {
-    //     if (!(isAdmin || isOwner)) {
-    //       global.dfail('admin', m, conn)
-    //       throw false
-    //     }
-    //   }
-    //   chat.antiToxic = isEnable
-    //   break
     case 'autolevelup':
     isUser = true
      user.autolevelup = isEnable
      break
-    // case 'mycontact':
-    // case 'mycontacts':
-    // case 'whitelistcontact':
-    // case 'whitelistcontacts':
-    // case 'whitelistmycontact':
-    // case 'whitelistmycontacts':
-    //   if (!isOwner) {
-    //     global.dfail('owner', m, conn)
-    //     throw false
-    //   }
-    //   conn.callWhitelistMode = isEnable
-    //   break
+
     case 'restrict':
     case 'restringir':
       isAll = true
@@ -139,26 +100,9 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       bot.restrict = isEnable
       break
-    case 'nyimak':
-    case 'escuchar':
-      isAll = true
-      if (!isROwner) {
-        global.dfail('rowner', m, conn)
-        throw false
-      }
-      global.opts['nyimak'] = isEnable
-      break
-    case 'autoread':
-    case 'autoleer':
-      isAll = true
-      if (!isROwner) {
-        global.dfail('rowner', m, conn)
-        throw false
-      }
-      global.opts['autoread'] = isEnable
-      break
-    case 'pconly':
-    case 'privateonly':
+    
+    case 'onlypv':
+    case 'onlydm':
     case 'solopv':
       isAll = true
       if (!isROwner) {
@@ -167,7 +111,9 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       global.opts['pconly'] = isEnable
       break
-    case 'gconly':
+      
+    case 'gponly':
+    case 'onlygp':
     case 'grouponly':
     case 'sologp':
     case 'sologrupo':
@@ -178,21 +124,12 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       global.opts['gconly'] = isEnable
       break
-    case 'swonly':
-    case 'statusonly':
-      isAll = true
-      if (!isROwner) {
-        global.dfail('rowner', m, conn)
-        throw false
-      }
-      global.opts['swonly'] = isEnable
-      break
+  
     default:
       if (!/[01]/.test(command)) return m.reply(`
 ≡ Lista de Opciones
 ┌─⊷ *LISTA*
-▢ welcome 
-▢ delete 
+▢ welcome  
 ▢ public 
 ▢ antilink
 ▢ nsfw
@@ -200,10 +137,9 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 ▢ autolevelup 
 ▢ detect 
 ▢ document 
-▢ restrict 
-▢ autoread 
-▢ solopv
-▢ sologp
+▢ restrict  
+▢ onlydm
+▢ onlygp
 └─────────────
 *📌 Ejemplo :*
 *${usedPrefix}enable* welcome
