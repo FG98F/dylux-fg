@@ -1,6 +1,34 @@
 import db from '../lib/database.js'
 
 let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner }) => {
+	
+const sections = [
+   {
+	title: `≡ Lista de Opciones`,
+	rows: [
+	    {title: "🔮 | Welcome", rowId: `${usedPrefix + command} welcome`},
+	    {title: "🌎 | Public", rowId: `${usedPrefix + command} public`},
+	{title: "🔞 | Nsfw", rowId: `${usedPrefix + command} nsfw`},
+	{title: "🔗 | Antilink", rowId: `${usedPrefix + command} antilink`},
+    {title: "🚫 | Antidelete", rowId: `${usedPrefix + command} antidelete`},
+	{title: "⏏️ | Autolevelup", rowId: `${usedPrefix + command} autolevelup`},
+	{title: "🔎 | Detect", rowId: `${usedPrefix + command} detect`},
+	{title: "📑 | Document", rowId: `${usedPrefix + command} document`},
+	{title: "🛡️ | Restrict", rowId: `${usedPrefix + command} restrict`},
+	{title: "💬 | OnlyPv", rowId: `${usedPrefix + command} onlydm`},
+	{title: "👥 | OnlyGp", rowId: `${usedPrefix + command} onlygp`}
+	]
+    },
+]
+
+const listMessage = {
+  text: ' ',
+  footer: igfg,
+  title: `*≡ Lista de Opciones*\n\n Aquí tiene una lista de lo que puede activar y desactivar`,
+  buttonText: "Click Aquí",
+  sections
+}
+
   let isEnable = /true|enable|(turn)?on|1/i.test(command)
   let chat = db.data.chats[m.chat]
   let user = db.data.users[m.sender]
@@ -103,6 +131,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     
     case 'onlypv':
     case 'onlydm':
+    case 'onlymd':
     case 'solopv':
       isAll = true
       if (!isROwner) {
@@ -124,35 +153,28 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       global.opts['gconly'] = isEnable
       break
-  
+      
     default:
-      if (!/[01]/.test(command)) return m.reply(`
-≡ Lista de Opciones
-┌─⊷ *LISTA*
-▢ welcome  
-▢ public 
-▢ antilink
-▢ nsfw
-▢ antidelete
-▢ autolevelup 
-▢ detect 
-▢ document 
-▢ restrict  
-▢ onlydm
-▢ onlygp
-└─────────────
-*📌 Ejemplo :*
-*${usedPrefix}enable* welcome
-*${usedPrefix}disable* welcome
-`.trim())
+      if (!/[01]/.test(command)) return await conn.sendMessage(m.chat, listMessage, { quoted: m })
       throw false
   }
-  m.reply(`
+  conn.sendButton(m.chat, `
+≡ *OPCIONES*
+┌───────────
+▢ 🗂️ *Tipo:* ${type} 
+▢ ⚙️ *Estado:* ${isEnable ? 'Activo ✅' : 'Desactivado 🔴'}
+▢ 🏮 *Para:* ${isAll ? 'Este bot' : isUser ? '' : 'Este chat'}
+└───────────
+`,igfg, null, [[`${isEnable ? '🔴 Desactivar' : '✅ Activar'}`, `${isEnable ? `${usedPrefix}off ${type}` : `${usedPrefix}on ${type}`}`], ['⦙☰ Menu', `${usedPrefix}help`]],m)
+
+/*
+m.reply(`
 ✅ *${type}* Se *${isEnable ? 'Activó' : 'Desactivó'}* ${isAll ? 'para este bot' : isUser ? '' : 'para este chat'}
-`.trim())
+`.trim()) 
+*/
 }
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')
 handler.tags = ['nable']
-handler.command = ['enable', 'disable', 'on', 'off', '1', '0'] 
+handler.command = /^((en|dis)able|(tru|fals)e|(turn)?o(n|ff)|[01])$/i
 
 export default handler
