@@ -6,8 +6,8 @@ const sections = [
    {
 	title: `≡ Lista de Opciones`,
 	rows: [
-	    {title: "🔮 | Welcome", rowId: `${usedPrefix + command} welcome`},
-	    {title: "🌎 | Public", rowId: `${usedPrefix + command} public`},
+	{title: "🔮 | Welcome", rowId: `${usedPrefix + command} welcome`},
+	{title: "🌎 | Public", rowId: `${usedPrefix + command} public`},
 	{title: "🔞 | Nsfw", rowId: `${usedPrefix + command} nsfw`},
 	{title: "🔗 | Antilink", rowId: `${usedPrefix + command} antilink`},
     {title: "🚫 | Antidelete", rowId: `${usedPrefix + command} antidelete`},
@@ -22,9 +22,9 @@ const sections = [
 ]
 
 const listMessage = {
-  text: ' ',
+  text: '\nAquí tiene una lista de lo que puede activar y desactivar',
   footer: igfg,
-  title: `*≡ Lista de Opciones*\n\n Aquí tiene una lista de lo que puede activar y desactivar`,
+  title: `*≡ Lista de Opciones*`,
   buttonText: "Click Aquí",
   sections
 }
