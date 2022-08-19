@@ -5,6 +5,7 @@ import { youtubedl, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper';
 let limit = 80
 let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) => {
   if (!args || !args[0]) throw `✳️ Ejemplo :\n${usedPrefix + command} https://youtu.be/YzkTFFwxtXI`
+  if (!args[0].match(/youtu/gi)) throw `❎ Verifica que el link de YouTube`
 
  let chat = db.data.chats[m.chat]
   const isY = /y(es)/gi.test(args[1])
@@ -30,16 +31,6 @@ let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) =
   }
   if ((!(source instanceof ArrayBuffer) || !link || !res.ok) && !isLimit) throw '❎ Error: ' + (lastError || 'no puedo descargar el video')
 
-/*m.reply(isLimit ? ` ≡  *FG MUSIC*
-▢ *📌Título* : ${title}
-▢ *⚖️Peso* : ${video.fileSizeH}
-▢ *El archivo supera el límite de descarga*
-*Gratis :*
-${limit} mb
-▬▬▬▭▭ *300 MB*
-*Premium :*
-300 mb
-▬▬▬▬▬ *300 MB*`: global.wait)*/
 m.react(rwait)
 
   let _thumb = {}
