@@ -1,4 +1,4 @@
-let handler = async (m, { conn }) => {
+let handler = async (m, { conn }) => { 
     if (!m.quoted) throw false
     let { chat, fromMe, isBaileys } = m.quoted
     if (!fromMe) throw false
