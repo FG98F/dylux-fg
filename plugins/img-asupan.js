@@ -3,9 +3,7 @@ import axios from 'axios'
 
 let handler = async(m, { conn, usedPrefix, command }) => {
 	
-	let asu = ["asupan", "asupan-la"]
-    let asufg = pickRandom(asu)
-	let asupan = (await axios.get(`https://raw.githubusercontent.com/FG98F/team-fg/main/img/${asufg}.json`)).data
+	let asupan = (await axios.get(`https://raw.githubusercontent.com/FG98F/team-fg/main/img/asupan-la.json`)).data
     conn.sendButton(m.chat, `✅ Resultado`, igfg, pickRandom(asupan), [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
     m.react(dmoji)
 }
