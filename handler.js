@@ -282,7 +282,7 @@ const isNumber = x => typeof x === 'number' && !isNaN(x)
                     sBye: '',
                     sPromote: '',
                     sDemote: '',
-                    delete: true,
+                    delete: false,
                     antiLink: false,
                     viewonce: false,
                     useDocument: true,
