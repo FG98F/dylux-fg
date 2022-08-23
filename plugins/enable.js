@@ -9,6 +9,7 @@ const sections = [
 	{title: "🔮 | Welcome", rowId: `${usedPrefix + command} welcome`},
 	{title: "🌎 | Public", rowId: `${usedPrefix + command} public`},
 	{title: "🔞 | Nsfw", rowId: `${usedPrefix + command} nsfw`},
+	{title: "🧬 | Anti+212", rowId: `${usedPrefix + command} anti212`},
 	{title: "🔗 | Antilink", rowId: `${usedPrefix + command} antilink`},
     {title: "🚫 | Antidelete", rowId: `${usedPrefix + command} antidelete`},
 	{title: "⏏️ | Autolevelup", rowId: `${usedPrefix + command} autolevelup`},
@@ -102,6 +103,19 @@ const listMessage = {
         }
       }
       chat.antiLink = isEnable
+      break
+      
+      case 'anti+212':
+      case 'anti212':
+      case 'antiarab':
+      case 'antiarabes':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          global.dfail('admin', m, conn)
+          throw false
+        }
+      }
+      chat.antiArab = isEnable
       break
       
       case 'nsfw':
