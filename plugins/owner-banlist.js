@@ -5,9 +5,11 @@ let handler = async (m, { conn, usedPrefix }) => {
     let users = Object.entries(db.data.users).filter(user => user[1].banned)
     
     m.reply(`
-*Lista de usuarios Baneados*
-▢ Total : ${users.length} Usuarios${users ? '\n' + users.map(([jid], i) => `
+≡ *USUARIOS BANEADOS*
 
+▢ Total : *${users.length}* 
+
+${users ? '\n' + users.map(([jid], i) => `
 ${i + 1}. ${conn.getName(jid) == undefined ? 'Desconocido' : conn.getName(jid)}
 ▢ ${jid}
 `.trim()).join('\n') : ''}
