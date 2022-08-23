@@ -267,8 +267,8 @@ const isNumber = x => typeof x === 'number' && !isNaN(x)
                     chat.antiLink = false
                 if (!('viewonce' in chat))
                     chat.viewonce = false
-                if (!('antiToxic' in chat))
-                    chat.antiToxic = false
+                if (!('antiArab' in chat))
+                    chat.antiArab = false
                  if (!('nsfw' in chat))
                     chat.nsfw = false
                 if (!isNumber(chat.expired))
@@ -286,8 +286,8 @@ const isNumber = x => typeof x === 'number' && !isNaN(x)
                     antiLink: false,
                     viewonce: false,
                     useDocument: true,
-                    antiToxic: true,
-                    nsfw: true, 
+                    antiArab: false,
+                    nsfw: false, 
                     expired: 0,
                 }
             let settings = db.data.settings[this.user.jid]
