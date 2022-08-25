@@ -20,6 +20,7 @@ let str = `
 ┌───「 *PERFIL* 」
 ▢ *🔖 Nombres:* 
    • ${username} ${registered ? '\n   • ' + name + ' ': ''}
+   • @${who.replace(/@.+/, '')}
 ▢ *📱Numero:* ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
 ▢ *🔗Link:* wa.me/${who.split`@`[0]}${registered ? '\n▢ *🎈Edad*: ' + age + ' años' : ''}
 ▢ *💎 Diamantes :* ${limit}
@@ -28,10 +29,8 @@ let str = `
 ▢ *📇 Registrado :* ${registered ? 'Si': 'No'}
 ▢ *⭐ Premium* : ${prem ? 'Si' : 'No'}
 └──────────────`
-//conn.sendButton(m.chat, str, igfg, pp, [['👍🏻', ' '], ['🖤', ' ']], m)
 
-  let mentionedJid = [who]
-    conn.sendFile(m.chat, pp, 'perfil.jpg', str, m, false, { contextInfo: { mentionedJid }})
+    conn.sendFile(m.chat, pp, 'perfil.jpg', str, m, false, { mentions: [who] })
     
 
 }
