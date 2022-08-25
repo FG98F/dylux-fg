@@ -8,6 +8,7 @@ let handler = async (m, { conn, usedPrefix, command}) => {
 
 
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+if (!(who in db.data.users)) throw `✳️ El usuario no se encuentra en mi base de datos`
 let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/avatar_contact.png')
 let { name, exp, limit, lastclaim, registered, regTime, age, level, role } = db.data.users[who]
 let username = conn.getName(who)
