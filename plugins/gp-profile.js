@@ -32,7 +32,7 @@ let str = `
 └──────────────`
 
     conn.sendFile(m.chat, pp, 'perfil.jpg', str, m, false, { mentions: [who] })
-    
+    m.react(done)
 
 }
 handler.help = ['perfil @user']
