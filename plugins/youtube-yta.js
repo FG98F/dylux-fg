@@ -40,9 +40,7 @@ m.react(rwait)
 ▢ *📌Título* : ${title}
 ▢ *📟 Ext* : mp3
 ▢ *⚖️Peso* : ${audio.fileSizeH}
-`.trim(), m, null, {
-    asDocument: chat.useDocument
-  })
+`.trim(), m, null, { mimetype: 'mp3', asDocument: true })
   m.react(done)
 }
 handler.help = ['ytmp3 <link yt>']
