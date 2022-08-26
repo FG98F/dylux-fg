@@ -18,7 +18,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     m.react(done)
 }
 handler.help = ['mediafire <url>']
-handler.tags = ['downloader']
+handler.tags = ['downloader', 'prem']
 handler.command = ['mediafire', 'mfire'] 
 
 handler.limit = true
