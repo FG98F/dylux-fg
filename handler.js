@@ -627,7 +627,11 @@ export async function participantsUpdate({ id, participants, action }) {
                     } finally {
                         text = (action === 'add' ? (chat.sWelcome || this.welcome || Connection.conn.welcome || 'Bienvenido, @user').replace('@group', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'unknow') :
                             (chat.sBye || this.bye || Connection.conn.bye || 'Adiós, @user')).replace('@user', '@' + user.split('@')[0])
-                        this.sendFile(id, pp, 'pp.jpg', text, null, false, { mentions: [user] })
+                       //this.sendFile(id, pp, 'pp.jpg', text, null, false, { mentions: [user] })
+                        this.sendButton(id, text, igfg, pp, [
+                             [(action == 'add' ? '⦙☰ MENU' : 'BYE'), (action == 'add' ? '/help' : ' ')], 
+                             [(action == 'add' ? '⏍ INFO' : '👋🏻'), (action == 'add' ? '/info' : ' ')] ], null, {mentions: [user]})
+                        
                     }
                 }
             }
