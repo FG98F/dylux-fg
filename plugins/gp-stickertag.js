@@ -27,6 +27,8 @@ let stiker = false
 handler.help = ['sticktag']
 handler.tags = ['group']
 handler.command = /^(stickertag|sticktag)$/i
+handler.admin = true
+
 export default handler
 
 
