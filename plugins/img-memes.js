@@ -1,13 +1,13 @@
 /*
      ig : https://www.instagram.com/fg98._/
 */
-import hispamemes from 'hispamemes'
+import hispamemes from 'fg-scraper'
 
 let handler = async (m, { conn, usedPrefix, command }) => {
 	
 	const meme = hispamemes.meme()
     conn.sendFile(m.chat, meme, '', '', m)
-    m.react('😆') 
+    m.react('') 
 }
 handler.help = ['meme']
 handler.tags = ['img']
