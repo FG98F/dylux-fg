@@ -76,7 +76,7 @@
         "xfarr-api": "^1.0.3",
         "hxz-api": "^1.0.1",
         "yt-search": "^2.10.3", 
-        "hispamemes": "^1.0.7",
+        "fg-scraper": "^1.0.2",
         "yargs": "^17.3.1"
     },
     "optionalDependencies": {
