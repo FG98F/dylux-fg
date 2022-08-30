@@ -1,7 +1,7 @@
 /*
      ig : https://www.instagram.com/fg98._/
 */
-import hispamemes from 'fg-scraper'
+import hispamemes from 'hispamemes'
 
 let handler = async (m, { conn, usedPrefix, command }) => {
 	
