@@ -9,10 +9,11 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 	 let who
     if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false
     else who = m.chat
+    if (!who) throw `✳️ Etiqueta o menciona a alguien\n\n📌 Ejemplo : ${usedPrefix + command} @tag` 
+    
     let user = db.data.users[who]
     let name = conn.getName(who) 
    let name2 = conn.getName(m.sender) 
-    if (!who) throw `✳️ Etiqueta o menciona a alguien\n\n📌 Ejemplo : ${usedPrefix + command} @tag`
    m.react(rwait)
 
   let rki = await fetch(`https://api.waifu.pics/sfw/kill`)
