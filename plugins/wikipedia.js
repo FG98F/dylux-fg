@@ -3,8 +3,9 @@ import cheerio from 'cheerio'
 
 
 let handler = async (m, { text }) => {
+	if (!text) throw `✳️ Ingrese lo que quiere buscar en Wikipedia` 
+	
     try {
-    //  if (!text) throw `✳️ Ingrese lo que quiere buscar en Wikipedia`
 	const link =  await axios.get(`https://es.wikipedia.org/wiki/${text}`)
 	const $ = cheerio.load(link.data)
 	let wik = $('#firstHeading').text().trim()
