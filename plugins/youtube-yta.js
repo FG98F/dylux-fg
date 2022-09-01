@@ -34,13 +34,17 @@ let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comman
  
 m.react(rwait)
 
-  if (!isLimit) await conn.sendFile(m.chat, source, title + '.mp3', `
+ /*
+if (!isLimit) await conn.sendFile(m.chat, source, title + '.mp3', `
 ≡  *FG MUSIC*
     
 ▢ *📌Título* : ${title}
 ▢ *📟 Ext* : mp3
 ▢ *⚖️Peso* : ${audio.fileSizeH}
 `.trim(), m, null, { asDocument: chat.useDocument })
+*/
+if (!isLimit) await conn.sendMessage(m.chat, { document: { url: link}, mimetype: 'audio/mpeg', fileName: title + '.mp3'}, {quoted: m})
+
   m.react(done)
 }
 handler.help = ['ytmp3 <link yt>']
