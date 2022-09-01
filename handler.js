@@ -262,7 +262,7 @@ const isNumber = x => typeof x === 'number' && !isNaN(x)
                 if (!('sDemote' in chat))
                     chat.sDemote = ''
                 if (!('delete' in chat))
-                    chat.delete = false
+                    chat.delete = true
                 if (!('antiLink' in chat))
                     chat.antiLink = false
                 if (!('viewonce' in chat))
@@ -282,7 +282,7 @@ const isNumber = x => typeof x === 'number' && !isNaN(x)
                     sBye: '',
                     sPromote: '',
                     sDemote: '',
-                    delete: false,
+                    delete: true,
                     antiLink: false,
                     viewonce: false,
                     useDocument: true,
