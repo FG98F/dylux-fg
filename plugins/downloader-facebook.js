@@ -2,7 +2,7 @@ import { facebookDl } from '../lib/scraper.js'
 import { savefrom } from '@bochilteam/scraper'
 
 let handler = async (m, { conn, args, usedPrefix, command, text}) => {
-	if (!text) throw `✳️ Ingrese ul link de un video de Facebook\n\n📌 Ejemplo :\n*${usedPrefix + command}* https://fb.watch/d7nB8-L-gR/`
+	if (!text) throw `✳️ Ingrese un link de un video de Facebook\n\n📌 Ejemplo :\n*${usedPrefix + command}* https://fb.watch/d7nB8-L-gR/`
    if (!args[0].match(/(https:\/\/.www.facebook.com || fb.watch)/gi)) throw `❎ *Link incorrecto*`
 m.react(rwait)
   try {
