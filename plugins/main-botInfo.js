@@ -51,15 +51,18 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 ▢ *${chats.length - groupsIn.length}* Chats privados
 ▢ *${chats.length}* Total Chats
 
+*S E R V E R*
+*🛑 RAM:* ${format(totalmem() - freemem())} / ${format(totalmem())}
+*🔵 FreeRAM:* ${format(freemem())}
 
 *≡  NodeJS Uso de memoria*
 ${'```' + Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v => v.length)), ' ')}: ${format(used[key])}`).join('\n') + '```'}
 `
-conn.sendHydrated(m.chat, infobt, igfg, '', 'https://github.com/FG98F/dylux-fg', 'Script', null, null, [
-      ['ꨄ︎ Apoyar', `${usedPrefix}donar`],
+    conn.sendButton(m.chat, infobt, igfg, null, [
+     ['ꨄ︎ Apoyar', `${usedPrefix}donar`],
       ['⌬ Grupos', `${usedPrefix}gpdylux`],
       ['✆ Owner', `${usedPrefix}fgowner`]
-    ], m) 
+    ], m)
     
 }
 handler.help = ['Info']
