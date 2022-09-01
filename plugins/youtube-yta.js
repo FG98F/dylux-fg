@@ -36,7 +36,7 @@ m.react(rwait)
 
  /*
 if (!isLimit) await conn.sendFile(m.chat, source, title + '.mp3', `
-≡  *FG MUSIC*
+≡  *FG MUSIC* 
     
 ▢ *📌Título* : ${title}
 ▢ *📟 Ext* : mp3
