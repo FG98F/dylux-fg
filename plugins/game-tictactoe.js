@@ -39,10 +39,10 @@ ${arr.slice(6).join('')}
 ‣ Haz 3 filas de símbolos verticales, horizontales o diagonales para ganar
 ‣ Escribe *surrender* para salir del juego y ser declarado derrotado.
 `.trim()
-        if (room.x !== room.o) await conn.sendButton(room.x, str, igfg, ['Rendirse', 'surrender'], m, {
+        if (room.x !== room.o) await conn.sendButton(room.x, str, igfg, ['Surrender', 'surrender'], m, {
             mentions: conn.parseMention(str)
         })
-        await conn.sendButton(room.o, str, igfg, ['Rendirse', 'surrender'], m, {
+        await conn.sendButton(room.o, str, igfg, ['Surrender', 'surrender'], m, {
             mentions: conn.parseMention(str)
         })
     } else {
