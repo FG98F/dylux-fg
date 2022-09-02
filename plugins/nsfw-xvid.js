@@ -11,7 +11,7 @@ let handler = async(m, { conn, usedPrefix, command }) => {
 }
 
 handler.help = ['xvid']
-handler.tags = ['nsfw', 'premium']
+handler.tags = ['nsfw', 'prem']
 handler.command = ['xvid', 'xvideos', 'xvideo']
 handler.premium = true
 handler.limit = true
