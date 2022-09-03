@@ -3,18 +3,11 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 	
 if (!m.quoted) throw `✳️ Responde al mensaje que desea eliminar`
 try {
-let key = {}
- try {
- 	key.remoteJid = m.quoted ? m.quoted.fakeObj.key.remoteJid : m.key.remoteJid
-	key.fromMe = m.quoted ? m.quoted.fakeObj.key.fromMe : m.key.fromMe
-	key.id = m.quoted ? m.quoted.fakeObj.key.id : m.key.id
- 	key.participant = m.quoted ? m.quoted.fakeObj.participant : m.key.participant
- } catch (e) {
- 	console.error(e)
- }
- return conn.sendMessage(m.chat, { delete: key })
+let delet = m.message.extendedTextMessage.contextInfo.participant
+let bang = m.message.extendedTextMessage.contextInfo.stanzaId
+return conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
  } catch {
-    return conn.sendMessage(m.chat, { delete: m.quoted.vM.key })
+return conn.sendMessage(m.chat, { delete: m.quoted.vM.key })
 }
 }
 handler.help = ['delete']
