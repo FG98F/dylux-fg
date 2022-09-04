@@ -22,7 +22,7 @@ m.react('🎧')
 }
 handler.help = ['play']
 handler.tags = ['downloader']
-handler.command = ['play', 'playvid', 'play2'] 
+handler.command = ['play', 'playvid'] 
 
 handler.exp = 0
 handler.limit = false
