@@ -12,7 +12,8 @@ import {
 
 let handler = async (m, { conn, __dirname, args }) => {
 
-conn.reply(m.chat, '✅ Se limpió la carpeta *tmp*', m)
+//conn.reply(m.chat, '✅ Se limpió la carpeta *tmp*', m)
+m.react(done)
 
 const tmp = [tmpdir(), join(__dirname, '../tmp')]
   const filename = []
@@ -25,6 +26,6 @@ const tmp = [tmpdir(), join(__dirname, '../tmp')]
 handler.help = ['cleartmp']
 handler.tags = ['owner']
 handler.command = /^(cleartmp)$/i
-handler.rowner = true
+//handler.rowner = true
 
 export default handler
