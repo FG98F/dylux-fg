@@ -6,7 +6,7 @@ handler.before = async function (m) {
     let id = m.chat
     if (!m.quoted || !m.quoted.fromMe || !m.text || !/^▢ CUANTO ES/i.test(m.quoted.text)) return !0
     this.math = this.math ? this.math : {}
-    if (!(id in this.math)) return conn.sendButton(m.chat, 'El Juego a terminado', igfg, null, [['Mates', '/mates']], m)
+    if (!(id in this.math)) return this.sendButton(m.chat, 'El Juego a terminado', igfg, null, [['Mates', '/mates']], m)
     if (m.quoted.id == this.math[id][0].id) {
         let math = JSON.parse(JSON.stringify(this.math[id][1]))
         if (m.text == math.result) {
