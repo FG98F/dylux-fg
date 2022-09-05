@@ -78,6 +78,8 @@
         "yt-search": "^2.10.3", 
         "hispamemes": "^1.0.7",
         "fg-ig": "^0.0.1",
+        "similarity": "^1.2.1",
+        "didyoumean": "^1.2.2",
         "yargs": "^17.3.1"
     },
     "optionalDependencies": {
