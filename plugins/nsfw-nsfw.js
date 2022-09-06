@@ -82,7 +82,7 @@ break
 case 'lesbians':
 case 'lesbian':
     let lesbi = await fetch(`https://meme-api.herokuapp.com/gimme/lesbians`)
-    if (!xle.ok) throw await lesbi.text()
+    if (!lesbi.ok) throw await lesbi.text()
     let xlesb = await xle.json()
     if (!xlesb.url) throw '❎ Error'
     conn.sendButton(m.chat, `✅ Resultado`, igfg, xlesb.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
