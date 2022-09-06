@@ -59,7 +59,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 ${'```' + Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v => v.length)), ' ')}: ${format(used[key])}`).join('\n') + '```'}
 `
     conn.sendButton(m.chat, infobt, igfg, null, [
-     ['ꨄ︎ Apoyar', `${usedPrefix}donar`],
+     ['ꨄ︎ Apoyar', `${usedPrefix}donate`],
       ['⌬ Grupos', `${usedPrefix}gpdylux`],
       ['✆ Owner', `${usedPrefix}fgowner`]
     ], m)
