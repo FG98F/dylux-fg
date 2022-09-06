@@ -35,7 +35,6 @@ break
 	
 
 case 'blowjob':
-case 'trap':
   let res = await fetch(`https://api.waifu.pics/nsfw/${command}`)
     if (!res.ok) throw await res.text()
     let json = await res.json()
@@ -103,9 +102,9 @@ default:
  }
 }
 
-handler.help = ['xwaifu', 'xneko', 'blowjob', 'trap', 'ass', 'boobs', 'lesbian', 'pussy', 'pack']
+handler.help = ['xwaifu', 'xneko', 'blowjob', 'ass', 'boobs', 'lesbian', 'pussy', 'pack']
 handler.tags = ['nsfw']
-handler.command = /^(xwaifu|xneko|trap|blowjob|ass|culos|boobs|boobies|lesbian|lesbians|pussy|cosplay|pack)$/i
+handler.command = /^(xwaifu|xneko|blowjob|ass|culos|boobs|boobies|lesbian|lesbians|pussy|cosplay|pack)$/i
 handler.limit = true
 handler.register = true
 
