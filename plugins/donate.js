@@ -16,8 +16,8 @@ _Al donar consigues_  *Premium*
 • comandos de *menu premium* desbloqueado
 
 `.trim())
-handler.help = ['donar']
+handler.help = ['donate']
 handler.tags = ['main']
-handler.command = ['donar', 'apoyar', 'donate', 'premium'] 
+handler.command = ['apoyar', 'donate', 'premium'] 
 
 export default handler
