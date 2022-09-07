@@ -91,8 +91,8 @@ break
 
 case 'pack':
 case 'cosplay':
-	     let pac = (await axios.get(`https://raw.githubusercontent.com/FG98F/team-fg/main/img/pack.json`)).data
-	     let cosp = pickRandom(pac)
+	     let img = await conn.getFile(`https://fg-dylux.herokuapp.com/api/nsfw/pack?apikey=FG98`)
+	     let cosp = img.data
 	     conn.sendButton(m.chat, `✅ Resultado 🤭`, 'Vea más fotos aquí \nhttps://t.me/+8SKOTyja8rBlYTlh \n\n', cosp, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
 	     m.react(xmoji) 
 	break
