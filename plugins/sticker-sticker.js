@@ -2,8 +2,10 @@ import { sticker } from '../lib/sticker.js'
 import uploadFile from '../lib/uploadFile.js'
 import uploadImage from '../lib/uploadImage.js'
 import { webp2png } from '../lib/webp2mp4.js'
+import fetch from 'node-fetch'
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
+  let rpl = { contextInfo: { externalAdReply: {title: packname, body: 'support group' , sourceUrl: dygp, thumbnail: await(await fetch(fglog)).buffer() }}}
   let stiker = false
   try {
   	
@@ -35,13 +37,13 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     console.error(e)
     if (!stiker) stiker = e
   } finally {
-    if (stiker) conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
+    if (stiker) conn.sendFile(m.chat, stiker, 'sticker.webp', '', m, null, rpl)
     else throw 'La conversión ha fallado, intenta enviar primero *imagen/video/gif* y luego responde con el comando'
   }
 }
 handler.help = ['sticker']
 handler.tags = ['sticker']
-handler.command = ['s', 'sticker', 'stiker'] 
+handler.command = ['s', 'sticker'] 
 
 export default handler
 
