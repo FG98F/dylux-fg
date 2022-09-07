@@ -9,9 +9,8 @@ let type = (command).toLowerCase()
 switch (type) {
 	
 	case 'loli':
-	     let img = (await axios.get(`https://raw.githubusercontent.com/FG98F/team-fg/main/img/loli.json`)).data
-	     let loli = pickRandom(img)
-	   //conn.sendFile(m.chat, loli, 'loli.png', `✅ Random ${command}`, m)
+	     let img = await conn.getFile(`https://fg-dylux.herokuapp.com/api/nime/loli?apikey=FG98`)
+	     let loli = img.data
 	     conn.sendButton(m.chat, `✅ Random ${command}`, igfg, loli, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
 	     m.react(dmoji) 
 	break
