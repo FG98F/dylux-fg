@@ -3,8 +3,9 @@ import axios from 'axios'
 
 let handler = async(m, { conn, usedPrefix, command }) => {
 	
-	let asupan = (await axios.get(`https://raw.githubusercontent.com/FG98F/team-fg/main/img/asupan-la.json`)).data
-    conn.sendButton(m.chat, `✅ Resultado`, igfg, pickRandom(asupan), [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
+	let img = await conn.getFile(`https://fg-dylux.herokuapp.com/api/asupan?apikey=FG98`)
+    let asupan = img.data
+    conn.sendButton(m.chat, `✅ Resultado`, igfg, asupan, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
     m.react(dmoji)
 }
 
