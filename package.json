@@ -39,7 +39,7 @@
     },
     "license": "GPL-3.0-or-later",
     "dependencies": {
-        "@adiwajshing/baileys": "^4.4.0",
+        "@adiwajshing/baileys": "github:adiwajshing/baileys",
         "@bochilteam/scraper": "^3.0.0",
         "awesome-phonenumber": "^2.68.0",
         "axios": "^0.24.0",
@@ -78,7 +78,6 @@
         "yt-search": "^2.10.3", 
         "hispamemes": "^1.0.7",
         "fg-ig": "^0.0.1",
-        "similarity": "^1.2.1",
         "didyoumean": "^1.2.2",
         "yargs": "^17.3.1"
     },
