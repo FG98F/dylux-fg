@@ -16,7 +16,7 @@ Link:  ${result.link}
 `.trim())
 }
 
-handler.help = ['Lyrics'].map(v => v + '')
+handler.help = ['lyrics'].map(v => v + '')
 handler.tags = ['tools']
 handler.command = ['letra', 'lyrics', 'letras'] 
 
