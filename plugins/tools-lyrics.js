@@ -1,22 +1,18 @@
-import { lyrics, lyricsv2 } from '@bochilteam/scraper'
+import fetch from 'node-fetch'
 
-let handler = async (m, { conn, text, usedPrefix, command}) => {
-    let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : ''
-    if (!teks) throw `✳️ Ingrese el nombre de la canción`
-    const result = await lyricsv2(teks).catch(async _ => await lyrics(teks))
-    m.reply(`
-*${result.title}*
-${result.author}
-
-
-${result.lyrics}
-
-
-Link:  ${result.link}
-`.trim())
+let handler = async (m, {conn, text }) => {
+  let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : ''
+   if (!teks) throw `✳️ Ingrese el nombre de la canción`
+  let res = await fetch(global.API('https://some-random-api.ml', '/lyrics', { title: teks }))
+  if (!res.ok) throw await res.text()
+  let json = await res.json()
+  if (!json.thumbnail.genius) throw json
+  conn.sendFile(m.chat, json.thumbnail.genius, null, `
+▢ *${json.title}*
+*${json.author}*\n
+${json.lyrics}`, m)
 }
-
-handler.help = ['lyrics'].map(v => v + '')
+handler.help = ['lyrics']
 handler.tags = ['tools']
 handler.command = ['letra', 'lyrics', 'letras'] 
 
