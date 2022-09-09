@@ -1,13 +1,13 @@
 console.log('✅ Iniciando...')
 
 import { join, dirname } from 'path'
-import { createRequire } from 'module'
+import { createRequire } from "module";
 import { fileURLToPath } from 'url'
 import { setupMaster, fork } from 'cluster'
 import { watchFile, unwatchFile } from 'fs'
 import cfonts from 'cfonts';
 import { createInterface } from 'readline'
-import Helper from './lib/helper.js'
+import yargs from 'yargs'
 
 // https://stackoverflow.com/a/50052194
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -68,7 +68,8 @@ function start(file) {
       start(file)
     })
   })
-  if (!Helper.opts['test'])
+  let opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
+  if (!opts['test'])
     if (!rl.listenerCount()) rl.on('line', line => {
       p.emit('message', line.trim())
     })
