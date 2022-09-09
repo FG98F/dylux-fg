@@ -1,9 +1,9 @@
-import db from '../lib/database.js'
+//import db from '../lib/database.js'
 import { promises } from 'fs'
 import { join } from 'path'
 import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
-import { plugins } from '../lib/plugins.js'
+//import { plugins } from '../lib/plugins.js'
 let tags = {
   'main': 'ACERCA DE',
   'game': 'JUEGOS',
@@ -53,7 +53,7 @@ const defaultMenu = {
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
   try {
     let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
-    let { exp, limit, level, role } = db.data.users[m.sender]
+    let { exp, limit, level, role } = global.db.data.users[m.sender]
     let { min, xp, max } = xpRange(level, global.multiplier)
     let name = await conn.getName(m.sender)
     let d = new Date(new Date + 3600000)
@@ -90,9 +90,9 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     }
     let muptime = clockString(_muptime)
     let uptime = clockString(_uptime)
-    let totalreg = Object.keys(db.data.users).length
-    let rtotalreg = Object.values(db.data.users).filter(user => user.registered == true).length
-    let help = Object.values(plugins).filter(plugin => !plugin.disabled).map(plugin => {
+    let totalreg = Object.keys(global.db.data.users).length
+    let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
+    let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(plugin => {
       return {
         help: Array.isArray(plugin.tags) ? plugin.help : [plugin.help],
         tags: Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags],
@@ -150,7 +150,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 
   //const pp = await (await fetch('https://i.ibb.co/qMG1JPY/fg.jpg')).buffer()
     let pp = './src/fg_logo.jpg'
-    let rpl = { contextInfo: { externalAdReply: {title: packname, body: 'support group' , sourceUrl: dygp, thumbnail: await(await fetch(fglog)).buffer() }}}
+    
    /*conn.send2Hydrated(m.chat, text.trim(), '▢ DyLux  ┃ ᴮᴼᵀ\n▢ Sígueme en Instagram\nhttps://www.instagram.com/fg98._\n', pp, fgyt, 'YouTube', 'https://paypal.me/fg98f', 'PayPal', [
       ['ꨄ︎ Apoyar', '/donate'],
       ['⏍ Info', '/botinfo'],

@@ -1,5 +1,5 @@
 import { format } from 'util'
-import db from '../lib/database.js'
+//import db from '../lib/database.js'
 
 let debugMode = !1
 
@@ -72,7 +72,7 @@ ${arr.slice(6).join('')}
 
 Escriba *surrender* para darse por vencido 
 `.trim()
-        let users = db.data.users
+        let users = global.global.db.data.users
         if ((room.game._currentTurn ^ isSurrender ? room.x : room.o) !== m.chat)
             room[room.game._currentTurn ^ isSurrender ? 'x' : 'o'] = m.chat
         const btn = isTie ? ['TicTacToe', '/ttt'] : ['Surrender', 'surrender']

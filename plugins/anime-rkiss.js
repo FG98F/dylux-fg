@@ -2,7 +2,7 @@ import fetch from 'node-fetch'
 import axios from 'axios'
 import { sticker } from '../lib/sticker.js'
 import MessageType from '@adiwajshing/baileys'
-import db from '../lib/database.js'
+//import db from '../lib/database.js'
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 	
@@ -11,7 +11,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     else who = m.chat
     if (!who) throw `✳️ Etiqueta o menciona a alguien\n\n📌 Ejemplo : ${usedPrefix + command} @tag`
     
-    let user = db.data.users[who]
+    let user = global.db.data.users[who]
     let name = conn.getName(who) 
    let name2 = conn.getName(m.sender) 
    m.react(rwait)

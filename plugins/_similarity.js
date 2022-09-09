@@ -1,7 +1,7 @@
 
 import didyoumean from 'didyoumean'
 import similarity from 'similarity'
-import { plugins } from '../lib/plugins.js'
+//import { plugins } from '../lib/plugins.js'
 
 export async function before(m, { conn, match, usedPrefix, command }) {
 	

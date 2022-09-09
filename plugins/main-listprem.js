@@ -1,4 +1,3 @@
-import db from '../lib/database.js'
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 let prem = global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != conn.user.jid) 

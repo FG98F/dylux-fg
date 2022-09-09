@@ -1,10 +1,10 @@
 
 import axios from 'axios'
-import db from '../lib/database.js'
+//import db from '../lib/database.js'
 
 let handler = async(m, { conn, usedPrefix, command }) => {
 	
-	if (!db.data.chats[m.chat].nsfw && m.isGroup) throw `❗El grupo no admite contenido nsfw \n\n Para habilitar escriba \n*${usedPrefix}enable* nsfw`
+	if (!global.db.data.chats[m.chat].nsfw && m.isGroup) throw `❗El grupo no admite contenido nsfw \n\n Para habilitar escriba \n*${usedPrefix}enable* nsfw`
 	let vid = (await axios.get(`https://raw.githubusercontent.com/FG98F/team-fg/main/nsfw/xvid.json`)).data
     conn.sendMessage(m.chat, { document: { url: pickRandom(vid)}, mimetype: 'video/mp4', fileName: 'xvid random.mp4'}, {quoted: m})
     m.react(xmoji)

@@ -1,4 +1,4 @@
-import db from '../lib/database.js'
+//import db from '../lib/database.js'
 
 import MessageType from '@adiwajshing/baileys'
 let impts = 0
@@ -15,7 +15,7 @@ let handler = async (m, { conn, text }) => {
     let pjk = Math.ceil(dmt * impts)
     limit += pjk
     if (limit < 1) throw '✳️ Mínimo es  *1*'
-    let users = db.data.users
+    let users = global.db.data.users
    users[who].limit += dmt
 
     await m.reply(`≡ *💎 AÑADIDO*

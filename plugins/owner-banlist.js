@@ -1,8 +1,8 @@
-import db from '../lib/database.js'
+//import db from '../lib/database.js'
 
 let handler = async (m, { conn, usedPrefix }) => {
-    let chats = Object.entries(db.data.chats).filter(chat => chat[1].isBanned)
-    let users = Object.entries(db.data.users).filter(user => user[1].banned)
+    let chats = Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned)
+    let users = Object.entries(global.db.data.users).filter(user => user[1].banned)
     
     m.reply(`
 ≡ *USUARIOS BANEADOS*

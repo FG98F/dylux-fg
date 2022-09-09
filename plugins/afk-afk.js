@@ -1,7 +1,7 @@
-import db from '../lib/database.js'
+//import db from '../lib/database.js'
 
 let handler = async (m, { text, conn }) => {
-    let user = db.data.users[m.sender]
+    let user = global.db.data.users[m.sender]
     user.afk = + new Date
     user.afkReason = text
     m.reply(`

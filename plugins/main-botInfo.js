@@ -1,6 +1,5 @@
-import Connection from '../lib/connection.js'
 import { cpus as _cpus, totalmem, freemem } from 'os'
-// import util from 'util'
+import util from 'util'
 import { performance } from 'perf_hooks'
 import { sizeFormatter } from 'human-readable'
 let format = sizeFormatter({
@@ -10,7 +9,7 @@ let format = sizeFormatter({
   render: (literal, symbol) => `${literal} ${symbol}B`,
 })
 let handler = async (m, { conn, usedPrefix, command }) => {
-  const chats = Object.entries(Connection.store.chats).filter(([id, data]) => id && data.isChats)
+  const chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isChats)
   const groupsIn = chats.filter(([id]) => id.endsWith('@g.us')) //groups.filter(v => !v.read_only)
   const used = process.memoryUsage()
   const cpus = _cpus().map(cpu => {
@@ -37,11 +36,12 @@ let handler = async (m, { conn, usedPrefix, command }) => {
       irq: 0
     }
   })
-  
   let old = performance.now()
+  
   let neww = performance.now()
   let speed = neww - old
-  let infobt = `
+  
+let infobt = `
 ≡ *INFO BOT*
   
 *ESTADO*
@@ -58,15 +58,13 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 *≡  NodeJS Uso de memoria*
 ${'```' + Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v => v.length)), ' ')}: ${format(used[key])}`).join('\n') + '```'}
 `
-    conn.sendButton(m.chat, infobt, igfg, null, [
-     ['ꨄ︎ Apoyar', `${usedPrefix}donate`],
-      ['⌬ Grupos', `${usedPrefix}gpdylux`],
-      ['✆ Owner', `${usedPrefix}fgowner`]
-    ], m)
-    
+conn.sendButton(m.chat, infobt, igfg, null, [
+  ['ꨄ︎ Apoyar', `${usedPrefix}donate`],
+   ['⌬ Grupos', `${usedPrefix}gpdylux`]
+ ], m)
+
 }
 handler.help = ['info']
 handler.tags = ['main']
 handler.command = ['info', 'infobot', 'botinfo']
-
 export default handler

@@ -1,11 +1,11 @@
 import fetch from 'node-fetch'
 import axios from 'axios'
-import db from '../lib/database.js'
+//import db from '../lib/database.js'
 
 let handler = async (m, { conn, usedPrefix, command }) => {
 	
-	if (!db.data.chats[m.chat].nsfw && m.isGroup) throw `❗El grupo no admite contenido nsfw \n\n Para habilitar escriba \n*${usedPrefix}enable* nsfw`
-   var {age} = db.data.users[m.sender]
+	if (!global.db.data.chats[m.chat].nsfw && m.isGroup) throw `❗El grupo no admite contenido nsfw \n\n Para habilitar escriba \n*${usedPrefix}enable* nsfw`
+   var {age} = global.db.data.users[m.sender]
    if (age <17) throw m.reply(`❎ Eres menor de edad! vuelve cuando tengas más de 18 años`) 
    
    m.react(rwait)

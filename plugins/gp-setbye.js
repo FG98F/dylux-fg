@@ -1,8 +1,8 @@
-import db from '../lib/database.js'
+//import db from '../lib/database.js'
 
 let handler = async (m, { conn, text, isROwner, isOwner }) => {
   if (text) {
-    db.data.chats[m.chat].sBye = text
+    global.db.data.chats[m.chat].sBye = text
     m.reply('✅ Se estableció el mensaje de despedida')
   } else throw `✳️ Ingrese el mensaje\n@user (mención)`
 }

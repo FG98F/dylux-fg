@@ -1,4 +1,4 @@
-import db from '../lib/database.js'
+//import db from '../lib/database.js'
 
 import { execSync } from 'child_process'
 let handler = async (m, { conn, text }) => {

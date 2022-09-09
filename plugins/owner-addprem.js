@@ -1,10 +1,10 @@
-import db from '../lib/database.js'
+//import db from '../lib/database.js'
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 let who
     if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false
     else who = m.chat
-    let user = db.data.users[who]
+    let user = global.db.data.users[who]
     if (!who) throw `✳️ Etiqueta o menciona a alguien\n\n📌 Ejemplo : ${usedPrefix + command} @user`
 if (global.prems.includes(who.split`@`[0])) throw '✳️ El usuario Mensionado Ya es premium'
 global.prems.push(`${who.split`@`[0]}`)

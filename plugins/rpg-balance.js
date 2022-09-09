@@ -1,4 +1,4 @@
-import db from '../lib/database.js'
+//import db from '../lib/database.js'
 
 let handler = async (m, {conn, usedPrefix}) => {
 	
@@ -9,7 +9,7 @@ let handler = async (m, {conn, usedPrefix}) => {
     m.reply(`
 ┌───⊷ *BALANCE* ⊶
 ▢ *Nombre* : ${name}
-▢ *Diamantes* : *${db.data.users[who].limit}💎*
+▢ *Diamantes* : *${global.db.data.users[who].limit}💎*
 └──────────────
 *NOTA :* 
 Puedes comprar 💎 diamantes usando los comandos

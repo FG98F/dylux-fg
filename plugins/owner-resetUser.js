@@ -1,4 +1,4 @@
-import db from '../lib/database.js'
+//import db from '../lib/database.js'
 
 let handler = async (m, { conn, text }) => {
 	function no(number){
@@ -34,7 +34,7 @@ let handler = async (m, { conn, text }) => {
 	let users = m.isGroup ? participants.find(u => u.jid == user) : {}
 	let number = user.split('@')[0]
   
-	delete db.data.users[user]
+	delete global.global.db.data.users[user]
  	
  	conn.reply(m.chat, `*❏ USUARIO REINICIADO*\n\n✅ Se reinició a @${number} de la *BASE DE DATOS*`, null, { mentions: [user] })
 
