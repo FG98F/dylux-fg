@@ -1,6 +1,6 @@
 // TODO: fix 
 
-import Connection from '../lib/connection.js'
+/*import Connection from '../lib/connection.js'
 import Store from '../lib/store.js'
 import qrcode from 'qrcode'
 import ws from 'ws'
@@ -72,4 +72,4 @@ handler.command = ['jadibot', 'serbot']
 handler.disabled = true
 handler.limit = true
 
-export default handler
+export default handler*/
