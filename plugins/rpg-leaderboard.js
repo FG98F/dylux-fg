@@ -1,7 +1,7 @@
-import db from '../lib/database.js'
+//import db from '../lib/database.js'
 
 let handler = async (m, { conn, args, participants }) => {
-  let users = Object.entries(db.data.users).map(([key, value]) => {
+  let users = Object.entries(global.db.data.users).map(([key, value]) => {
     return {...value, jid: key}
   })
   let sortedExp = users.map(toNumber('exp')).sort(sort('exp'))

@@ -1,15 +1,15 @@
-import db from '../lib/database.js'
+//import db from '../lib/database.js'
 
 let handler = async (m, { conn, isPrems}) => {
 
 
   let hasil = Math.floor(Math.random() * 1000)
-  let time = db.data.users[m.sender].lastmiming + 600000
-  if (new Date - db.data.users[m.sender].lastmiming < 600000) throw `⏲️ _Espera_ ${msToTime(time - new Date())} _para regresar a la mina_`
-  db.data.users[m.sender].exp += hasil
+  let time = global.db.data.users[m.sender].lastmiming + 600000
+  if (new Date - global.db.data.users[m.sender].lastmiming < 600000) throw `⏲️ _Espera_ ${msToTime(time - new Date())} _para regresar a la mina_`
+  global.db.data.users[m.sender].exp += hasil
   m.reply(`
 🎉 Genial! minaste *${hasil} XP*`)
-  db.data.users[m.sender].lastmiming = new Date * 1
+  global.db.data.users[m.sender].lastmiming = new Date * 1
 }
 handler.help = ['minar']
 handler.tags = ['xp']
