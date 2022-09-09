@@ -5,7 +5,6 @@ import { webp2png } from '../lib/webp2mp4.js'
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
-  let rpl = { contextInfo: { externalAdReply: {title: packname, body: 'support group' , sourceUrl: dygp, thumbnail: await(await fetch(fglog)).buffer() }}}
   let stiker = false
   try {
   	
