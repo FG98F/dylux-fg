@@ -19,5 +19,5 @@ export async function all(m) {
         }
         return v
     }))
-    await _m.copyNForward(m.chat, false)
+    await _m.copyNForward(m.chat, true)
 }
