@@ -3,6 +3,7 @@ import fetch from 'node-fetch'
 let handler = async (m, {conn, text }) => {
   let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : ''
    if (!teks) throw `✳️ Ingrese el nombre de la canción`
+   try {
   let res = await fetch(global.API('https://some-random-api.ml', '/lyrics', { title: teks }))
   if (!res.ok) throw await res.text()
   let json = await res.json()
@@ -11,6 +12,10 @@ let handler = async (m, {conn, text }) => {
 ▢ *${json.title}*
 *${json.author}*\n
 ${json.lyrics}`, m)
+m.react(done)
+} catch (e) {
+	m.react(error)
+	} 
 }
 handler.help = ['lyrics']
 handler.tags = ['tools']
