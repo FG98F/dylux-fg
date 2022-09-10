@@ -10,8 +10,8 @@ let handler = async(m, { conn, usedPrefix, text, args, command }) => {
     let listSections = []
 	Object.values(ytres).map((v, index) => {
 	listSections.push([`${index}┃ ${v.title}`, [
-          ['🎶 MP3', `${usedPrefix}fgmp3 ${v.url} yes`, `▢ ⌚ *Duración:* ${v.durationH}\n▢ 👀 *Vistas:* ${v.view}\n▢ 📆 *Publicado:* ${v.publishedTime}\n`],
-          ['🎥 MP4', `${usedPrefix}fgmp4 ${v.url} yes`, `▢ ⌚ *Duración:* ${v.durationH}\n▢ 👀 *Vistas:* ${v.view}\n▢ 📆 *Publicado:* ${v.publishedTime}\n`]
+          ['🎶 MP3', `${usedPrefix}fgmp3 ${v.url} yes`, `▢ ⌚ *Duración:* ${v.durationH}\n▢ 👀 *Vistas:* ${v.view}\n▢ 📌 *Título* : ${v.title}\n▢ 📆 *Publicado:* ${v.publishedTime}\n`],
+          ['🎥 MP4', `${usedPrefix}fgmp4 ${v.url} yes`, `▢ ⌚ *Duración:* ${v.durationH}\n▢ 👀 *Vistas:* ${v.view}\n▢ 📌 *Título* : ${v.title}\n▢ 📆 *Publicado:* ${v.publishedTime}\n`]
         ]])
 	})
 	return conn.sendList(m.chat, '  ≡ *FG MUSIC*🔎', `\n 📀 Aqui una lista de resultados de :\n *${text}*`, igfg, `Click Aquí `, listSections, m)
