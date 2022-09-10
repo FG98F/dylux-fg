@@ -40,7 +40,7 @@ global.fgyt = 'https://youtube.com/fg98f'
 global.fglog = 'https://i.ibb.co/mhmq9SC/logfix.png' 
 
 global.wait = '*⌛ _Cargando..._*\n*▰▰▰▱▱▱▱▱▱*'
-global.rwait = '⏰'
+global.rwait = '⌛'
 global.dmoji = '🤭'
 global.done = '✅'
 global.error = '❌' 
