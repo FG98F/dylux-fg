@@ -9,7 +9,7 @@ let handler = async (m, {conn, usedPrefix}) => {
     m.reply(`
 ┌───⊷ *BALANCE* ⊶
 ▢ *Nombre* : ${name}
-▢ *Diamantes* : *${global.db.data.users[who].limit}💎*
+▢ *Diamantes* : *${global.db.data.users[who].diamond}💎*
 └──────────────
 *NOTA :* 
 Puedes comprar 💎 diamantes usando los comandos

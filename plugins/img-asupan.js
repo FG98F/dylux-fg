@@ -13,7 +13,7 @@ handler.help = ['tvid']
 handler.tags = ['img']
 handler.command = ['asupan', 'tvid', 'videos', 'vid', 'video']
 handler.premium = false
-handler.limit = true
+handler.diamond = true
 
 export default handler
 

@@ -1,6 +1,6 @@
 
 
-import axios from 'axios'
+
 import hx from 'hxz-api' 
 
 let handler = async (m, { conn, args, usedPrefix, command, text}) => {
@@ -24,6 +24,6 @@ handler.help = ['igstory <username>']
 handler.tags = ['downloader']
 handler.command = ['igstory', 'ighistoria' ]
 
-handler.limit = true
+handler.diamond = true
 
 export default handler

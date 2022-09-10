@@ -1,5 +1,4 @@
 
-import fetch from 'node-fetch'
 import axios from 'axios'
 
 let handler = async(m, { conn, usedPrefix, command }) => {
@@ -13,7 +12,7 @@ handler.help = ['girl']
 handler.tags = ['img']
 handler.command = ['girl', 'woman']
 handler.premium = false
-handler.limit = true
+handler.diamond = true
 
 export default handler
 

@@ -1,7 +1,5 @@
 import fetch from 'node-fetch'
-import axios from 'axios'
 import { sticker } from '../lib/sticker.js'
-import MessageType from '@adiwajshing/baileys'
 //import db from '../lib/database.js'
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
@@ -29,7 +27,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 handler.help = ['kiss @tag']
 handler.tags = ['rnime']
 handler.command = /^(kiss|beso)$/i
-handler.limit = true
+handler.diamond = true
 handler.group = true
 
 export default handler

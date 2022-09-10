@@ -1,5 +1,4 @@
 
-import { performance } from 'perf_hooks'
 import speed from 'performance-now'
 import { spawn, exec, execSync } from 'child_process'
 

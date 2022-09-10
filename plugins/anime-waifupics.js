@@ -1,5 +1,4 @@
 import fetch from 'node-fetch'
-import axios from 'axios'
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 m.react(rwait)
@@ -34,7 +33,7 @@ default:
 handler.help = ['waifu', 'neko', 'megumin', 'loli']
 handler.tags = ['nime']
 handler.command = ['waifu', 'neko', 'megumin', 'loli'] 
-handler.limit = true
+handler.diamond = true
 
 export default handler
 

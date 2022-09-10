@@ -19,6 +19,6 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 handler.help = ['wallpaper']
 handler.tags = ['img']
 handler.command = ['wallpaper', 'wallpapers', 'wp']
-handler.limit = true
+handler.diamond = true
 
 export default handler

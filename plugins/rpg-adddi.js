@@ -11,12 +11,12 @@ let handler = async (m, { conn, text }) => {
     if (!txt) throw '✳️ Ingrese la cantidad de *Diamantes* que quiere añadir'
     if (isNaN(txt)) throw '🔢 sólo números'
     let dmt = parseInt(txt)
-    let limit = dmt
+    let diamond = dmt
     let pjk = Math.ceil(dmt * impts)
-    limit += pjk
-    if (limit < 1) throw '✳️ Mínimo es  *1*'
+    diamond += pjk
+    if (diamond < 1) throw '✳️ Mínimo es  *1*'
     let users = global.db.data.users
-   users[who].limit += dmt
+   users[who].diamond += dmt
 
     await m.reply(`≡ *💎 AÑADIDO*
 ┌──────────────

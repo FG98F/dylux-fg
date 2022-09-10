@@ -1,6 +1,5 @@
 import { createHash } from 'crypto'
 import PhoneNumber from 'awesome-phonenumber'
-import fetch from 'node-fetch'
 //import db from '../lib/database.js'
 
 

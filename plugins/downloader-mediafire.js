@@ -21,7 +21,7 @@ handler.help = ['mediafire <url>']
 handler.tags = ['downloader', 'prem']
 handler.command = ['mediafire', 'mfire'] 
 
-handler.limit = true
+handler.diamond = true
 handler.premium = true
 
 export default handler

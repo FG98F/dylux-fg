@@ -22,6 +22,6 @@ handler.help = ['facebook <url>']
 handler.tags = ['downloader']
 handler.command = ['fb', 'facebook', 'fbdl'] 
 
-handler.limit = true
+handler.diamond = true
 
 export default handler

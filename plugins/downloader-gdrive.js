@@ -24,7 +24,7 @@ handler.help = ['gdrive']
 handler.tags = ['downloader', 'prem']
 handler.command = ['gdrive']
 
-handler.limit = true
+handler.diamond = true
 handler.premium = true
 
 export default handler

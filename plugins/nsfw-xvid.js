@@ -14,7 +14,7 @@ handler.help = ['xvid']
 handler.tags = ['nsfw', 'prem']
 handler.command = ['xvid', 'xvideos', 'xvideo']
 handler.premium = true
-handler.limit = true
+handler.diamond = true
 
 export default handler
 

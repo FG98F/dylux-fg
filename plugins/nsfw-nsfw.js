@@ -105,7 +105,7 @@ default:
 handler.help = ['xwaifu', 'xneko', 'blowjob', 'ass', 'boobs', 'lesbian', 'pussy', 'pack']
 handler.tags = ['nsfw']
 handler.command = /^(xwaifu|xneko|blowjob|ass|culos|boobs|boobies|lesbian|lesbians|pussy|cosplay|pack)$/i
-handler.limit = true
+handler.diamond = true
 handler.register = true
 
 export default handler

@@ -1,4 +1,4 @@
-import { instagramStalk } from '@bochilteam/scraper'
+
 import { igStalk } from '../lib/scraper.js'
 
 let handler= async (m, { conn, args, text, usedPrefix, command }) => {

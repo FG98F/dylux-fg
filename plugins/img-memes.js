@@ -12,6 +12,6 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 handler.help = ['meme']
 handler.tags = ['img']
 handler.command = ['meme', 'memes'] 
-handler.limit = true
+handler.diamond = true
 
 export default handler

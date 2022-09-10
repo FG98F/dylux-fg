@@ -50,6 +50,5 @@ handler.help = ['ppt <piedra/papel/tijera>']
 handler.tags = ['game']
 handler.command = ['ppt'] 
 handler.register = false
-handler.limit = false
 
 export default handler
