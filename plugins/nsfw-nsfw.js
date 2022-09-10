@@ -20,7 +20,7 @@ switch (type) {
         if (!xwai.ok) throw await xwai.text()
         let xwfu = await xwai.json()
         if (!xwfu.url) throw '❎ Error'
-        conn.sendButton(m.chat, `✅ Resultado`, igfg, xwfu.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
+        conn.sendButton(m.chat, `✅ Resultado`, fgyt, xwfu.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
        m.react(xmoji)    
   break
 
@@ -29,7 +29,7 @@ case 'xneko':
     if (!xnek.ok) throw await xnek.text()
     let xko = await xnek.json()
     if (!xko.url) throw '❎ Error'
-    conn.sendButton(m.chat, `✅ Resultado`, igfg, xko.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
+    conn.sendButton(m.chat, `✅ Resultado`, fgyt, xko.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
    m.react(xmoji) 
 break
 	
@@ -39,7 +39,7 @@ case 'blowjob':
     if (!res.ok) throw await res.text()
     let json = await res.json()
     if (!json.url) throw '❎ Error'
-    conn.sendButton(m.chat, `✅ Resultado`, igfg, json.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
+    conn.sendButton(m.chat, `✅ Resultado`, fgyt, json.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
    m.react(xmoji) 
 break
 
@@ -52,7 +52,7 @@ case 'culos':
     if (!xass.ok) throw await xass.text()
     let jass = await xass.json()
     if (!jass.url) throw '❎ Error'
-    conn.sendButton(m.chat, `✅ Resultado`, igfg, jass.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
+    conn.sendButton(m.chat, `✅ Resultado`, fgyt, jass.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
    m.react(xmoji) 
 break
 
@@ -64,7 +64,7 @@ case 'boobies':
     if (!xbo.ok) throw await xbo.text()
     let boo = await xbo.json()
     if (!boo.url) throw '❎ Error'
-    conn.sendButton(m.chat, `✅ Resultado`, igfg, boo.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
+    conn.sendButton(m.chat, `✅ Resultado`, fgyt, boo.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
    m.react(xmoji) 
 break
 
@@ -75,7 +75,7 @@ case 'pussy':
     if (!xpu.ok) throw await xpu.text()
     let puss = await xpu.json()
     if (!puss.url) throw '❎ Error'
-    conn.sendButton(m.chat, `✅ Resultado`, igfg, puss.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
+    conn.sendButton(m.chat, `✅ Resultado`, fgyt, puss.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
    m.react(xmoji) 
 break
 
@@ -85,7 +85,7 @@ case 'lesbian':
     if (!lesbi.ok) throw await lesbi.text()
     let xlesb = await lesbi.json()
     if (!xlesb.url) throw '❎ Error'
-    conn.sendButton(m.chat, `✅ Resultado`, igfg, xlesb.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
+    conn.sendButton(m.chat, `✅ Resultado`, fgyt, xlesb.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
    m.react(xmoji) 
 break
 
