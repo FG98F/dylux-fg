@@ -25,7 +25,7 @@ async function handler(m, { conn, args, usedPrefix, command }) {
     if (!(who in global.db.data.users)) return m.reply(`✳️ El Usuario no está en mi base de datos`)
     if (user[type] * 1 < count) return m.reply(`✳️  *${type}*  insuficiente para transferir`)
     let confirm = `
-¿Está seguro de que desea transferir *${count}* ${type} a  *@${(who || '').replace(/@s\.whatsapp\.net/g, '')}* ? 
+¿Está seguro de que desea transferir *${count}* _*${type}*_ a  *@${(who || '').replace(/@s\.whatsapp\.net/g, '')}* ? 
 
 - Tienes  *60s* 
 _presiona un boton_
