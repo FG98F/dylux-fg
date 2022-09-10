@@ -1,7 +1,6 @@
-import MessageType from '@adiwajshing/baileys'
+
 import fetch from 'node-fetch'
 import { sticker } from '../lib/sticker.js'
-import fs from "fs"
 
 const fetchJson = (url, options) => new Promise(async (resolve, reject) => {
 fetch(url, options)
@@ -26,6 +25,6 @@ conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
 handler.help = ['emojimix <emoji+emoji>']
 handler.tags = ['sticker']
 handler.command = ['emojimix'] 
-handler.limit = true
+handler.diamond = true
 
 export default handler

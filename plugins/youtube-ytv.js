@@ -51,7 +51,7 @@ m.react(rwait)
 handler.help = ['ytmp4 <link yt>']
 handler.tags = ['downloader']
 handler.command = ['ytmp4', 'fgmp4']
-handler.limit = true
+handler.diamond = true
 
 handler.exp = 0
 

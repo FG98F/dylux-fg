@@ -51,7 +51,7 @@ handler.help = ['ytmp3 <link yt>']
 handler.tags = ['downloader']
 handler.command = ['ytmp3', 'fgmp3'] 
 
-handler.limit = true
+handler.diamond = true
 handler.exp = 0
 
 export default handler
