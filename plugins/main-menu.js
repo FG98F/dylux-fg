@@ -32,6 +32,7 @@ const defaultMenu = {
 
 🧿 Nivel : *%level* 
 👥 Usuarios : %totalreg
+📈 Uptime : *%uptime (%muptime)*
 ─────────────
 ▢ Crea tu propio bot 
 • https://youtu.be/xFqjKN1Qt80
