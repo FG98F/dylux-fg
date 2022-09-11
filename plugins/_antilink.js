@@ -8,6 +8,8 @@ export async function before(m, {conn, isAdmin, isBotAdmin }) {
     if (!m.isGroup) return !1
     let chat = global.db.data.chats[m.chat]
     let bot = global.db.data.settings[this.user.jid] || {}
+    let delet = m.key.participant
+    let bang = m.key.id
     const isGroupLink = linkRegex.exec(m.text)
 
     if (chat.antiLink && isGroupLink && !isAdmin) {
@@ -20,6 +22,7 @@ export async function before(m, {conn, isAdmin, isBotAdmin }) {
 No permitimos enlaces de otros grupos 
 lo siento *${await this.getName(m.sender)}*  serás expulsado del grupo ${isBotAdmin ? '' : '\n\nNo soy admin así que no te puedo expulsar :"v'}`, igfg, ['Desactivar AntiLink', '/off antilink'], m)
         if (isBotAdmin && chat.antiLink) {
+        	await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
             await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
         } else if (!chat.antiLink) return //m.reply('')
     }
