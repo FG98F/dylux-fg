@@ -9,7 +9,7 @@ let handler = async (m, { conn, usedPrefix, command}) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 if (!(who in global.db.data.users)) throw `✳️ El usuario no se encuentra en mi base de datos`
 let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/avatar_contact.png')
-let { name, exp, limit, lastclaim, registered, regTime, age, level, role } = global.db.data.users[who]
+let { name, exp, diamond, lastclaim, registered, regTime, age, level, role } = global.db.data.users[who]
 let username = conn.getName(who)
 let prem = global.prems.includes(who.split`@`[0])
 let sn = createHash('md5').update(who).digest('hex')
@@ -23,7 +23,7 @@ let str = `
    • @${who.replace(/@.+/, '')}
 ▢ *📱Numero:* ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
 ▢ *🔗Link:* wa.me/${who.split`@`[0]}${registered ? '\n▢ *🎈Edad*: ' + age + ' años' : ''}
-▢ *💎 Diamantes :* ${limit}
+▢ *💎 Diamantes :* ${diamond}
 ▢ *🆙 Nivel* : ${level}
 ▢ *🏆Rango:* ${user.role}
 ▢ *📇 Registrado :* ${registered ? 'Si': 'No'}
