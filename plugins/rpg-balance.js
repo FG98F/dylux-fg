@@ -1,5 +1,4 @@
 //import db from '../lib/database.js'
-import { canLevelUp, xpRange } from '../lib/levelling.js'
 
 let handler = async (m, {conn, usedPrefix}) => {
 	
@@ -8,13 +7,12 @@ let handler = async (m, {conn, usedPrefix}) => {
     else who = m.sender
     let name = conn.getName(who) 
     let user = global.db.data.users[who]
-   let { min, xp, max } = xpRange(user.level, global.multiplier)
  
     conn.reply(m.chat, `
 ┌───⊷ *BALANCE* ⊶
 ▢ *📌Nombre* : _@${who.split('@')[0]}_
 ▢ *💎Diamantes* : _${global.db.data.users[who].diamond}_
-▢ *⬆️XP* : _${user.exp - min}_
+▢ *⬆️XP* : _Total ${global.db.data.users[who].exp}_
 └──────────────
 
 *NOTA :* 
