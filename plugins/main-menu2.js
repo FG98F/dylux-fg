@@ -25,8 +25,8 @@ envíame por t.me/fgsupp_bot el *audio + comando* con en el que responderá
    
 }
 
-handler.help = ['menu2']
+handler.help = ['audios']
 handler.tags = ['main']
-handler.command = ['menu2'] 
+handler.command = ['menu2', 'audios'] 
 
 export default handler
