@@ -210,11 +210,11 @@ export async function handler(chatUpdate) {
                 } catch (e) {
                     // if (typeof e === 'string') continue
                     console.error(e)
-                    for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
+                   /*for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
                         let data = (await conn.onWhatsApp(jid))[0] || {}
                         if (data.exists)
-                            //m.reply(`*Plugin:* ${name}\n*Sender:* ${m.sender}\n*Chat:* ${m.chat}\n*Command:* ${m.text}\n\n\`\`\`${format(e)}\`\`\``.trim(), data.jid)
-                    }
+                            m.reply(`*Plugin:* ${name}\n*Sender:* ${m.sender}\n*Chat:* ${m.chat}\n*Command:* ${m.text}\n\n${format(e)}.trim(), data.jid)
+                    }*/
                 }
             }
             if (!opts['restrict'])
