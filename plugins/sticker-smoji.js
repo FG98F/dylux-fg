@@ -1,4 +1,4 @@
-
+ 
 import fetch from 'node-fetch'
 import { Sticker, StickerTypes } from 'wa-sticker-formatter'
 import { sticker } from '../lib/sticker.js'
