@@ -1,10 +1,12 @@
 
+import fetch from 'node-fetch'
+import { Sticker, StickerTypes } from 'wa-sticker-formatter'
 import { sticker } from '../lib/sticker.js'
 import { EmojiAPI } from 'emoji-api' 
 const emoji = new EmojiAPI()
 
 let handler = async (m, { conn, args, usedPrefix, command, isPrems }) => {
-  let er = `
+  let fg = `
  ✳️ Uso del comamdo
 *${usedPrefix + command}* <tipo> <emoji>
 
@@ -12,7 +14,7 @@ let handler = async (m, { conn, args, usedPrefix, command, isPrems }) => {
 *${usedPrefix + command}* fa 😎
 
 ┌─⊷ *TIPOS* 
-▢ wha = whatsapp 
+▢ wa = whatsapp 
 ▢ ap = apple
 ▢ fa = facebook
 ▢ ig = Instagram
@@ -27,11 +29,11 @@ let handler = async (m, { conn, args, usedPrefix, command, isPrems }) => {
 └─────────────
 
 Solo puede usar 1 emoji, preste atención a los espacios`
-  if (!args[0]) throw er
+  if (!args[0]) throw fg
 
   let template = (args[0] || '').toLowerCase()
-  if (!args[1]) throw er
-  if (/emo/i.test(command)) {
+  if (!args[1]) throw fg
+  if (/moj/i.test(command)) {
     try {
       switch (template) {
         case 'apple':
@@ -39,7 +41,8 @@ Solo puede usar 1 emoji, preste atención a los espacios`
         case 'ap':
           emoji.get(`${args[1]}`)
             .then(async emoji => {
-              let stiker = await sticker(false, emoji.images[0].url, '🔮 DyLux ┃ ᴮᴼᵀ', '💎 @fg98._')
+              let stek = new Sticker(encodeURI(emoji.images[0].url), { pack: packname, author: author, type: StickerTypes.FULL })
+			  let stiker = await stek.toBuffer()
               conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
             })
           break
@@ -48,7 +51,8 @@ Solo puede usar 1 emoji, preste atención a los espacios`
         case 'fa':
           emoji.get(`${args[1]}`)
             .then(async emoji => {
-              let stiker = await sticker(false, emoji.images[6].url, global.packname, global.author)
+              let stek = new Sticker(encodeURI(emoji.images[6].url), { pack: packname, author: author, type: StickerTypes.FULL })
+			  let stiker = await stek.toBuffer()
               conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
            })
           break
@@ -56,7 +60,8 @@ Solo puede usar 1 emoji, preste atención a los espacios`
         case 'go':
           emoji.get(`${args[1]}`)
             .then(async emoji => {
-              let stiker = await sticker(false, emoji.images[1].url, global.packname, global.author)
+              let stek = new Sticker(encodeURI(emoji.images[1].url), { pack: packname, author: author, type: StickerTypes.FULL })
+			  let stiker = await stek.toBuffer()
               conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
             })
           break
@@ -64,7 +69,8 @@ Solo puede usar 1 emoji, preste atención a los espacios`
         case 'ht':
           emoji.get(`${args[1]}`)
             .then(async emoji => {
-              let stiker = await sticker(false, emoji.images[12].url, global.packname, global.author)
+              let stek = new Sticker(encodeURI(emoji.images[12].url), { pack: packname, author: author, type: StickerTypes.FULL })
+			  let stiker = await stek.toBuffer()
               conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
             })
           break
@@ -73,7 +79,8 @@ Solo puede usar 1 emoji, preste atención a los espacios`
         case 'instagram':
           emoji.get(`${args[1]}`)
             .then(async emoji => {
-              let stiker = await sticker(false, emoji.images[11].url, global.packname, global.author)
+              let stek = new Sticker(encodeURI(emoji.images[11].url), { pack: packname, author: author, type: StickerTypes.FULL })
+			  let stiker = await stek.toBuffer()
               conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
             })
           break
@@ -82,7 +89,8 @@ Solo puede usar 1 emoji, preste atención a los espacios`
         case 'mi':
           emoji.get(`${args[1]}`)
             .then(async emoji => {
-              let stiker = await sticker(false, emoji.images[3].url, global.packname, global.author)
+              let stek = new Sticker(encodeURI(emoji.images[3].url), { pack: packname, author: author, type: StickerTypes.FULL })
+			  let stiker = await stek.toBuffer()
               conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
             })
           break
@@ -91,7 +99,8 @@ Solo puede usar 1 emoji, preste atención a los espacios`
         case 'mo':
           emoji.get(`${args[1]}`)
             .then(async emoji => {
-              let stiker = await sticker(false, emoji.images[13].url, global.packname, global.author)
+              let stek = new Sticker(encodeURI(emoji.images[13].url), { pack: packname, author: author, type: StickerTypes.FULL })
+			  let stiker = await stek.toBuffer()
               conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
             })
           break
@@ -100,7 +109,8 @@ Solo puede usar 1 emoji, preste atención a los espacios`
         case 'op':
           emoji.get(`${args[1]}`)
             .then(async emoji => {
-              let stiker = await sticker(false, emoji.images[8].url, global.packname, global.author)
+              let stek = new Sticker(encodeURI(emoji.images[8].url), { pack: packname, author: author, type: StickerTypes.FULL })
+			  let stiker = await stek.toBuffer()
               conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
             })
           break
@@ -108,7 +118,8 @@ Solo puede usar 1 emoji, preste atención a los espacios`
         case 'pi':
           emoji.get(`${args[1]}`)
             .then(async emoji => {
-              let stiker = await sticker(false, emoji.images[7].url, global.packname, global.author)
+              let stek = new Sticker(encodeURI(emoji.images[7].url), { pack: packname, author: author, type: StickerTypes.FULL })
+			  let stiker = await stek.toBuffer()
               conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
             })
           break
@@ -116,7 +127,8 @@ Solo puede usar 1 emoji, preste atención a los espacios`
         case 'sa':
           emoji.get(`${args[1]}`)
             .then(async emoji => {
-              let stiker = await sticker(false, emoji.images[2].url, global.packname, global.author)
+              let stek = new Sticker(encodeURI(emoji.images[2].url), { pack: packname, author: author, type: StickerTypes.FULL })
+			  let stiker = await stek.toBuffer()
               conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
             })
           break
@@ -124,7 +136,8 @@ Solo puede usar 1 emoji, preste atención a los espacios`
         case 'tw':
           emoji.get(`${args[1]}`)
             .then(async emoji => {
-              let stiker = await sticker(false, emoji.images[5].url, global.packname, global.author)
+              let stek = new Sticker(encodeURI(emoji.images[5].url), { pack: packname, author: author, type: StickerTypes.FULL })
+			  let stiker = await stek.toBuffer()
               conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
             })
           break
@@ -134,19 +147,20 @@ Solo puede usar 1 emoji, preste atención a los espacios`
         case 'wha':
           emoji.get(`${args[1]}`)
             .then(async emoji => {
-            let stiker = await sticker(null, emoji.images[4].url, global.packname, global.author)
+            let stek = new Sticker(encodeURI(emoji.images[4].url), { pack: packname, author: author, type: StickerTypes.FULL })
+			  let stiker = await stek.toBuffer()
              conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
              })
           break
       }
     } catch (e) {
-      throw er
+      throw fg
     }
   }
 }
 handler.help = ['emoji <tipo> <emoji>']
 handler.tags = ['sticker'] 
 handler.command = ['emoji', 'smoji', 'semoji']
+handler.diamond = true
 
-handler.disabled = true
 export default handler
