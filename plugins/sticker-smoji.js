@@ -14,7 +14,7 @@ let handler = async (m, { conn, args, usedPrefix, command, isPrems }) => {
 *${usedPrefix + command}* fa 😎
 
 ┌─⊷ *TIPOS* 
-▢ wa = whatsapp 
+▢ wa = whatsapp  
 ▢ ap = apple
 ▢ fa = facebook
 ▢ ig = Instagram
