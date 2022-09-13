@@ -362,7 +362,7 @@ export async function handler(chatUpdate) {
                     isPrems,
                     chatUpdate,
                     __dirname: ___dirname,
-                    __filename 
+                    __filename
                 }
                 try {
                     await plugin.call(this, m, extra)
