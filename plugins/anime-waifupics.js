@@ -1,4 +1,5 @@
 import fetch from 'node-fetch'
+import axios from 'axios'
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 m.react(rwait)
@@ -8,8 +9,8 @@ let type = (command).toLowerCase()
 switch (type) {
 	
 	case 'loli':
-	     let img = await conn.getFile(`https://fg-dylux.herokuapp.com/api/nime/loli?apikey=FG98`)
-	     let loli = img.data
+	     let img = await axios.get(`https://fg-dylux.herokuapp.com/api/nime/loli?apikey=FG98`)
+	     let loli = img.data.result
 	     conn.sendButton(m.chat, `✅ Random ${command}`, igfg, loli, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
 	     m.react(dmoji) 
 	break
