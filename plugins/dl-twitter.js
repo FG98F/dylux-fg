@@ -10,7 +10,6 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   }
   } catch (e) {
   	m.reply('✳️ Revise el link sea de un video de Twitter')
-	m.react(error)
 	} 
   
 }
