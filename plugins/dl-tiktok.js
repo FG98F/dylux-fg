@@ -13,7 +13,7 @@ if (!args[0].match(/tiktok/gi)) throw `❎ verifica que el link sea de tiktok`
     m.react(rwait)
     conn.sendFile(m.chat, url, 'tiktok.mp4', `
 ┌─⊷ TIKTOK
-▢ *Nickname:* ${nickname} ${description ? `\n▢ *Descripción:*${description}` : ''}
+▢ *Nickname:* ${nickname} ${description ? `\n▢ *Descripción:* ${description}` : ''}
 └───────────
 `.trim(), m)
 
