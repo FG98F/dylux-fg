@@ -51,7 +51,33 @@ let infobt = `
 ▢ *${chats.length - groupsIn.length}* Chats privados
 ▢ *${chats.length}* Total Chats
 
-*S E R V E R*
+*≡ OWNER*
+  *FG98*
+▢ Instagram :
+  • https://instagram.com/fg98._
+▢ WhatsApp :
+  • (escribe solo si es necesario) 
+▢ GitHub :
+  • https://github.com/FG98F
+▢ Telegram : 
+  • t.me/fgsupp_bot (FG) 
+  • t.me/fg98ff (canal)
+  • t.me/fgawgp (grupo)
+▢ Facebook : 
+  • https://facebook.com/fg98ff/
+  • https://facebook.com/fg98A/
+▢ YouTube : 
+  • https://youtube.com/fg98f
+  
+ *≡ HELPERS*
+  *CRISS*
+▢ Instagram : https://www.instagram.com/sayurizuniga3
+▢ WhatsApp : wa.me/
+  *ANDREA*
+▢ Instagram : https://
+▢ WhatsApp : wa.me/573125484672
+
+ *≡ S E R V E R*
 *🛑 RAM:* ${format(totalmem() - freemem())} / ${format(totalmem())}
 *🔵 FreeRAM:* ${format(freemem())}
 
@@ -67,4 +93,5 @@ conn.sendButton(m.chat, infobt, igfg, null, [
 handler.help = ['info']
 handler.tags = ['main']
 handler.command = ['info', 'infobot', 'botinfo']
+
 export default handler
