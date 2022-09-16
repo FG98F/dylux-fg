@@ -1,7 +1,5 @@
 //import db from '../lib/database.js'
 
-import MessageType from '@adiwajshing/baileys'
-let impts = 0
 let handler = async (m, { conn, text }) => {
     let who
     if (m.isGroup) who = m.mentionedJid[0]
@@ -12,8 +10,7 @@ let handler = async (m, { conn, text }) => {
     if (isNaN(txt)) throw '🔢 sólo números'
     let dmt = parseInt(txt)
     let diamond = dmt
-    let pjk = Math.ceil(dmt * impts)
-    diamond += pjk
+    
     if (diamond < 1) throw '✳️ Mínimo es  *1*'
     let users = global.db.data.users
    users[who].diamond += dmt
