@@ -11,8 +11,8 @@ let handler = async (m, { text }) => {
 }
 
 
-handler.help = ['cmd'].map(v => 'del' + v + ' <teks>')
-handler.tags = ['database']
+handler.help = ['cmd'].map(v => 'del' + v + ' <text>')
+handler.tags = ['cmd']
 handler.command = ['delcmd']
-
+handler.owner = true
 export default handler
