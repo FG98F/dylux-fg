@@ -25,11 +25,8 @@ m.react('🎧')
   ], m, rpl)
 }
 handler.help = ['play']
-handler.tags = ['downloader']
+handler.tags = ['dl']
 handler.command = ['play', 'playvid'] 
-
-handler.exp = 0
-handler.diamond = false
 
 export default handler
 
