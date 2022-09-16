@@ -21,7 +21,7 @@ Puedes comprar 💎 diamantes usando los comandos
 ❏ *${usedPrefix}buyall*`, m, { mentions: [who] })
 }
 handler.help = ['balance']
-handler.tags = ['xp']
+handler.tags = ['econ']
 handler.command = ['bal', 'diamantes', 'diamond', 'balance'] 
 
 export default handler
