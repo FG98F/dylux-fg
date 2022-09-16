@@ -36,11 +36,9 @@ if (!isLimit) await conn.sendMessage(m.chat, { document: { url: link}, mimetype:
 
   m.react(done)
 }
-handler.help = ['ytmp3 <link yt>']
-handler.tags = ['downloader']
+handler.help = ['ytmp3 <url>']
+handler.tags = ['dl']
 handler.command = ['ytmp3', 'fgmp3'] 
-
 handler.diamond = true
-handler.exp = 0
 
 export default handler
