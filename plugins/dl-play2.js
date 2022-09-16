@@ -17,7 +17,7 @@ let handler = async(m, { conn, usedPrefix, text, args, command }) => {
 	return conn.sendList(m.chat, '  ≡ *FG MUSIC*🔎', `\n 📀 Aqui una lista de resultados de :\n *${text}*`, igfg, `Click Aquí `, listSections, m)
 }
 handler.help = ['play2']
-handler.tags = ['downloader']
+handler.tags = ['dl']
 handler.command = ['play2', 'playvid2', 'playlist', 'playlista'] 
 
 export default handler
