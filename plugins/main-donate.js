@@ -1,5 +1,7 @@
-let handler =  m => m.reply(`
 
+let handler = async(m, { conn, usedPrefix, command }) => {
+
+    let donat = `
 ≡ *DONACION*
 puedes donar si quieres ayudar a mantener el bot activo
 
@@ -9,15 +11,13 @@ puedes donar si quieres ayudar a mantener el bot activo
 • *Link :* https://mpago.la/1F3r6JH
 ▢ *Tigo Money*
 • *N° :*  75140648 
+`
+let img = 'https://i.ibb.co/37FP2bk/donate.jpg'
+conn.sendButton(m.chat, donat,'Haga click en boton si quiere comprar o alquilar al bot', img, [['Buy Premium', `${usedPrefix}buyprem`]],m)
+}
 
-_Al donar consigues_  *Premium* 
-
-• Diamantes ilimitados
-• comandos de *menu premium* desbloqueado
-
-`.trim())
 handler.help = ['donate']
 handler.tags = ['main']
-handler.command = ['apoyar', 'donate', 'premium'] 
+handler.command = ['apoyar', 'donate'] 
 
 export default handler
