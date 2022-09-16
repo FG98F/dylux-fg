@@ -15,5 +15,4 @@ handler.help = ['link']
 handler.tags = ['group']
 handler.command = ['link', 'linkgroup'] 
 
-
 export default handler
