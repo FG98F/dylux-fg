@@ -16,7 +16,7 @@ let handler = async (m, {conn, isPrems }) => {
   global.db.data.users[m.sender].lastclaim = new Date * 1
 }
 handler.help = ['daily']
-handler.tags = ['xp']
+handler.tags = ['econ']
 handler.command = ['daily', 'claim'] 
 
 
