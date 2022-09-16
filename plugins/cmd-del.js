@@ -15,4 +15,5 @@ handler.help = ['cmd'].map(v => 'del' + v + ' <text>')
 handler.tags = ['cmd']
 handler.command = ['delcmd']
 handler.owner = true
+
 export default handler
