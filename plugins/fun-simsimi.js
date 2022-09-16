@@ -12,7 +12,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   else throw json
 }
 handler.help = ['bot']
-handler.tags = ['main']
+handler.tags = ['fun']
 handler.command = ['bot', 'simi'] 
 
 export default handler
