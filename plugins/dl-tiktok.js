@@ -20,7 +20,7 @@ if (!args[0].match(/tiktok/gi)) throw `❎ verifica que el link sea de tiktok`
 m.react(done)
 }
 handler.help = ['tiktok']
-handler.tags = ['downloader']
+handler.tags = ['dl']
 handler.command = ['tiktok', 'tiktoknowm', 'tiktokdl'] 
 
 export default handler
