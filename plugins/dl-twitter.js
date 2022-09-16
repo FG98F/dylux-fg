@@ -14,7 +14,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   
 }
 handler.help = ['twitter'].map(v => v + ' <url>')
-handler.tags = ['downloader']
+handler.tags = ['dl']
 handler.command = /^(twitter|tw)$/i
 
 handler.diamond = true
