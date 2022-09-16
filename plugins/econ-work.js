@@ -17,12 +17,8 @@ let handler = async (m, { conn, isPrems}) => {
   global.db.data.users[m.sender].lastwork = new Date * 1
 }
 handler.help = ['work']
-handler.tags = ['xp']
+handler.tags = ['econ']
 handler.command = ['work', 'w', 'trabajar']
-
-
-handler.fail = null
-handler.exp = 0
 
 export default handler
 
@@ -38,7 +34,6 @@ function msToTime(duration) {
 
   return minutes + " m " + seconds + " s " 
 }
-
 
 function pickRandom(list) {
   return list[Math.floor(list.length * Math.random())]
