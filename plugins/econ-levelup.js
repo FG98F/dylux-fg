@@ -41,8 +41,7 @@ Te falta *${max - user.exp}* de *XP* para subir de nivel
 }
 
 handler.help = ['levelup']
-handler.tags = ['xp']
-
+handler.tags = ['econ']
 handler.command = ['nivel', 'lvl', 'levelup', 'level'] 
 
 export default handler
