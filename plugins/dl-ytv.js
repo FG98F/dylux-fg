@@ -47,11 +47,8 @@ let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) =
   m.react(done)
 }
 handler.help = ['ytmp4 <link yt>']
-handler.tags = ['downloader']
+handler.tags = ['dl']
 handler.command = ['ytmp4', 'fgmp4']
 handler.diamond = true
-
-handler.exp = 0
-
 
 export default handler
