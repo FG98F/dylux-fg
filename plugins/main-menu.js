@@ -19,7 +19,7 @@ let tags = {
   'dl': 'DESCARGAS',
   'tools': 'TOOLS',
   'fun': 'FUN',
-  'database': 'DATABASE',
+  'cmd': 'DATABASE',
   'nsfw': 'NSFW +18', 
   'owner': 'OWNER', 
   'advanced': 'AVANZADO',
