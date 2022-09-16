@@ -1,26 +1,16 @@
-import { facebookDl } from '../lib/scraper.js'
-import { savefrom } from '@bochilteam/scraper'
 
-let handler = async (m, { conn, args, usedPrefix, command, text}) => {
-	if (!text) throw `✳️ Ingrese un link de un video de Facebook\n\n📌 Ejemplo :\n*${usedPrefix + command}* https://fb.watch/d7nB8-L-gR/`
-   if (!args[0].match(/(https:\/\/.www.facebook.com || fb.watch)/gi)) throw `❎ *Link incorrecto*`
-m.react(rwait)
-  try {
-	let res = await facebookDl(args[0]).catch(async _ => await savefrom(args[0])).catch(_ => null)
-	if (!res) throw '❎ No puedo descargar la publicación'
-	let url = res?.url?.[0]?.url || res?.url?.[1]?.url || res?.['720p'] || res?.['360p']
+import { facebookdl, facebookdlv2 } from '@bochilteam/scraper'
+
+let handler = async (m, { conn, args, usedPrefix, command }) => {
 	
-	conn.sendMessage(m.chat, { video: { url }, caption: res?.meta?.title || '' }, { quoted: m })
-    m.react(done)
-    } catch { 
-    	await m.react(error)
-     throw `❎ Ocurrió un error, Revise que el link sea de Facebook`
-     
-        }
+    if (!args[0]) throw `✳️ Ingrese un link de un video de Facebook\n\n📌 Ejemplo :\n*${usedPrefix + command}* https://fb.watch/d7nB8-L-gR/`
+    m.react(rwait)
+    const { result } = await facebookdl(args[0]).catch(async _ => await facebookdlv2(args[0]))
+    for (const { url, isVideo } of result.reverse()) conn.sendFile(m.chat, url, `facebook.${!isVideo ? 'bin' : 'mp4'}`, `✅ Resultado`, m)
 }
-handler.help = ['facebook <url>']
+handler.help = ['facebook'].map(v => v + ' <url>')
 handler.tags = ['dl']
-handler.command = ['fb', 'facebook', 'fbdl'] 
+handler.command = /^((facebook|fb)(downloder|dl)?)$/i
 handler.diamond = true
 
 export default handler
