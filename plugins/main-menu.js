@@ -7,7 +7,7 @@ import { xpRange } from '../lib/levelling.js'
 let tags = {
   'main': 'ACERCA DE',
   'game': 'JUEGOS',
-  'xp': 'NIVEL & ECONOMIA',
+  'econ': 'NIVEL & ECONOMIA',
   'rg': 'REGISTRO',
   'sticker': 'STICKER',
   'img': 'IMAGEN',
