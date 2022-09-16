@@ -18,6 +18,6 @@ conn.sendButton(m.chat, donat,'Haga click en boton si quiere comprar o alquilar 
 
 handler.help = ['donate']
 handler.tags = ['main']
-handler.command = ['apoyar', 'donate'] 
+handler.command = ['apoyar', 'donate', 'donar'] 
 
 export default handler
