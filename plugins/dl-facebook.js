@@ -19,9 +19,8 @@ m.react(rwait)
         }
 }
 handler.help = ['facebook <url>']
-handler.tags = ['downloader']
+handler.tags = ['dl']
 handler.command = ['fb', 'facebook', 'fbdl'] 
-
 handler.diamond = true
 
 export default handler
