@@ -16,7 +16,7 @@ let tags = {
   'nable': 'EN/DISABLE OPCIONES', 
   'nime': 'ANIME',
   'rnime': 'ANIME REACCION',
-  'downloader': 'DESCARGAS',
+  'dl': 'DESCARGAS',
   'tools': 'TOOLS',
   'fun': 'FUN',
   'database': 'DATABASE',
