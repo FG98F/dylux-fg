@@ -3,7 +3,7 @@
 let handler = async (m, { text, usedPrefix, command }) => {
     global.db.data.sticker = global.db.data.sticker || {}
     if (!m.quoted) throw `✳️Responde a un mensaje con *${usedPrefix + command}*`
-    if (!m.quoted.fileSha256) throw '⚠️ Falta el SHA256 Hash Missing'
+    if (!m.quoted.fileSha256) throw '⚠️ Menciona al mensaje'
     if (!text) throw `✳️ Falta el comando`
     let sticker = global.db.data.sticker
     let hash = m.quoted.fileSha256.toString('base64')
@@ -20,7 +20,8 @@ let handler = async (m, { text, usedPrefix, command }) => {
 
 
 handler.help = ['cmd'].map(v => 'set' + v + ' <txt>')
-handler.tags = ['database']
+handler.tags = ['cmd']
 handler.command = ['setcmd']
+handler.owner = true
 
 export default handler
