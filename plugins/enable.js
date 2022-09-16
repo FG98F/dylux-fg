@@ -11,7 +11,7 @@ const sections = [
 	{title: "🔞 | Nsfw", rowId: `${usedPrefix + command} nsfw`},
 	{title: "🧬 | Anti+212", rowId: `${usedPrefix + command} anti212`},
 	{title: "🔗 | Antilink", rowId: `${usedPrefix + command} antilink`},
-    {title: "🚫 | Antidelete", rowId: `${usedPrefix + command} antidelete`},
+        {title: "🚫 | Antidelete", rowId: `${usedPrefix + command} antidelete`},
 	{title: "⏏️ | Autolevelup", rowId: `${usedPrefix + command} autolevelup`},
 	{title: "🔎 | Detect", rowId: `${usedPrefix + command} detect`},
 	{title: "📑 | Document", rowId: `${usedPrefix + command} document`},
