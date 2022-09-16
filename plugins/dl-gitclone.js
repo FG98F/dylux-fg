@@ -1,3 +1,4 @@
+
 import fetch from 'node-fetch'
 const regex = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
 let handler = async (m, { conn, args, usedPrefix, command }) => {
@@ -12,9 +13,8 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     conn.sendFile(m.chat, url, filename, null, m)
 }
 handler.help = ['gitclone <url>']
-handler.tags = ['downloader']
+handler.tags = ['dl']
 handler.command = ['gitclone'] 
-
 handler.diamond = true
 
 export default handler
