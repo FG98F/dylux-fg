@@ -13,6 +13,7 @@ const sections = [
 	{title: "🔗 | Antilink", rowId: `${usedPrefix + command} antilink`},
         {title: "🚫 | Antidelete", rowId: `${usedPrefix + command} antidelete`},
 	{title: "⏏️ | Autolevelup", rowId: `${usedPrefix + command} autolevelup`},
+	{title: "🗣️ | ChatBot", rowId: `${usedPrefix + command} chatbot`},
 	{title: "🔎 | Detect", rowId: `${usedPrefix + command} detect`},
 	{title: "📑 | Document", rowId: `${usedPrefix + command} document`},
 	{title: "🛡️ | Restrict", rowId: `${usedPrefix + command} restrict`},
@@ -132,7 +133,14 @@ const listMessage = {
     isUser = true
      user.autolevelup = isEnable
      break
-
+     
+     case 'chatbot':
+     case 'autosimi':
+     case 'autosimsimi':
+      isUser = true
+      user.chatbot = isEnable
+     break
+     
     case 'restrict':
     case 'restringir':
       isAll = true
