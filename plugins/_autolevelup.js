@@ -1,7 +1,7 @@
 //import db from '../lib/database.js'
 import { canLevelUp } from '../lib/levelling.js'
 
-export function before(m) {
+export async function before(m, { conn }) {
     let user = global.db.data.users[m.sender]
     if (!user.autolevelup)
         return !0
@@ -18,4 +18,4 @@ export function before(m) {
 	`.trim())
     }
 }
-export const disabled = true
+
