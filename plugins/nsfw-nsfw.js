@@ -47,45 +47,33 @@ break
 case 'ass':
 case 'culos':
     let xacs = ["https://meme-api.herokuapp.com/gimme/CuteLittleButts", "https://meme-api.herokuapp.com/gimme/ass"]
-    let asc = pickRandom(xacs)
-    let xass = await fetch(asc)
-    if (!xass.ok) throw await xass.text()
-    let jass = await xass.json()
-    if (!jass.url) throw '❎ Error'
-    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, jass.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
+    let p = pickRandom(xacs)
+    let as = await axios.get(p)
+    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, as.data.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
    m.react(xmoji) 
 break
 
 case 'boobs':
 case 'boobies':
     let xb = ["https://meme-api.herokuapp.com/gimme/tits", "https://meme-api.herokuapp.com/gimme/BestTits", "https://meme-api.herokuapp.com/gimme/boobs", "https://meme-api.herokuapp.com/gimme/amazingtits", "https://meme-api.herokuapp.com/gimme/TinyTits"]
-    let bo = pickRandom(xb)
-    let xbo = await fetch(bo)
-    if (!xbo.ok) throw await xbo.text()
-    let boo = await xbo.json()
-    if (!boo.url) throw '❎ Error'
-    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, boo.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
+    let b = pickRandom(xb)
+    let boo = await axios.get(b)
+    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, boo.data.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
    m.react(xmoji) 
 break
 
 case 'pussy':
     let xp = ["https://meme-api.herokuapp.com/gimme/pussy", "https://meme-api.herokuapp.com/gimme/LegalTeens"] 
-    let pu = pickRandom(xp)
-    let xpu = await fetch(pu)
-    if (!xpu.ok) throw await xpu.text()
-    let puss = await xpu.json()
-    if (!puss.url) throw '❎ Error'
-    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, puss.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
+    let u = pickRandom(xp)
+    let pus = await axios.get(u)
+    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, pus.data.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
    m.react(xmoji) 
 break
 
 case 'lesbians':
 case 'lesbian':
-    let lesbi = await fetch(`https://meme-api.herokuapp.com/gimme/lesbians`)
-    if (!lesbi.ok) throw await lesbi.text()
-    let xlesb = await lesbi.json()
-    if (!xlesb.url) throw '❎ Error'
-    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, xlesb.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
+    let les = await axios.get(`https://meme-api.herokuapp.com/gimme/lesbians`)
+   conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, les.data.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
    m.react(xmoji) 
 break
 
