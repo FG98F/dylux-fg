@@ -27,7 +27,7 @@ let tags = {
 const defaultMenu = {
   before: `
   ────  *DyLux  ┃ ᴮᴼᵀ*  ────
-
+ 
 👋🏻 _Hola_ *%name*
 
 🧿 Nivel : *%level* 
