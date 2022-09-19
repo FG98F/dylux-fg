@@ -11,7 +11,7 @@ let handler = async (m, { conn, text, usedPrefix, command, args, participants })
   if (!code) throw `✳️ Link inválido`
   if (!args[1]) throw `📌 Falta el número de días\n\n Ejemplo:\n *${usedPrefix + command}* <linkwa> 2`
   if (isNaN(args[1])) throw `✳️ Solo número, que representa los días que el bot estará en el grupo!`
-  let owbot = mods 
+  let owbot = global.owner[1] 
   m.reply(`😎 Espere 3 segundos, me uniré al grupo`)
   await delay(3000)
   try {
@@ -35,9 +35,9 @@ fui invitado por *${m.name}*`, m, {
      await delay(7000)
      }).then( async () => {
      await conn.reply(res, `vale todos relajaos 🤭`, 0)
-     await conn.reply(mods+'@s.whatsapp.net', `≡ *INVITACIÓN A GRUPO*\n\n@${m.sender.split('@')[0]} ha invitado a *${conn.user.name}* al grupo\n\n*${await conn.getName(res)}*\n\n*ID* : ${res}\n\n📌 Enlace : ${args[0]}\n\nEl bot saldrá automáticamente después de \n\n${msToDate(global.db.data.chats[res].expired - now)}`, null, {mentions: [m.sender]})
+     await conn.reply(global.owner[1]+'@s.whatsapp.net', `≡ *INVITACIÓN A GRUPO*\n\n@${m.sender.split('@')[0]} ha invitado a *${conn.user.name}* al grupo\n\n*${await conn.getName(res)}*\n\n*ID* : ${res}\n\n📌 Enlace : ${args[0]}\n\nEl bot saldrá automáticamente después de \n\n${msToDate(global.db.data.chats[res].expired - now)}`, null, {mentions: [m.sender]})
      })
-     if (!e.length) await conn.reply(mods+'@s.whatsapp.net', `≡ *INVITACIÓN A GRUPO*\n\n@${m.sender.split('@')[0]} ha invitado a *${conn.user.name}* al grupo\n\n*${await conn.getName(res)}*\n\n*ID* : ${res}\n\n📌 Enlace : ${args[0]}\n\nEl bot saldrá automáticamente después de\n\n ${msToDate(global.db.data.chats[res].expired - now)}`, null, {mentions: [m.sender]})
+     if (!e.length) await conn.reply(global.owner[1]+'@s.whatsapp.net', `≡ *INVITACIÓN A GRUPO*\n\n@${m.sender.split('@')[0]} ha invitado a *${conn.user.name}* al grupo\n\n*${await conn.getName(res)}*\n\n*ID* : ${res}\n\n📌 Enlace : ${args[0]}\n\nEl bot saldrá automáticamente después de\n\n ${msToDate(global.db.data.chats[res].expired - now)}`, null, {mentions: [m.sender]})
      if (!e.length) await m.reply(`✳️ Invitar con éxito al bot al grupo\n\n${await conn.getName(res)}\n\nEl bot saldrá automáticamente después de *${msToDate(global.db.data.chats[res].expired - now)}*`).then(async () => {
      let mes = `Hola a todos 👋🏻
      
@@ -52,7 +52,7 @@ ${usedPrefix}help
          })
      })
     } catch (e) {
-      conn.reply(mods+'@s.whatsapp.net', e)
+      conn.reply(global.owner[1]+'@s.whatsapp.net', e)
       throw `✳️ Lo siento, el bot no puede unirse a grupos`
       }
 }
