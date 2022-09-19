@@ -1,5 +1,8 @@
 
-let handler = async (m, { conn, text, usedPrefix, command, args, participants }) => {
+let handler = async (m, { conn, text, usedPrefix, command, args, participants, isOwner }) => {
+	
+   if (!isOwner) throw conn.sendButton(m.chat, `*Invitar bot a un grupo*\n\nHola @${m.sender.split('@')[0]}\npuedes alquilar el bot para que se una a un grupo\n\n_más info click en el botón_`.trim(), igfg, null, [
+       ['Alquilar', '/buyprem']] , m, { mentions: [m.sender] })
 	
   let time = global.db.data.users[m.sender].lastjoin + 86400000
   let linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})/i
@@ -60,7 +63,7 @@ handler.help = ['join <chat.whatsapp.com> <dias>']
 handler.tags = ['owner']
 handler.command = ['join', 'invite'] 
 
-handler.owner = true
+//handler.owner = true
 
 export default handler
 
