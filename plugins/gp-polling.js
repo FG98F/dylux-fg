@@ -2,7 +2,7 @@
 let handler = async (m, { conn, text, args, usedPrefix, command }) => {
 	
 if (!args[0]) throw `✳️ Falta texto para encuesta \n\n📌 Ejemplo : \n*${usedPrefix + command}* Mensaje  |como|xd`
-if (!text.includes('|')) throw  `✳️ Separe las encuestas con *|* \n\n📌 Ejemplo : \n*${usedPrefix + command}* Mensaje  |como|xd`
+if (!text.includes('|')[1]) throw  `✳️ Separe las encuestas con *|* \n\n📌 Ejemplo : \n*${usedPrefix + command}* Mensaje  |como|xd`
 
 let name = await conn.getName(m.sender)
 let a = []
