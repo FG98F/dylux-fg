@@ -4,7 +4,6 @@ import { youtubeSearch } from '@bochilteam/scraper'
 
 let handler = async (m, { conn, command, text, usedPrefix }) => {
   if (!text) throw `✳️ *Ingresa el título de una canción*\n\n📌Ejemplo *${usedPrefix + command}* Lil Peep hate my life `
-  let rpl = { contextInfo: { externalAdReply: {title: packname, body: 'support group' , sourceUrl: dygp, thumbnail: await(await fetch(fglog)).buffer() }}}
   let vid = (await youtubeSearch(text)).video[0]
   if (!vid) throw '✳️ Vídeo/Audio no encontrado'
   let { title, description, thumbnail, videoId, durationH, viewH, publishedTime } = vid
