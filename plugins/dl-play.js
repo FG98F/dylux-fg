@@ -22,7 +22,7 @@ m.react('🎧')
   `.trim(), igfg, thumbnail, [
     ['🎶 MP3', `${usedPrefix}fgmp3 ${url} yes`],
     ['🎥 MP4', `${usedPrefix}fgmp4 ${url} yes`]
-  ], m, rpl)
+  ], m)
 }
 handler.help = ['play']
 handler.tags = ['dl']
