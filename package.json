@@ -81,6 +81,7 @@
         "didyoumean": "^1.2.2", 
         "fg-ig": "^0.0.2",
         "fg-twitter": "^0.0.1",
+        "fg-dylux": "^0.2.0",
         "yargs": "^17.3.1" 
     },
     "optionalDependencies": {
@@ -88,4 +89,3 @@
         "moment-timezone": "^0.5.34"
     }
 }
- 
