@@ -1,6 +1,6 @@
 { 
     "name": "dylux-fg",
-    "version": "2.1.5",
+    "version": "2.1.8",
     "description": "Customizable WhatsApp Bot",
     "main": "index.js",
     "type": "module",
