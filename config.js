@@ -7,7 +7,7 @@ global.owner = [
   ['5493885839638']
 ] //Numeros de owner 
 
-global.mods = ['59172945992'] 
+global.mods = [ ] 
 global.prems = ['50489079501', '5219631769130', '573125484672']
 global.APIs = { // API Prefix
   // name: 'https://website'
@@ -37,7 +37,7 @@ global.igfg = '\n▢ Sígueme en Instagram\nhttps://www.instagram.com/fg98._\n'
 global.dygp = 'https://chat.whatsapp.com/IO9jmpI72ejHiN4unRZleU'
 global.fgsc = 'https://github.com/FG98F/dylux-fg' 
 global.fgyt = 'https://youtube.com/fg98f'
-global.fglog = 'https://i.ibb.co/mhmq9SC/logfix.png' 
+global.fglog = 'https://i.imgur.com/Owmb93c.png' 
 
 global.wait = '*⌛ _Cargando..._*\n*▰▰▰▱▱▱▱▱▱*'
 global.rwait = '⌛'
