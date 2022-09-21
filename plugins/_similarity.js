@@ -16,7 +16,13 @@ export async function before(m, { conn, match, usedPrefix, command }) {
 		let som = sim * 100
 		let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 		let name = await conn.getName(who)
-		let caption = `🧿  Hola @${who.split("@")[0]} \nTal vez quisiste decir : \n\n • *${usedPrefix + mean}*\n • *Similitud:* _${parseInt(som)}%_`
+		let caption = `
+🧿  Hola @${who.split("@")[0]}
+
+Tal vez quisiste decir : 
+
+ இ *${usedPrefix + mean}*
+ இ *Similitud:* _${parseInt(som)}%_`
 	    if (mean) this.sendButton(m.chat, caption, igfg, null, [['✅ SI', `${usedPrefix + mean}`], ['❎ NO', 'khajs']], m, { mentions: [who]})
 	    }
 }
