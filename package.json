@@ -80,7 +80,7 @@
         "hispamemes": "^1.0.7",
         "didyoumean": "^1.2.2", 
         "fg-ig": "^0.0.2",
-        "fg-twitter": "^0.0.1",
+        "fg-twitter": "^0.0.6",
         "fg-dylux": "^0.2.5",
         "yargs": "^17.3.1" 
     },
