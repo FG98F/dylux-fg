@@ -1,7 +1,8 @@
 //import db from '../lib/database.js'
 
 let handler = async (m, { conn, usedPrefix, command}) => {
-
+    let time = global.db.data.users[m.sender].lastrob + 14400000
+    if (new Date - global.db.data.users[m.sender].lastrob < 14400000) throw `⏱️ Espera *${msToTime(time - new Date())}* para volver a robar`
     let who
       if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false
       else who = m.chat
@@ -12,9 +13,7 @@ let handler = async (m, { conn, usedPrefix, command}) => {
     if (users.exp < rob) {
       m.reply(`🔖 @${who.split`@`[0]} tiene menos de *${rob} xp*\nNo robes a un podre v":`, null, { mentions: [who] })
     }
-    let time = global.db.data.users[m.sender].lastrob + 14400000
-    if (new Date - global.db.data.users[m.sender].lastrob < 14400000) throw `⏱️ Espera ${msToTime(time - new Date())} para volver a robar`
-   
+       
    global.db.data.users[m.sender].exp += rob
    global.db.data.users[who].exp -= rob
   
@@ -40,7 +39,7 @@ let handler = async (m, { conn, usedPrefix, command}) => {
     minutes = (minutes < 10) ? "0" + minutes : minutes
     seconds = (seconds < 10) ? "0" + seconds : seconds
   
-    return minutes + " m " + seconds + " s " 
+    return hours + " horas " + minutes + " minutos"
   }
   
   
