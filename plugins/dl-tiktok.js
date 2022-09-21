@@ -11,7 +11,6 @@ try {
     let p = await fg.downloader.tiktok(text) 
 				let te = `
 ┌─⊷ TIKTOK
-▢ *Creador:* FG98
 ▢ *Username:* ${p.author}
 ▢ *Descripción:* ${p.title}
 └───────────`
