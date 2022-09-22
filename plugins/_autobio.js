@@ -2,13 +2,19 @@
 let handler = m => m
 handler.all = async function (m) {
 	let setting = global.db.data.settings[this.user.jid]
-	if (new Date() * 1 - setting.status > 1000) {
-		let _uptime = process.uptime() * 1000
-		let uptime = clockString(_uptime);
-		let bio = `\n🟢 Tiempo Activo ${uptime}\n\n┃ 💎  By FG98`
+	
+let _muptime
+    if (process.send) {
+      process.send('uptime')
+      _muptime = await new Promise(resolve => {
+        process.once('message', resolve)
+        setTimeout(resolve, 1000)
+      }) * 1000
+    }
+    let muptime = clockString(_muptime)
+		let bio = `\n🟢 Tiempo Activo ${muptime}\n\n┃ 💎  By FG98`
 		await this.updateProfileStatus(bio).catch(_ => _)
 		setting.status = new Date() * 1
-}
 
 }
 export default handler
