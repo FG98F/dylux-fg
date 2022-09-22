@@ -49,6 +49,7 @@ export async function handler(chatUpdate) {
                     user.lastclaim = 0
                 if (!('registered' in user))
                     user.registered = false
+                    //-- user registered 
                 if (!user.registered) {
                     if (!('name' in user))
                         user.name = m.name
@@ -57,6 +58,7 @@ export async function handler(chatUpdate) {
                     if (!isNumber(user.regTime))
                         user.regTime = -1
                 }
+                //--user number
                 if (!isNumber(user.afk))
                     user.afk = -1
                 if (!('afkReason' in user))
@@ -144,10 +146,12 @@ export async function handler(chatUpdate) {
                 if (!('self' in settings)) settings.self = false
                 if (!('autoread' in settings)) settings.autoread = false
                 if (!('restrict' in settings)) settings.restrict = false
+                if (!('status' in settings)) settings.status = 0
             } else global.db.data.settings[this.user.jid] = {
                 self: false,
                 autoread: false,
-                restrict: false
+                restrict: false, 
+                status: 0
             }
         } catch (e) {
             console.error(e)
@@ -569,6 +573,6 @@ global.dfail = (type, m, conn) => {
 let file = global.__filename(import.meta.url, true)
 watchFile(file, async () => {
     unwatchFile(file)
-    console.log(chalk.redBright("Update 'handler.js'"))
+    console.log(chalk.magenta("✅  Se actualizo 'handler.js'"))
     if (global.reloadHandler) console.log(await global.reloadHandler())
-})
+}) 
