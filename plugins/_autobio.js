@@ -24,5 +24,5 @@ function clockString(ms) {
   let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-  return [d, ' Días ️', h, ' Horas ', m, ' Minutos ', s, ' Segundos'].map(v => v.toString().padStart(2, 0)).join('')
+  return [d, ' Días ️', h, ' Horas ', m, ' Minutos '].map(v => v.toString().padStart(2, 0)).join('')
 }
