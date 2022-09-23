@@ -4,7 +4,8 @@ import { fileURLToPath } from 'url'
 
 global.owner = [
   ['59172945992', 'FG98', true],
-  ['5493885839638']
+  ['5493885839638'], 
+  ['573125484672']
 ] //Numeros de owner 
 
 global.mods = [ ] 
@@ -33,7 +34,7 @@ global.APIKeys = { // APIKey Here
 // Sticker WM
 global.packname = 'DyLux┃ᴮᴼᵀ' 
 global.author = '@fg98._' 
-global.igfg = '\n▢ Sígueme en Instagram\nhttps://www.instagram.com/fg98._\n' 
+global.igfg = '▢ Sígueme en Instagram\nhttps://www.instagram.com/fg98._\n' 
 global.dygp = 'https://chat.whatsapp.com/IO9jmpI72ejHiN4unRZleU'
 global.fgsc = 'https://github.com/FG98F/dylux-fg' 
 global.fgyt = 'https://youtube.com/fg98f'
