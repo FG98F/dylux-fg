@@ -1,15 +1,16 @@
 
-let limit = 350
+
 import fetch from 'node-fetch'
 import fg from 'fg-dylux' 
 import { ytv } from '../lib/y2mate.js'
+let limit = 300
 let handler = async (m, { conn, args, text, isPrems, isOwner }) => {
    if (!args || !args[0]) throw `✳️ Ejemplo :\n${usedPrefix + command} https://youtu.be/YzkTFFwxtXI`
   if (!args[0].match(/youtu/gi)) throw `❎ Verifica que el link de YouTube`
  let chat = global.db.data.chats[m.chat]
  m.react(rwait) 
  
- try {
+ //try {
   let { title, size, link, thumb, tipe, quality } = await ytv(text)
   if(Number(size.split(' MB')[0]) >= limit) {
      axios.get(`https://tinyurl.com/api-create.php?url=${link}`).then((G) => {
@@ -30,7 +31,7 @@ let handler = async (m, { conn, args, text, isPrems, isOwner }) => {
 m.react(done)
 } 
 //-
- } catch {  	
+ /*} catch {  	
 	fg.downloader.youtube.ytmp4(text).then((res) => {
      conn.sendFile(m.chat, res.result, res.title + '.mp4', `
  ≡  *FG MUSIC 2*
@@ -41,9 +42,8 @@ m.react(done)
 ▢ *⚖️Peso* : ${res.size}
 `.trim(), m, false, { asDocument: chat.useDocument })
  m.react(done)
-}) 
-}  
-//---
+})    }*/
+
 
 }
 handler.help = ['ytmp4 <link yt>']
