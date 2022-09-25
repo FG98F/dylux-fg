@@ -32,7 +32,7 @@ const defaultMenu = {
 
 🧿 Nivel : *%level* 
 👥 Usuarios : %totalreg
-📈 Tiempo activo : *%muptime*
+📈 Tiempo activo : %muptime
 ─────────────
 ▢ Crea tu propio bot 
 • https://youtu.be/xFqjKN1Qt80
@@ -185,5 +185,5 @@ function clockString(ms) {
   let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-  return [d, 'd ', h, 'h ', m, 'm'].map(v => v.toString().padStart(2, 0)).join('')
+  return [d, 'd ', h, 'h ', m, 'm '].map(v => v.toString().padStart(2, 0)).join('')
 }
