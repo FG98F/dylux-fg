@@ -117,8 +117,8 @@ export async function handler(chatUpdate) {
                     chat.antiLink = false
                 if (!('viewonce' in chat))
                     chat.viewonce = false
-                if (!('antiArab' in chat))
-                    chat.antiArab = false
+                if (!('onlyLatinos' in chat))
+                    chat.onlyLatinos = false
                  if (!('nsfw' in chat))
                     chat.nsfw = false
                 if (!isNumber(chat.expired))
@@ -136,7 +136,7 @@ export async function handler(chatUpdate) {
                     antiLink: false,
                     viewonce: false,
                     useDocument: true,
-                    antiArab: false,
+                    onlyLatinos: false,
                     nsfw: false, 
                     expired: 0,
                 }
