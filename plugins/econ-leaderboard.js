@@ -1,4 +1,5 @@
-//import db from '../lib/database.js'
+
+import { areJidsSameUser } from '@adiwajshing/baileys'
 
 let handler = async (m, { conn, args, participants }) => {
   let users = Object.entries(global.db.data.users).map(([key, value]) => {
@@ -10,41 +11,30 @@ let handler = async (m, { conn, args, participants }) => {
   let usersExp = sortedExp.map(enumGetKey)
   let usersLim = sortedLim.map(enumGetKey)
   let usersLevel = sortedLevel.map(enumGetKey)
-  console.log(participants)
-  let len = args[0] && args[0].length > 0 ? Math.min(100, Math.max(parseInt(args[0]), 5)) : Math.min(5, sortedExp.length)
+  let len = args[0] && args[0].length > 0 ? Math.min(50, Math.max(parseInt(args[0]), 5)) : Math.min(5, sortedExp.length)
   let text = `
        ≡ *TABLA DE CLASIFICACION*
     
-▢ *TOP ${len} XP* •
+▢ *TOP ${len} XP* 🧬
 Tú : *${usersExp.indexOf(m.sender) + 1}* de *${usersExp.length}*
+${sortedExp.slice(0, len).map(({ jid, exp }, i) => `${i + 1}. ${participants.some(p => areJidsSameUser(jid, p.id)) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} ➭ _*XP ${exp}*_`).join`\n`}
 
-${sortedExp.slice(0, len).map(({ jid, exp }, i) => `${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} *${exp} Exp*`).join`\n`}
-
-▢ *TOP ${len} DIAMANTES💎* •
+▢ *TOP ${len} DIAMANTES💎* 
 Tú : *${usersLim.indexOf(m.sender) + 1}* de *${usersLim.length}*
+${sortedLim.slice(0, len).map(({ jid, diamond }, i) => `${i + 1}. ${participants.some(p => areJidsSameUser(jid, p.id)) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} ➭ _*Diamantes ${diamond}*_`).join`\n`}
 
-${sortedLim.slice(0, len).map(({ jid, diamond }, i) => `${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} *${diamond} Diamantes*`).join`\n`}
-
-▢ *TOP ${len} NIVEL* •
+▢ *TOP ${len} NIVEL* ⬆️
 Tú : *${usersLevel.indexOf(m.sender) + 1}* de *${usersLevel.length}*
-
-${sortedLevel.slice(0, len).map(({ jid, level }, i) => `${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} *Nivel ${level}*`).join`\n`}
+${sortedLevel.slice(0, len).map(({ jid, level }, i) => `${i + 1}. ${participants.some(p => areJidsSameUser(jid, p.id)) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} ➭ _*Nivel ${level}*_`).join`\n`}
 `.trim()
   conn.reply(m.chat, text, m, {
-    mentions: [...usersExp.slice(0, len), ...usersLim.slice(0, len), ...usersLevel.slice(0, len)].filter(v => !participants.some(p => v === p.jid))
-    
-  })
-  
-
+    mentions: [...usersExp.slice(0, len), ...usersLim.slice(0, len), ...usersLevel.slice(0, len)].filter(v => !participants.some(p => areJidsSameUser(v, p.id) )) 
+})
+ 
 }
 handler.help = ['top']
 handler.tags = ['econ']
 handler.command = ['leaderboard', 'lb', 'top'] 
-
-
-
-handler.fail = null
-handler.exp = 0
 
 export default handler
 
