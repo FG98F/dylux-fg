@@ -1,5 +1,4 @@
 
-
 import fetch from 'node-fetch'
 import fg from 'fg-dylux' 
 import { ytv } from '../lib/y2mate.js'
@@ -17,7 +16,8 @@ let handler = async (m, { conn, args, text, isPrems, isOwner }) => {
      return m.reply(`
 ▢ *📌Título* : ${title}
 ▢ *⚖️Peso* : ${size}
-▢ _El archivo supera el límite de descarga_ *+${limit}MB*
+
+▢ _El archivo supera el límite de descarga_ *+${limit} MB*
 ▢ Descarga  Aquí ${G.data}` )  }) 
       } else {  
  conn.sendFile(m.chat, link, title + '.mp4', `
