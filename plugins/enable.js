@@ -9,9 +9,9 @@ const sections = [
 	{title: "🔮 | Welcome", rowId: `${usedPrefix + command} welcome`},
 	{title: "🌎 | Public", rowId: `${usedPrefix + command} public`},
 	{title: "🔞 | Nsfw", rowId: `${usedPrefix + command} nsfw`},
-	{title: "🧬 | Anti+212", rowId: `${usedPrefix + command} anti212`},
+	{title: "🧬 | OnlyLatinos", rowId: `${usedPrefix + command} onlylatinos`},
 	{title: "🔗 | Antilink", rowId: `${usedPrefix + command} antilink`},
-        {title: "🚫 | Antidelete", rowId: `${usedPrefix + command} antidelete`},
+    {title: "🚫 | Antidelete", rowId: `${usedPrefix + command} antidelete`},
 	{title: "⏏️ | Autolevelup", rowId: `${usedPrefix + command} autolevelup`},
 	{title: "🗣️ | ChatBot", rowId: `${usedPrefix + command} chatbot`},
 	{title: "🔎 | Detect", rowId: `${usedPrefix + command} detect`},
@@ -106,17 +106,19 @@ const listMessage = {
       chat.antiLink = isEnable
       break
       
-      case 'anti+212':
-      case 'anti212':
-      case 'antiarab':
-      case 'antiarabes':
+      case 'sololatinos':
+      case 'sololatino':
+      case 'onlylatinos':
+      case 'onlylat':
+      case 'onlylatan':
+      case 'sololatan':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn)
           throw false
         }
       }
-      chat.antiArab = isEnable
+      chat.onlyLatinos = isEnable
       break
       
       case 'nsfw':
