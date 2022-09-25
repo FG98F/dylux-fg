@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 import fg from 'fg-dylux' 
 import { ytv } from '../lib/y2mate.js'
 let limit = 310
-let handler = async (m, { conn, args, text, isPrems, isOwner }) => {
+let handler = async (m, { conn, args, text, isPrems, isOwner, usedPrefix, command }) => {
    if (!args || !args[0]) throw `✳️ Ejemplo :\n${usedPrefix + command} https://youtu.be/YzkTFFwxtXI`
   if (!args[0].match(/youtu/gi)) throw `❎ Verifica que el link de YouTube`
  let chat = global.db.data.chats[m.chat]
