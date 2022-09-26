@@ -4,7 +4,7 @@ import axios from 'axios'
 
 let handler = async (m, { conn, isPrems}) => {
 
-  let hasil = Math.floor(Math.random() * 5000)
+  let hasil = Math.floor(Math.random() * 2000)
   let time = global.db.data.users[m.sender].lastwork + 3600000
   if (new Date - global.db.data.users[m.sender].lastwork < 3600000) throw `*🧘🏻‍♂️ Estas cansado* y por lo tanto hay que esperar *${msToTime(time - new Date())}* para volver a trabajar!`
   let anu = (await axios.get('https://raw.githubusercontent.com/FG98F/team-fg/main/games/work.json')).data
@@ -32,7 +32,7 @@ function msToTime(duration) {
   minutes = (minutes < 10) ? "0" + minutes : minutes
   seconds = (seconds < 10) ? "0" + seconds : seconds
 
-  return minutes + " m " + seconds + " s" 
+  return minutes + " minuto(s) " + seconds + " segundo(s)" 
 }
 
 function pickRandom(list) {
