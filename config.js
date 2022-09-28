@@ -4,31 +4,23 @@ import { fileURLToPath } from 'url'
 
 global.owner = [
   ['59172945992', 'FG98', true],
-  ['5493885839638'], 
-  ['573125484672']
+  ['5493885839638']
 ] //Numeros de owner 
 
-global.mods = [ ] 
+global.mods = ['573125484672'] 
 global.prems = ['50489079501', '5219631769130', '573125484672']
 global.APIs = { // API Prefix
   // name: 'https://website'
   nrtm: 'https://nurutomo.herokuapp.com',
   bg: 'http://bochil.ddns.net',
-  xteam: 'https://api.xteam.xyz',
-  zahir: 'https://zahirr-web.herokuapp.com',
-  zeks: 'https://api.zeks.xyz',
-  pencarikode: 'https://pencarikode.xyz',
-  LeysCoder: 'https://leyscoders-api.herokuapp.com', 
-  zenz: 'https://zenzapis.xyz'
+  males: 'https://malesin.xyz', 
+  fgmods: 'https://fgmods.herokuapp.com'
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
   'https://api.xteam.xyz': 'd90a9e986e18778b',
-  'https://zahirr-web.herokuapp.com': 'zahirgans',
-  'https://api.zeks.xyz': 'apivinz',
-  'https://pencarikode.xyz': 'pais',
-  'https://leyscoders-api.herokuapp.com': 'dappakntlll', 
-  'https://zenzapis.xyz': '675e34de8a'
+  'https://zenzapis.xyz': '675e34de8a', 
+  'https://fgmods.herokuapp.com': 'dcKzkCrY'
 }
 
 // Sticker WM
