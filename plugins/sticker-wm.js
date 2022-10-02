@@ -1,6 +1,5 @@
+
 import { addExif } from '../lib/sticker.js'
-
-
 let handler = async (m, { conn, text, args }) => {
   if (!m.quoted) throw 'Responde a un sticker'
   let stiker = false
@@ -17,7 +16,7 @@ let handler = async (m, { conn, text, args }) => {
     console.error(e)
     if (Buffer.isBuffer(e)) stiker = e
   } finally {
-    if (stiker) conn.sendFile(m.chat, stiker, 'wm.webp', '', m)
+    if (stiker) conn.sendFile(m.chat, stiker, 'wm.webp', '', m, null, rpl)
      else throw 'La conversión falló'
   }
 }
