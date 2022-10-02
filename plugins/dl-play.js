@@ -20,7 +20,7 @@ m.react('🎧')
 └──────────────
   `.trim(), igfg, thumbnail, [
     ['🎶 MP3', `${usedPrefix}fgmp3 ${url} yes`],
-    ['🎥 MP4', `${usedPrefix}fgmp4 ${url} yes`]
+    ['🎥 MP4', `${usedPrefix}fgmp4 ${url}`]
   ], m, rpl)
 }
 handler.help = ['play']
