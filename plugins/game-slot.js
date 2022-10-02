@@ -60,6 +60,7 @@ Cuanto quieres apostar?
        ${x[2]} : ${y[2]} : ${z[2]}
      ───────────
         🎰┃🎰┃ 🎰
+        
 ${end}`) 
 }
 handler.help = ['slot <apuesta>']
