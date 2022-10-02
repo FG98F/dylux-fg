@@ -9,9 +9,9 @@ let type = (command).toLowerCase()
 switch (type) {
 	
 	case 'loli':
-	     let img = await axios.get(`https://fg-dylux.herokuapp.com/api/nime/loli?apikey=FG98`)
-	     let loli = img.data.result
-	     conn.sendButton(m.chat, `✅ Random ${command}`, igfg, loli, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
+	     let img = await conn.getFile(global.API('fgmods', '/api/loli', { }, 'apikey'))
+	     let loli = img.data
+	     conn.sendButton(m.chat, `✅ Random ${command}`, igfg, loli, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
 	     m.react(dmoji) 
 	break
 	
@@ -22,7 +22,7 @@ case 'neko':
     if (!res.ok) throw await res.text()
     let json = await res.json()
     if (!json.url) throw '❎ Error'
-    conn.sendButton(m.chat, `✅ Random ${command}`, igfg, json.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
+    conn.sendButton(m.chat, `✅ Random ${command}`, igfg, json.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
    m.react(dmoji) 
 break
 
@@ -37,7 +37,6 @@ handler.command = ['waifu', 'neko', 'megumin', 'loli']
 handler.diamond = true
 
 export default handler
-
 
 function pickRandom(list) {
   return list[Math.floor(list.length * Math.random())]
