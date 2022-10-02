@@ -1,14 +1,12 @@
 
-import axios from 'axios'
-
 let handler = async(m, { conn, usedPrefix, command }) => {
 	
-	let img = await conn.getFile(`https://fg-dylux.herokuapp.com/api/asupan-la?apikey=FG98`)
+	let img = await conn.getFile(global.API('fgmods', '/api/asupan-la', { }, 'apikey'))
     let asupan = img.data
-    conn.sendButton(m.chat, `✅ Resultado`, igfg, asupan, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
+    conn.sendButton(m.chat, `✅ Resultado`, igfg, asupan, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
     m.react(dmoji)
+    
 }
-
 handler.help = ['tvid']
 handler.tags = ['img']
 handler.command = ['asupan', 'tvid', 'videos', 'vid', 'video']
@@ -16,7 +14,3 @@ handler.premium = false
 handler.diamond = true
 
 export default handler
-
-function pickRandom(list) {
-  return list[Math.floor(list.length * Math.random())]
-}
