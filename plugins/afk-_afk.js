@@ -23,7 +23,7 @@ ${user.afkReason ? ' \n▢ Razón ' + user.afkReason : ''}
         m.reply(`
 💤 El usuario que mencionas está AFK 
 
-${reason ? '▢ *Razón* : ' + reason : '*Sin razón*'}
+${reason ? '▢ *Razón* : ' + reason : '▢ *Razón* : Sin razón'}
 ▢ Inactivo Durante : *${(new Date - afkTime).toTimeString()}*
   `.trim())
     }
