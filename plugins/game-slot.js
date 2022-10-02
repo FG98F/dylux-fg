@@ -1,5 +1,5 @@
 //import db from '../lib/database.js'
-
+let reg = 40
 let handler = async (m, { conn, args, usedPrefix, command }) => {
     let fa = `
 Cuanto quieres apostar? 
@@ -11,13 +11,13 @@ Cuanto quieres apostar?
     let apuesta = parseInt(args[0])
     let users = global.db.data.users[m.sender]
     let time = users.lastslot + 10000
-    if (new Date - users.lastslot < 10000) throw `⏳ Espere ${msToTime(time - new Date())}`
+    if (new Date - users.lastslot < 10000) throw `⏳ Espere *${msToTime(time - new Date())}* para usar de nuevo`
     if (apuesta < 100) throw '✳️ Mínimo de la apuesta es *100 XP*'
     if (users.exp < apuesta) {
-        throw `✳️ Tu *XP* no es suficiente`
+        throw `✳️ No tienes suficiente *XP*`
     }
 
-    let emojis = ["🐋", "🐉", "🕊️"];
+    let emojis = ["🦢", "🦀", "🦎"];
     let a = Math.floor(Math.random() * emojis.length);
     let b = Math.floor(Math.random() * emojis.length);
     let c = Math.floor(Math.random() * emojis.length);
@@ -41,25 +41,26 @@ Cuanto quieres apostar?
     }
     let end;
     if (a == b && b == c) {
-        end = `GANASTE 🎁   *+${apuesta + apuesta} XP*`
+        end = `🎁 GANASTE\n *+${apuesta + apuesta} XP*`
         users.exp += apuesta
     } else if (a == b || a == c || b == c) {
-        end = `🔮 Casi lo logras sigue intentando :) \nTen *+10 XP*`
-        users.exp += 10
+        end = `🔮 Casi lo logras sigue intentando :) \nTen *+${reg} XP*`
+        users.exp += reg
     } else {
-        end = `Perdiste  *-${apuesta} XP*`
+        end = `😔 Perdiste  *-${apuesta} XP*`
         users.exp -= apuesta
     }
     users.lastslot = new Date * 1
     return await m.reply(
         `
-  🎰 | *SLOTS* 
-────────
-${x[0]} : ${y[0]} : ${z[0]}
-${x[1]} : ${y[1]} : ${z[1]}
-${x[2]} : ${y[2]} : ${z[2]}
-────────
-🎰 | ${end}`) 
+       🎰 ┃ *SLOTS* 
+     ───────────
+       ${x[0]} : ${y[0]} : ${z[0]}
+       ${x[1]} : ${y[1]} : ${z[1]}
+       ${x[2]} : ${y[2]} : ${z[2]}
+     ───────────
+        🎰┃🎰┃ 🎰
+${end}`) 
 }
 handler.help = ['slot <apuesta>']
 handler.tags = ['game']
@@ -77,7 +78,5 @@ function msToTime(duration) {
     minutes = (minutes < 10) ? "0" + minutes : minutes
     seconds = (seconds < 10) ? "0" + seconds : seconds
 
-    return minutes + " m " + seconds + " s "
+    return seconds + " Segundo(s)"
 }
-
-
