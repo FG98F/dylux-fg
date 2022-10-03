@@ -5,11 +5,11 @@ import { canLevelUp, xpRange } from '../lib/levelling.js'
 
 let handler = async (m, { conn, usedPrefix, command}) => {
 
-let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 if (!(who in global.db.data.users)) throw `✳️ El usuario no se encuentra en mi base de datos`
 let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/avatar_contact.png')
 let user = global.db.data.users[who]
-let { name, exp, diamond, lastclaim, registered, regTime, age, level, role } = global.db.data.users[who]
+let { name, exp, diamond, lastclaim, registered, regTime, age, level, role, warn } = global.db.data.users[who]
 let { min, xp, max } = xpRange(user.level, global.multiplier)
 let username = conn.getName(who)
 let math = max - xp
@@ -24,6 +24,7 @@ let str = `
    • @${who.replace(/@.+/, '')}
 ▢ *📱Numero:* ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
 ▢ *🔗Link:* wa.me/${who.split`@`[0]}${registered ? '\n▢ *🎈Edad*: ' + age + ' años' : ''}
+▢ *⚠️Advertencias:* ${warn}/${maxwarn}
 ▢ *💎 Diamantes :* ${diamond}
 ▢ *🆙 Nivel* : ${level}
 ▢ *⬆️ XP* : Total ${exp} (${user.exp - min} / ${xp})\n${math <= 0 ? `listo para *${usedPrefix}levelup*` : `_*${math}xp*_ Falta para subir de nivel`}
