@@ -41,7 +41,7 @@ global.error = '❌'
 global.xmoji = '🔥' 
 
 global.multiplier = 69 
-global.maxwarn = 2 // máxima advertencias
+global.maxwarn = '2' // máxima advertencias
 
 global.rpg = {
   emoticon(string) {
