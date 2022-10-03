@@ -11,6 +11,7 @@ global.mods = ['573125484672']
 global.prems = ['50489079501', '5219631769130', '573125484672']
 global.APIs = { // API Prefix
   // name: 'https://website'
+  xteam: 'https://api.xteam.xyz', 
   nrtm: 'https://nurutomo.herokuapp.com',
   bg: 'http://bochil.ddns.net',
   males: 'https://malesin.xyz', 
