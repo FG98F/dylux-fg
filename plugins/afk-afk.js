@@ -14,5 +14,6 @@ Ahora estas afk hasta que envies un mensaje
 handler.help = ['afk <razon>']
 handler.tags = ['fun']
 handler.command = ['afk']
+handler.group = true
 
 export default handler
