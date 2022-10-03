@@ -2,9 +2,7 @@
 
 let handler = async (m, {conn, usedPrefix}) => {
 	
-    let who
-    if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
-    else who = m.sender
+    let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let name = conn.getName(who) 
     let user = global.db.data.users[who]
  
