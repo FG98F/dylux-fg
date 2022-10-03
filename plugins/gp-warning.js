@@ -1,5 +1,5 @@
 
-let war = 2
+let war = global.maxwarn
 let handler = async (m, { conn, text, args, groupMetadata, usedPrefix, command }) => {      
         let who
         if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false
@@ -16,7 +16,7 @@ let handler = async (m, { conn, text, args, groupMetadata, usedPrefix, command }
 ▢ *Admin:* ${name}
 ▢ *Usuario:* @${who.split`@`[0]}
 ▢ *Warns:* ${warn + 1}/${war}
-${text ? `▢ *Razon:* ${args[1]}` : ' '}`, null, { mentions: [who] }) 
+▢ *Razon:* ${text}`, null, { mentions: [who] }) 
             m.reply(`
 ⚠️ *ADVERTENCIA* ⚠️
 Recibiste una advertencia de un admin
