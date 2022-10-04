@@ -1,18 +1,20 @@
-//import db from '../lib/database.js'
+
 import fetch from 'node-fetch'
 import axios from 'axios'
-
-let handler = async (m, { conn, isPrems}) => {
+let handler = async (m, { conn, usedPrefix, command }) => {
 
   let hasil = Math.floor(Math.random() * 2000)
   let time = global.db.data.users[m.sender].lastwork + 3600000
   if (new Date - global.db.data.users[m.sender].lastwork < 3600000) throw `*🧘🏻‍♂️ Estas cansado* y por lo tanto hay que esperar *${msToTime(time - new Date())}* para volver a trabajar!`
-  let anu = (await axios.get('https://raw.githubusercontent.com/FG98F/team-fg/main/games/work.json')).data
-    let json = pickRandom(anu)
+
+    /*let w = await axios.get(global.API('fgmods', '/api/work', { }, 'apikey'))
+    let res = w.data.result*/
+    let anu = (await axios.get('https://raw.githubusercontent.com/FG98F/team-fg/main/games/work.json')).data
+    let res = pickRandom(anu)
  global.db.data.users[m.sender].exp += hasil
 
   m.reply(`
-‣ ${json.fgwork} *${hasil} XP*
+‣ ${res.fgwork} *${hasil} XP*
 `)
   global.db.data.users[m.sender].lastwork = new Date * 1
 }
@@ -34,7 +36,6 @@ function msToTime(duration) {
 
   return minutes + " minuto(s) " + seconds + " segundo(s)" 
 }
-
 function pickRandom(list) {
   return list[Math.floor(list.length * Math.random())]
 }
