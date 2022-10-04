@@ -8,7 +8,7 @@ let type = (command).toLowerCase()
 switch (type) {
 	
 	case 'logololi':
-	if (!text) throw tee
+	if (!text) throw tee 
 	let img = global.API('fgmods', '/api/lolimaker', { text }, 'apikey')
 	conn.sendFile(m.chat, img, 'logo.png', `✅ Resultado`, m)
 	m.react(done)
