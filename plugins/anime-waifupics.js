@@ -10,7 +10,7 @@ switch (type) {
 	
 	case 'loli':
 	     let img = await conn.getFile(global.API('fgmods', '/api/loli', { }, 'apikey'))
-	     let loli = img.data
+	     let loli = img.data 
 	     conn.sendButton(m.chat, `✅ Random ${command}`, igfg, loli, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
 	     m.react(dmoji) 
 	break
