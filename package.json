@@ -72,7 +72,7 @@
         "syntax-error": "^1.4.0",
         "terminal-image": "^2.0.0",
         "url-regex-safe": "^3.0.0",
-        "emoji-api": "^3.0.1",
+        "emoji-api": "^2.0.1",
         "translate-google-api": "^1.0.4",
         "xfarr-api": "^1.0.3",
         "hxz-api": "^1.0.1",
