@@ -17,7 +17,7 @@ Cuanto quieres apostar?
         throw `✳️ No tienes suficiente *XP*`
     }
 
-    let emojis = ["🦢", "🦀", "🦎"];
+    let emojis = ["🕊️", "🦀", "🦎"];
     let a = Math.floor(Math.random() * emojis.length);
     let b = Math.floor(Math.random() * emojis.length);
     let c = Math.floor(Math.random() * emojis.length);
@@ -42,7 +42,7 @@ Cuanto quieres apostar?
     let end;
     if (a == b && b == c) {
         end = `🎁 GANASTE\n *+${apuesta + apuesta} XP*`
-        users.exp += apuesta
+        users.exp += apuesta + apuesta
     } else if (a == b || a == c || b == c) {
         end = `🔮 Casi lo logras sigue intentando :) \nTen *+${reg} XP*`
         users.exp += reg
