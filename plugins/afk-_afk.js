@@ -6,7 +6,7 @@ export function before(m) {
         m.reply(`
   ✅ Dejaste de estar AFK 
 ${user.afkReason ? ' \n▢ *Razón :* ' + user.afkReason : ''}
-▢ *Inactivo Durante :* ${(new Date - user.afk).toTimeString()}
+▢ *AFK Durante :* ${(new Date - user.afk).toTimeString()}
   `.trim())
         user.afk = -1
         user.afkReason = ''
