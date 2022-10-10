@@ -8,7 +8,7 @@ let handler = async (m, { text, conn }) => {
   😴 *AFK* 
 Ahora estas afk hasta que envies un mensaje 
 ▢ *Usuario:* ${conn.getName(m.sender)} 
-▢ *Razon:* ${text ? ': ' + text : ''}
+▢ *Razon:* ${text ? text : ''}
   `)
 }
 handler.help = ['afk <razon>']
