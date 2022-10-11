@@ -22,7 +22,7 @@ global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
   'https://api.xteam.xyz': 'd90a9e986e18778b',
   'https://zenzapis.xyz': '675e34de8a', 
-  'https://fgmods.herokuapp.com': 'fg-dylux'
+  'https://api-fgmods.herokuapp.com': 'fg-dylux'
 }
 
 // Sticker WM
