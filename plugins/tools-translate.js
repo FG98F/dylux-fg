@@ -1,4 +1,4 @@
-import translate from 'translate-google-api'
+import translate from '@vitalets/google-translate-api'
 const defaultLang = 'es'
 const tld = 'cn'
 
@@ -23,18 +23,13 @@ https://cloud.google.com/translate/docs/languages
 
     let result
     try {
-        result = await translate(`${text}`, {
-            tld,
-            to: lang,
-        })
+        result = await translate(text, { to: lang, autoCorrect: true }).catch(_ => null) 
+            
     } catch (e) {
-        result = await translate(`${text}`, {
-            tld,
-            to: defaultLang,
-        })
+        result = await translate(text, { to: lang, autoCorrect: true }).catch(_ => null) 
         throw err
     } finally {
-        m.reply(result[0])
+        m.reply(result.text)
     }
 
 }
