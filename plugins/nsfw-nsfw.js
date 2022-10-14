@@ -76,7 +76,7 @@ break
 
 case 'pack':
 case 'cosplay':
-	     let img = await conn.getFile(global.API('fgmods', '/api/nsfw/cosplay', { }, 'apikey'))
+	     let img = await conn.getFile(global.API('fgmods', '/api/nsfw/cosplay', {}, 'apikey'))
 	     let cosp = img.data
 	     conn.sendButton(m.chat, `✅ Resultado 🤭\n Random *${command}*`, 'Vea más fotos aquí \nhttps://t.me/+8SKOTyja8rBlYTlh \n\n', cosp, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
 	     m.react(xmoji) 
