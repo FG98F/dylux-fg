@@ -15,8 +15,8 @@ global.APIs = { // API Prefix
   xteam: 'https://api.xteam.xyz', 
   nrtm: 'https://nurutomo.herokuapp.com',
   bg: 'http://bochil.ddns.net',
-  males: 'https://malesin.xyz'
-
+  males: 'https://malesin.xyz', 
+  fgmods: 'https://api-fgmods.herokuapp.com'
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
