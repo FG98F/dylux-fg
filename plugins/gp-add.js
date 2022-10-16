@@ -1,3 +1,6 @@
+/*
+recomiendo usar en wa mod
+*/
 
 import fetch from 'node-fetch'
 /**
@@ -49,6 +52,7 @@ handler.tags = ['group']
 handler.command = ['add']
 handler.admin = true
 handler.group = true
+handler.rowner = true
 handler.botAdmin = true
 
 export default handler
