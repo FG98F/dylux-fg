@@ -1,4 +1,5 @@
 
+import fg from 'api-dylux'
 import { youtubedl, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper'
 let limit = 350
 let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) => {
@@ -14,10 +15,9 @@ let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) =
 		const title = await yt.title
 		const size = await yt.video[q].fileSizeH 
 		
-       if (size.split('MB')[0] >= limit) return m.reply(` ≡  *FG MUSIC*\n\n▢ *⚖️Peso* : ${size}\n▢ *🎞️Calidad* : ${q}\n\n▢ _El archivo supera el límite de descarga_ *+${limit} MB*`) 
-    
-	conn.sendFile(m.chat, dl_url, title + '.mp4', `
- ≡  *FG MUSIC*
+       if (size.split('MB')[0] >= limit) return m.reply(` ≡  *FG YTDL*\n\n▢ *⚖️Peso* : ${size}\n▢ *🎞️Calidad* : ${q}\n\n▢ _El archivo supera el límite de descarga_ *+${limit} MB*`)    
+	  conn.sendFile(m.chat, dl_url, title + '.mp4', `
+ ≡  *FG YTDL*
   
 ▢ *📌Título* : ${title}
 ▢ *📟 Ext* : mp4
@@ -26,8 +26,18 @@ let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) =
 `.trim(), m, false, { asDocument: chat.useDocument })
 		m.react(done) 
 		
-	} catch (e) {
-	m.reply('Error: no se pudo descargar el video prueba con otro o baje la calidad')
+	} catch {
+		
+		const { title, result, quality, size, duration, thumb, channel } = await fg.ytv(args[0]) 
+		if (size.split('MB')[0] >= limit) return m.reply(` ≡  *FG YTDL2*\n\n▢ *⚖️Peso* : ${size}\n▢ *🎞️Calidad* : ${quality}\n\n▢ _El archivo supera el límite de descarga_ *+${limit} MB*`)
+	conn.sendFile(m.chat, result, title + '.mp4', `
+ ≡  *FG YTDL2*
+  
+▢ *📌Título* : ${title}
+▢ *📟 Ext* : mp4
+▢ *⚖️Peso* : ${size}
+`.trim(), m, false, { asDocument: chat.useDocument })
+		m.react(done) 
 	} 
 		 
 }
