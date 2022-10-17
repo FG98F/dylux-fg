@@ -1,5 +1,5 @@
 
-import fg from 'fg-dylux' 
+import fg from 'api-dylux' 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
  
  if (!args[0]) throw `✳️ Ingrese un link de un video de Facebook\n\n📌 Ejemplo :\n*${usedPrefix + command}* https://fb.watch/d7nB8-L-gR/`
