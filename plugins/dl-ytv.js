@@ -1,5 +1,4 @@
 
-import fg from 'fg-dylux' 
 import { youtubedl, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper'
 let limit = 350
 let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) => {
