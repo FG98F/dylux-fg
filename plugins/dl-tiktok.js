@@ -8,8 +8,8 @@ if (!args[0].match(/tiktok/gi)) throw `❎ verifica que el link sea de tiktok`
 m.react(rwait)
 
 try {
-    let p = await fg.downloader.tiktok(text) 
-				let te = `
+    let p = await fg.tiktok(args[0]) 
+    let te = `
 ┌─⊷ TIKTOK
 ▢ *Username:* ${p.author}
 ▢ *Descripción:* ${p.title}
