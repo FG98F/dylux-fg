@@ -16,7 +16,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 handler.help = ['expired <días>']
 handler.tags = ['owner']
 handler.command = /^(expired|addexpired)$/i
-handler.owner = true
+handler.rowner = true
 export default handler
 
 function msToDate(ms) {
