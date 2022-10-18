@@ -19,7 +19,6 @@ handler.help = ['daily']
 handler.tags = ['econ']
 handler.command = ['daily', 'claim'] 
 
-
 export default handler
 
 
