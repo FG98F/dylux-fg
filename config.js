@@ -3,9 +3,8 @@ import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 
 global.owner = [
-  ['59172945992', 'FG98', true],
-  ['5493885839638'], 
-  ['5492622689586'] 
+['527712297198', '𝕸𝖊𝖜𝖙𝖜𝖔', true],
+['527713734841', '𝕶𝖎𝖑𝖑𝖚𝖆', true],
 ] //Numeros de owner 
 
 global.mods = ['573125484672'] 
@@ -37,7 +36,7 @@ global.fglog = 'https://i.imgur.com/Owmb93c.png'
 
 global.wait = '*⌛ _Cargando..._*\n*▰▰▰▱▱▱▱▱*'
 global.rwait = '⌛'
-global.dmoji = '🤭'
+global.dmoji = '🐷'
 global.done = '✅'
 global.error = '❌' 
 global.xmoji = '🔥' 
