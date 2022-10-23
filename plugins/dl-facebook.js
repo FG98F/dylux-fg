@@ -20,7 +20,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 	let fb = await fg.fbdl2(args[0])
     for (let result of fb.download) {
     	  let tex = `
-┌─⊷ *FBDL2*
+┌─⊷ *FBDL 2*
 ▢ *Calidad:* ${result.quality}
 └───────────`
     conn.sendFile(m.chat, result.url, 'fb.mp4', tex, m)
