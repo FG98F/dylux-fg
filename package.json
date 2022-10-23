@@ -81,7 +81,7 @@
         "didyoumean": "^1.2.2",
         "fg-ig": "^0.0.2",
         "fg-twitter": "^0.0.9",
-        "api-dylux": "^1.1.1",
+        "api-dylux": "^1.1.4",
         "@vitalets/google-translate-api": "^8.0.0",
         "yargs": "^17.6.0" 
     },
