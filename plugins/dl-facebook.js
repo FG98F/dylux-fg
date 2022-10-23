@@ -9,14 +9,24 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   let vid = res.data[0].url
   let cal = res.data[0].quality   
   let te = `
-┌─⊷ FBDL
+┌─⊷ *FBDL*
 ▢ *Calidad:* ${cal}
 └───────────`
   conn.sendFile(m.chat, vid, 'fb.mp4', te, m)
   m.react(done)
-  } catch (e) {
-	m.reply('❎ Ocurrió un error Revisa que link sea correcto')
-	} 
+  
+  } catch {
+  	
+	let fb = await fg.fbdl2(args[0])
+    for (let result of fb.download) {
+    	  let tex = `
+┌─⊷ *FBDL2*
+▢ *Calidad:* ${result.quality}
+└───────────`
+    conn.sendFile(m.chat, result.url, 'fb.mp4', tex, m)
+    m.react(done)
+  }
+} 
 	
 }
 handler.help = ['facebook'].map(v => v + ' <url>')
