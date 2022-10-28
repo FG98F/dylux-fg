@@ -1,13 +1,21 @@
 
-import { tiktokStalk } from '../lib/scraper.js'
-
-let handler = async (m, { conn, text }) => {
+import fg from 'api-dylux'
+let handler = async (m, { conn, text, args }) => {
 	
-  if (!text) throw '✳️ Ingrese el nombre de usuario de tiktok'
-  let res = await tiktokStalk(text), img = res?.pp_user
-  delete res.pp_user
-  let txt = Object.keys(res).map((v) => `*▢ ${v.capitalize()}:* ${res[v]}`).join`\n`
-  await conn.sendFile(m.chat, img, 'tt.png', txt, m)
+  if (!text) throw `✳️ Ingrese el Username de un usuario de TikTok`
+  
+  let res = await fg.ttStalk(args[0])
+  let txt = `
+┌──「 *TIKTOK STALK* 
+▢ *🔖Nombre:* ${res.name}
+▢ *🔖Username:* ${res.username}
+▢ *👥Seguidores:* ${res.followers}
+▢ *🫂Siguiendo:* ${res.following}
+▢ *📌Desc:* ${res.desc}
+
+▢ *🔗 Link* : https://tiktok.com/${res.username}
+└────────────`
+  await conn.sendFile(m.chat, res.profile, 'tt.png', txt, m)
 }
 handler.help = ['tiktokstalk']
 handler.tags = ['dl']

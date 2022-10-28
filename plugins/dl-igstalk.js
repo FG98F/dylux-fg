@@ -1,27 +1,24 @@
 
-import { igStalk } from '../lib/scraper.js'
-
+import fg from 'api-dylux'
 let handler= async (m, { conn, args, text, usedPrefix, command }) => {
-    if (!args[0]) throw `✳️ Escriba un Nombre de Usuario\n\n📌Ejemplo : ${usedPrefix + command} fg98._`
-    
-    let res = await igStalk(text)
-    if (!res) throw res
-    let caption = `
+	
+    if (!args[0]) throw `✳️ Ingrese el Username de Instagram\n\n📌Ejemplo: ${usedPrefix + command} fg98._` 
+    let res = await fg.igStalk(args[0])
+    let te = `
 ┌──「 *STALKING* 
-▢ *🔖 Nombre* : ${res.name} 
-▢ *🔖 Username* : ${res.username}
-▢ *👥 Seguidores* : ${res.followersH}
-▢ *🫂 Siguiendo* : ${res.followingH}
-▢ *📌 Bio :* ${res.description}
-▢ *🏝️ Posts:* ${res.postsH}
+▢ *🔖${msg.lname()}:* ${res.name} 
+▢ *🔖Username:* ${res.username}
+▢ *👥${msg.lfollowers()}:* ${res.followersH}
+▢ *🫂${msg.lfollowing()}:* ${res.followingH}
+▢ *📌Bio:* ${res.description}
+▢ *🏝️Posts:* ${res.postsH}
 
 ▢ *🔗 Link* : https://instagram.com/${res.username.replace(/^@/, '')}
-└──────────────
-`
- if (res.profilePic) return conn.sendMessage(m.chat, { image: { url: res.profilePic }, caption }, { quoted: m })
- m.reply(caption)
-}
+└────────────`
 
+     await conn.sendFile(m.chat, res.profilePic, 'tt.png', te, m)
+     
+}
 handler.help = ['igstalk']
 handler.tags = ['dl']
 handler.command = ['igstalk'] 
