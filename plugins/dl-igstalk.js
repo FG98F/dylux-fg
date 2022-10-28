@@ -6,10 +6,10 @@ let handler= async (m, { conn, args, text, usedPrefix, command }) => {
     let res = await fg.igStalk(args[0])
     let te = `
 ┌──「 *STALKING* 
-▢ *🔖${msg.lname()}:* ${res.name} 
+▢ *🔖Nombre:* ${res.name} 
 ▢ *🔖Username:* ${res.username}
-▢ *👥${msg.lfollowers()}:* ${res.followersH}
-▢ *🫂${msg.lfollowing()}:* ${res.followingH}
+▢ *👥Seguidores:* ${res.followersH}
+▢ *🫂Siguiendo:* ${res.followingH}
 ▢ *📌Bio:* ${res.description}
 ▢ *🏝️Posts:* ${res.postsH}
 

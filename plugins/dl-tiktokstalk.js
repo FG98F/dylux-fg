@@ -3,7 +3,6 @@ import fg from 'api-dylux'
 let handler = async (m, { conn, text, args }) => {
 	
   if (!text) throw `✳️ Ingrese el Username de un usuario de TikTok`
-  
   let res = await fg.ttStalk(args[0])
   let txt = `
 ┌──「 *TIKTOK STALK* 
