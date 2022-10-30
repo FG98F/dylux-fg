@@ -26,4 +26,4 @@ Tal vez quisiste decir :
 	    if (mean) this.sendButton(m.chat, caption, igfg, null, [['✅ SI', `${usedPrefix + mean}`], ['❎ NO', 'khajs']], m, { mentions: [who]})
 	    }
 }
-export const disabled = false
+export const disabled = true
