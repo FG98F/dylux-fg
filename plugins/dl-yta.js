@@ -5,7 +5,7 @@ import { youtubedl, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper';
 let limit = 50 
 
 let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
-  if (!args || !args[0]) throw `✳️ Ejemplo :\n${usedPrefix + command} https://youtu.be/YzkTFFwxtXI`
+  if (!args || !args[0]) throw `✳️z Ejemplo :\n${usedPrefix + command} https://youtu.be/YzkTFFwxtXI`
   if (!args[0].match(/youtu/gi)) throw `❎ Verifica que el link de YouTube`
    m.react(rwait)
  let chat = global.db.data.chats[m.chat]
