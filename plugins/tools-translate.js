@@ -1,14 +1,16 @@
+
 import translate from '@vitalets/google-translate-api'
 const defaultLang = 'es'
 const tld = 'cn'
 
 let handler = async (m, { args, usedPrefix, command }) => {
     let err = `
-📌 Ejemplo :
-*${usedPrefix + command}* <idioma> [texto]
-${usedPrefix + command} es Hello World
+📌 *Ejemplo:*
 
-✳️ Lista de idiomas admitidos: 
+*${usedPrefix + command}* <idioma> [texto]
+*${usedPrefix + command}* es Hello World
+
+≡ *Lista de idiomas admitidos:* 
 
 https://cloud.google.com/translate/docs/languages
 `.trim()
@@ -21,16 +23,12 @@ https://cloud.google.com/translate/docs/languages
     }
     if (!text && m.quoted && m.quoted.text) text = m.quoted.text
 
-    let result
     try {
-        result = await translate(text, { to: lang, autoCorrect: true }).catch(_ => null) 
-            
+       let result = await translate(text, { to: lang, autoCorrect: true }).catch(_ => null) 
+       m.reply(result.text)
     } catch (e) {
-        result = await translate(text, { to: lang, autoCorrect: true }).catch(_ => null) 
         throw err
-    } finally {
-        m.reply(result.text)
-    }
+    } 
 
 }
 handler.help = ['trad <leng> <text>']
