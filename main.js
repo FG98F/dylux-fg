@@ -5,17 +5,8 @@ import { createRequire } from "module"; // Bring in the ability to create the 'r
 import path, { join } from 'path'
 import { fileURLToPath, pathToFileURL } from 'url'
 import { platform } from 'process'
-global.__filename = function filename(pathURL = import.meta.url, rmPrefix = platform !== 'win32') { return rmPrefix ? /file:\/\/\//.test(pathURL) ? fileURLToPath(pathURL) : pathURL : pathToFileURL(pathURL).toString() }; global.__dirname = function dirname(pathURL) { return path.dirname(global.__filename(pathURL, true)) }; global.__require = function require(dir = import.meta.url) { return createRequire(dir) }
-
 import * as ws from 'ws';
-import {
-  readdirSync,
-  statSync,
-  unlinkSync,
-  existsSync,
-  readFileSync,
-  watch
-} from 'fs';
+import { readdirSync, statSync, unlinkSync, existsSync, readFileSync, watch, rmSync } from 'fs';
 import yargs from 'yargs';
 import { spawn } from 'child_process';
 import lodash from 'lodash';
@@ -26,22 +17,17 @@ import { format } from 'util';
 import { makeWASocket, protoType, serialize } from './lib/simple.js';
 import { Low, JSONFile } from 'lowdb';
 import pino from 'pino';
-import {
-  mongoDB,
-  mongoDBV2
-} from './lib/mongoDB.js';
+import { mongoDB, mongoDBV2 } from './lib/mongoDB.js';
 import store from './lib/store.js'
-
-const {
-  DisconnectReason
-} = await import('@adiwajshing/baileys')
-
+const { DisconnectReason, useMultiFileAuthState } = await import('@adiwajshing/baileys')
 const { CONNECTING } = ws
 const { chain } = lodash
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
 
 protoType()
 serialize()
+
+global.__filename = function filename(pathURL = import.meta.url, rmPrefix = platform !== 'win32') { return rmPrefix ? /file:\/\/\//.test(pathURL) ? fileURLToPath(pathURL) : pathURL : pathToFileURL(pathURL).toString() }; global.__dirname = function dirname(pathURL) { return path.dirname(global.__filename(pathURL, true)) }; global.__require = function require(dir = import.meta.url) { return createRequire(dir) } 
 
 global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({ ...query, ...(apikeyqueryname ? { [apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name] } : {}) })) : '')
 // global.Fn = function functionCallBack(fn, ...args) { return fn.call(global.conn, ...args) }
@@ -89,8 +75,11 @@ global.loadDatabase = async function loadDatabase() {
 }
 loadDatabase()
 
-global.authFile = `${opts._[0] || 'session'}.data.json`
-const { state, saveState } = store.useSingleFileAuthState(global.authFile)
+//-- SESSION
+//global.authFile = `${opts._[0] || 'session'}.data.json`
+//const { state, saveState } = store.useSingleFileAuthState(global.authFile)
+global.authFile = `sessions`
+const { state, saveState, saveCreds } = await useMultiFileAuthState(global.authFile)
 
 const connectionOptions = {
   printQRInTerminal: true,
@@ -111,6 +100,7 @@ if (!opts['test']) {
     } catch (e) { console.error(e) }
   }, 60 * 1000)
 }
+
 if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
 
 /* Clear */
@@ -118,9 +108,11 @@ async function clearTmp() {
   const tmp = [tmpdir(), join(__dirname, './tmp')]
   const filename = []
   tmp.forEach(dirname => readdirSync(dirname).forEach(file => filename.push(join(dirname, file))))
+  
+  //---
   return filename.map(file => {
     const stats = statSync(file)
-    if (stats.isFile() && (Date.now() - stats.mtimeMs >= 1000 * 60 * 1)) return unlinkSync(file) // 3 minutes
+    if (stats.isFile() && (Date.now() - stats.mtimeMs >= 1000 * 60 * 1)) return unlinkSync(file) // 1 minuto
     return false
   })
 }
@@ -174,15 +166,16 @@ global.reloadHandler = async function (restatConn) {
   conn.spromote = '@user promovió a admin'
   conn.sdemote = '@user degradado'
   conn.sDesc = 'La descripción ha sido cambiada a \n@desc'
-  conn.sSubject = 'El nombre del grupo ha sido cambiado a \n@subject'
-  conn.sIcon = 'El icono del grupo ha sido cambiado.'
+  conn.sSubject = 'El nombre del grupo ha sido cambiado a \n@group'
+  conn.sIcon = 'El icono del grupo ha sido cambiado'
   conn.sRevoke = 'El enlace del grupo ha sido cambiado a \n@revoke'
   conn.handler = handler.handler.bind(global.conn)
   conn.participantsUpdate = handler.participantsUpdate.bind(global.conn)
   conn.groupsUpdate = handler.groupsUpdate.bind(global.conn)
   conn.onDelete = handler.deleteUpdate.bind(global.conn)
   conn.connectionUpdate = connectionUpdate.bind(global.conn)
-  conn.credsUpdate = saveState.bind(global.conn, true)
+  //conn.credsUpdate = saveState.bind(global.conn, true)
+  conn.credsUpdate = saveCreds.bind(global.conn, true)
 
   conn.ev.on('messages.upsert', conn.handler)
   conn.ev.on('group-participants.update', conn.participantsUpdate)
