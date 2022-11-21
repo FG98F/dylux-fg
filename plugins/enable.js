@@ -182,7 +182,7 @@ const listMessage = {
       if (!/[01]/.test(command)) return await conn.sendMessage(m.chat, listMessage, { quoted: m })
       throw false
   }
-  conn.sendButton(m.chat, `
+  /*conn.sendButton(m.chat, `
 ≡ *OPCIONES*
 ┌───────────
 ▢ 🗂️ *Tipo:* ${type} 
@@ -190,12 +190,12 @@ const listMessage = {
 ▢ 🏮 *Para:* ${isAll ? 'Este bot' : isUser ? '' : 'Este chat'}
 └───────────
 `,igfg, null, [[`${isEnable ? '🔴 Desactivar' : '✅ Activar'}`, `${isEnable ? `${usedPrefix}off ${type}` : `${usedPrefix}on ${type}`}`], ['⦙☰ Menu', `${usedPrefix}help`]],m)
+*/
 
-/*
 m.reply(`
 ✅ *${type}* Se *${isEnable ? 'Activó' : 'Desactivó'}* ${isAll ? 'para este bot' : isUser ? '' : 'para este chat'}
 `.trim()) 
-*/
+
 }
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')
 handler.tags = ['nable']
