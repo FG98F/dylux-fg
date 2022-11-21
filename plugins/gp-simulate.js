@@ -1,18 +1,21 @@
 
 let handler = async (m, { conn, usedPrefix, command, args: [event], text }) => {
 
-if (!event) return await m.reply(`
-┌─⊷ *EVENTOS*
-▢ Bienvenida 
-▢ Despedida
-▢ promover
-▢ degradar
-└───────────
+  let chat = global.db.data.chats[m.chat]
+  if (!chat.welcome) throw `✳️ Para usar este comando debe actvar las Bienvenidas con *${usedPrefix}on* welcome`
+  let te = `
+  ┌─⊷ *EVENTOS*
+  ▢ welcome
+  ▢ bye
+  ▢ promote
+  ▢ demote
+  └───────────
+  
+  📌 Ejemplo :
+  
+  *${usedPrefix + command}* welcome @user`
 
-📌 Ejemplo :
-
-*${usedPrefix + command}* bienvenida @user
-`) 
+if (!event) return await m.reply(te) 
 
 let mentions = text.replace(event, '').trimStart()
 let who = mentions ? conn.parseMention(mentions) : []
@@ -32,23 +35,28 @@ switch (event.toLowerCase()) {
         case 'remove':
          act = 'remove'
         break
-case 'promote':
-  case 'promover':
-act = 'promote'
-break
-case 'demote':
- case 'degradar':
-act = 'demote'
-break
+
+        case 'promote':
+        case 'promover':
+          act = 'promote'
+        break
+
+        case 'demote':
+        case 'degradar':
+         act = 'demote'
+        break
+
 default:
-throw 'Lista Eventos: Bienvenida , Despedida, delete, promover, degradar'
+
+throw te
 }
 if (act) return conn.participantsUpdate({
 id: m.chat,
 participants: part,
 action: act
-})}
-handler.help = ['simular <event> @mention']
+})
+}
+handler.help = ['simulate <event> @user']
 handler.tags = ['group']
 handler.command = ['simular', 'simulate'] 
 handler.admin = true
