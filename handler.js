@@ -475,17 +475,37 @@ export async function participantsUpdate({ id, participants, action }) {
             if (chat.welcome) {
                 let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
                 for (let user of participants) {
-                    let pp = './src/avatar_contact.png'
+                    let pp = 'https://i.imgur.com/whjlJSf.jpg'
+                    let ppgp = 'https://i.imgur.com/whjlJSf.jpg'
                     try {
                         pp = await this.profilePictureUrl(user, 'image')
-                    } catch (e) {
-                    } finally {
+                        ppgp = await this.profilePictureUrl(id, 'image')
+                        } finally {
                         text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Bienvenido, @user').replace('@group', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'Desconocido') :
                             (chat.sBye || this.bye || conn.bye || 'Adiós, @user')).replace('@user', '@' + user.split('@')[0])
-                       // this.sendFile(id, pp, 'pp.jpg', text, null, false, { mentions: [user] })
-                       this.sendButton(id, text, igfg, pp, [
-                             [(action == 'add' ? '⦙☰ MENU' : 'BYE'), (action == 'add' ? '/help' : ' ')], 
-                             [(action == 'add' ? '⏍ INFO' : '👋🏻'), (action == 'add' ? '/info' : ' ')] ], null, {mentions: [user]}) 
+                         
+                            let wel = API('fgmods', '/api/welcome', {
+                                username: await this.getName(user),
+                                groupname: await this.getName(id),
+                                groupicon: ppgp,
+                                membercount: groupMetadata.participants.length,
+                                profile: pp,
+                                background: 'https://i.imgur.com/bbWbASn.jpg'
+                            }, 'apikey')
+
+                            let lea = API('fgmods', '/api/goodbye', {
+                                username: await this.getName(user),
+                                groupname: await this.getName(id),
+                                groupicon: ppgp,
+                                membercount: groupMetadata.participants.length,
+                                profile: pp,
+                                background: 'https://i.imgur.com/klTSO3d.jpg'
+                            }, 'apikey')
+                            // this.sendFile(id, pp, 'pp.jpg', text, null, false, { mentions: [user] })
+                            this.sendButton(id, text, igfg, action === 'add' ? wel : lea, [
+                             [(action == 'add' ? '⦙☰ MENU' : 'BYE'), (action == 'add' ? '/help' : 'khajs')], 
+                             [(action == 'add' ? '⏍ INFO' : 'ッ'), (action == 'add' ? '/info' : ' ')] ], null, {mentions: [user]})
+                          
                     }
                 }
             }
