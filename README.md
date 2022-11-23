@@ -22,7 +22,7 @@
 - Puede cambiar a la última versión de baileys editando el package.json [esta sección](https://github.com/FG98F/dylux-fg/blob/main/package.json#L42)
 
 ### FREE APIKEY
--  [click aquí](https://api-fgmods.herokuapp.com)
+-  [click aquí](https://api-fgmods.ddns.net)
 
 ### Ejemplo 
 En caso de duda, antes de instalar dylux-bot, pruebe el bot aquí
