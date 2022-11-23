@@ -1,7 +1,7 @@
 
 let handler = async (m, { conn, text, usedPrefix, command, args, participants, isOwner }) => {
 	
-   if (!isOwner) throw conn.sendButton(m.chat, `*Invitar bot a un grupo*\n\nHola @${m.sender.split('@')[0]}\npuedes alquilar el bot para que se una a un grupo\n\n_más info click en el botón_`.trim(), igfg, null, [
+   if (!isOwner) return conn.sendButton(m.chat, `*Invitar bot a un grupo*\n\nHola @${m.sender.split('@')[0]}\npuedes alquilar el bot para que se una a un grupo\n\n_más info click en el botón_`.trim(), igfg, null, [
        ['Alquilar', `${usedPrefix}buyprem`]] , m, { mentions: [m.sender] })
 	
   let time = global.db.data.users[m.sender].lastjoin + 86400000
