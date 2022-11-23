@@ -15,14 +15,13 @@ global.APIs = { // API Prefix
   xteam: 'https://api.xteam.xyz', 
   nrtm: 'https://nurutomo.herokuapp.com',
   bg: 'http://bochil.ddns.net',
-  males: 'https://malesin.xyz', 
   fgmods: 'https://api-fgmods.ddns.net'
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
   'https://api.xteam.xyz': 'd90a9e986e18778b',
   'https://zenzapis.xyz': '675e34de8a', 
-  'https://api-fgmods.herokuapp.com': 'fg-dylux'
+  'https://api-fgmods.ddns.net': 'fg-dylux'
 }
 
 // Sticker WM
