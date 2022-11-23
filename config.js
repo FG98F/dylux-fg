@@ -16,7 +16,7 @@ global.APIs = { // API Prefix
   nrtm: 'https://nurutomo.herokuapp.com',
   bg: 'http://bochil.ddns.net',
   males: 'https://malesin.xyz', 
-  fgmods: 'https://api-fgmods.herokuapp.com'
+  fgmods: 'https://api-fgmods.ddns.net'
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
