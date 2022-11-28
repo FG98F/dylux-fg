@@ -1,10 +1,10 @@
 
 import fg from 'api-dylux'
 import { youtubedl, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper'
-let limit = 350
+let limit = 300
 let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) => {
-	if (!args || !args[0]) throw `✳️ Ejemplo :\n${usedPrefix + command} https://youtu.be/YzkTFFwxtXI`
-    if (!args[0].match(/youtu/gi)) throw `❎ Verifica que el link de YouTube`
+	if (!args || !args[0]) throw `✳️ ${msg.example()} :\n${usedPrefix + command} https://youtu.be/YzkTFFwxtXI`
+    if (!args[0].match(/youtu/gi)) throw `❎ ${msg.clink('YouTube')}`
 	 let chat = global.db.data.chats[m.chat]
 	 m.react(rwait) 
 	try {
@@ -15,30 +15,31 @@ let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) =
 		const title = await yt.title
 		const size = await yt.video[q].fileSizeH 
 		
-       if (size.split('MB')[0] >= limit) return m.reply(` ≡  *FG YTDL*\n\n▢ *⚖️Peso* : ${size}\n▢ *🎞️Calidad* : ${q}\n\n▢ _El archivo supera el límite de descarga_ *+${limit} MB*`)    
+       if (size.split('MB')[0] >= limit) return m.reply(` ≡  *FG YTDL*\n\n▢ *⚖️${msg.lsize()}*: ${size}\n▢ *🎞️${msg.lquality()}*: ${q}\n\n▢ _${msg.limitdl()}_ *+${limit} MB*`) 
+	   if (size.includes('GB')) return m.reply(` ≡  *FG YTDL*\n\n▢ *⚖️${msg.lsize()}*: ${size}\n▢ *🎞️${msg.lquality()}*: ${q}\n\n▢ _${msg.limitdl()}_ *+${limit} MB*`)   
 	  conn.sendFile(m.chat, dl_url, title + '.mp4', `
  ≡  *FG YTDL*
   
-▢ *📌Título* : ${title}
-▢ *📟 Ext* : mp4
-▢ *🎞️Calidad* : ${q}
-▢ *⚖️Peso* : ${size}
+▢ *📌${msg.ltitle()}* : ${title}
+▢ *🎞️${msg.lquality()}* : ${q}
+▢ *⚖️${msg.lsize()}* : ${size}
 `.trim(), m, false, { asDocument: chat.useDocument })
 		m.react(done) 
 		
 	} catch {
-		
-		const { title, result, quality, size, duration, thumb, channel } = await fg.ytv(args[0]) 
-		if (size.split('MB')[0] >= limit) return m.reply(` ≡  *FG YTDL2*\n\n▢ *⚖️Peso* : ${size}\n▢ *🎞️Calidad* : ${quality}\n\n▢ _El archivo supera el límite de descarga_ *+${limit} MB*`)
+		m.reply(msg.errorDl()) 
+		/*const { title, result, quality, size, duration, thumb, channel } = await fg.ytv(args[0]) 
+		if (size.split('MB')[0] >= limit) return m.reply(` ≡  *FG YTDL2*\n\n▢ *⚖️${msg.lsize()}*: ${size}\n▢ *🎞️${msg.lquality()}*: ${quality}\n\n▢ _${msg.limitdl()}_ *+${limit} MB*`)
 	conn.sendFile(m.chat, result, title + '.mp4', `
  ≡  *FG YTDL2*
   
-▢ *📌Título* : ${title}
+▢ *📌${msg.ltitle()}* : ${title}
 ▢ *📟 Ext* : mp4
-▢ *⚖️Peso* : ${size}
+▢ *🎞️${msg.lquality()}* : ${quality}
+▢ *⚖️${msg.lsize()}* : ${size}
 `.trim(), m, false, { asDocument: chat.useDocument })
-		m.react(done) 
-	} 
+		m.react(done)*/
+	}
 		 
 }
 handler.help = ['ytmp4 <link yt>']

@@ -2,7 +2,7 @@
 import fetch from 'node-fetch'
 import { mediafiredl } from '@bochilteam/scraper'
 let free = 150 // limite de descarga
-let prem = 1420
+let prem = 500
 let handler = async (m, { conn, args, usedPrefix, command, isOwner, isPrems }) => {
 	  
    if (!args[0]) throw `✳️ ${msg.noLink('Mediafire')}`
@@ -23,7 +23,7 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner, isPrems }) =
 ▢ *${msg.lsize()}:* ${filesizeH}
 ▢ *${msg.type()}:* ${ext}
 ▢ *${msg.uplaud()}:* ${aploud}
-${isLimit ? `\n▢ ${msg.limitdl()} *+${free} MB* ${msg.limitdlTe()} *1.5 GB*` : ''} 
+${isLimit ? `\n▢ ${msg.limitdl()} *+${free} MB* ${msg.limitdlTe()} *${prem} MB*` : ''} 
 `.trim()
     await conn.sendFile(m.chat, ss, 'ssweb.png', caption, m)
     
