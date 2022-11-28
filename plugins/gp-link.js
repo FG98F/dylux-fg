@@ -1,6 +1,6 @@
 import { areJidsSameUser } from '@adiwajshing/baileys'
 let handler = async (m, { conn, args }) => {
-    let group = m.chat
+    let group = m.chat 
     if (/^[0-9]{5,16}-?[0-9]+@g\.us$/.test(args[0])) group = args[0]
     if (!/^[0-9]{5,16}-?[0-9]+@g\.us$/.test(group)) throw '⚠️ Sólo se puede usar en grupos'
     let groupMetadata = await conn.groupMetadata(group)
