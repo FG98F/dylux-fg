@@ -1,5 +1,5 @@
 
-import fg from 'api-dylux' 
+import fg from 'api-dylux'  
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 
 	if (!args[0]) throw `✳️ Ingrese un link de Google Drive`
