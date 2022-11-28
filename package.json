@@ -1,6 +1,6 @@
 { 
-    "name": "dylux-fg",
-    "version": "2.1.9",
+    "name": "dylux-bot",
+    "version": "2.2.2",
     "description": "Customizable WhatsApp Bot",
     "main": "index.js",
     "type": "module",
@@ -32,14 +32,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/FG98F/dylux-fg.git"
+        "url": "git+https://github.com/FG98F/dylux-bot.git"
     },
     "bugs": {
-        "url": "https://github.com/FG98F/dylux-fg/issues"
+        "url": "https://github.com/FG98F/dylux-bot/issues"
     },
     "license": "GPL-3.0-or-later",
     "dependencies": {
-        "@adiwajshing/baileys": "^4.4.0",
+        "@adiwajshing/baileys": "github:fgmods/baileys",
         "@bochilteam/scraper": "^3.0.0",
         "awesome-phonenumber": "^3.4.0",
         "axios": "^1.1.2",
