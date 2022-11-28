@@ -1,7 +1,7 @@
 { 
     "name": "dylux-bot",
     "version": "2.2.2",
-    "description": "Customizable WhatsApp Bot",
+    "description": "Customizable WhatsApp  Bot",
     "main": "index.js",
     "type": "module",
     "directories": {
