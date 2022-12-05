@@ -1,12 +1,11 @@
+
 import fetch from 'node-fetch'
 import axios from 'axios'
-//import db from '../lib/database.js'
-
 let handler = async (m, { conn, usedPrefix, command }) => {
 	
-	if (!global.db.data.chats[m.chat].nsfw && m.isGroup) throw `❗El grupo no admite contenido nsfw \n\n Para habilitar escriba \n*${usedPrefix}enable* nsfw`
-   var {age} = global.db.data.users[m.sender]
-   if (age <17) throw m.reply(`❎ Eres menor de edad! vuelve cuando tengas más de 18 años`) 
+	if (!global.db.data.chats[m.chat].nsfw) throw `🚫 El grupo no admite contenido nsfw \n\n Para habilitar escriba \n*${usedPrefix}enable* nsfw`
+    let user = global.db.data.users[m.sender].age
+    if (user < 17) throw m.reply(`❎ Eres menor de edad! vuelve cuando tengas más de 18 años`) 
    
    m.react(rwait)
 
@@ -46,39 +45,35 @@ break
 //--
 case 'ass':
 case 'culos':
-    let xacs = ["https://meme-api.herokuapp.com/gimme/CuteLittleButts", "https://meme-api.herokuapp.com/gimme/ass"]
-    let as = await axios.get(pickRandom(xacs))
-    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, as.data.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
+    let as = await conn.getFile(global.API('fgmods', '/api/nsfw/ass', { }, 'apikey'))
+    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, as.data, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
    m.react(xmoji) 
 break
 
 case 'boobs':
 case 'boobies':
-    let xb = ["https://meme-api.herokuapp.com/gimme/tits", "https://meme-api.herokuapp.com/gimme/BestTits", "https://meme-api.herokuapp.com/gimme/boobs", "https://meme-api.herokuapp.com/gimme/amazingtits", "https://meme-api.herokuapp.com/gimme/TinyTits"]
-    let boo = await axios.get(pickRandom(xb))
-    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, boo.data.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
+    let xb = await conn.getFile(global.API('fgmods', '/api/nsfw/boobs', { }, 'apikey'))
+    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, xb.data, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
    m.react(xmoji) 
 break
 
 case 'pussy':
-    let xp = ["https://meme-api.herokuapp.com/gimme/pussy", "https://meme-api.herokuapp.com/gimme/LegalTeens"] 
-    let pus = await axios.get(pickRandom(xp))
-    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, pus.data.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
+    let xp = await conn.getFile(global.API('fgmods', '/api/nsfw/pussy', { }, 'apikey'))
+    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, xp.data, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
    m.react(xmoji) 
 break
 
 case 'lesbians':
 case 'lesbian':
-    let les = await axios.get(`https://meme-api.herokuapp.com/gimme/lesbians`)
-   conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, les.data.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
+    let les = await conn.getFile(global.API('fgmods', '/api/nsfw/lesbian', { }, 'apikey'))
+   conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, les.data, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
    m.react(xmoji) 
 break
 
 case 'pack':
 case 'cosplay':
 	     let img = await conn.getFile(global.API('fgmods', '/api/nsfw/cosplay', {}, 'apikey'))
-	     let cosp = img.data
-	     conn.sendButton(m.chat, `✅ Resultado 🤭\n Random *${command}*`, 'Vea más fotos aquí \nhttps://t.me/+8SKOTyja8rBlYTlh \n\n', cosp, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
+	     conn.sendButton(m.chat, `✅ Resultado 🤭\n Random *${command}*`, fgyt, img.data, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
 	     m.react(xmoji) 
 	break
 
@@ -92,10 +87,6 @@ handler.tags = ['nsfw']
 handler.command = /^(xwaifu|xneko|blowjob|ass|culos|boobs|boobies|lesbian|lesbians|pussy|cosplay|pack)$/i
 handler.diamond = true
 handler.register = true
+handler.group = true
 
 export default handler
-
-
-function pickRandom(list) {
-  return list[Math.floor(list.length * Math.random())]
-}
