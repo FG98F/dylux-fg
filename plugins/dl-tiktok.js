@@ -3,7 +3,7 @@ import fg from 'api-dylux'
 import { tiktokdl, tiktokdlv2, tiktokdlv3 } from '@bochilteam/scraper'
 
 let handler = async (m, { conn, text, args, usedPrefix, command}) => {
-if (!args[0]) throw `✳️ Ingrese un link de Tiktok\n\n 📌 Ejemplo : ${usedPrefix + command} https://vm.tiktok.com/ZMNqyusVD/?k=1`
+if (!args[0]) throw `✳️ Ingrese un link de Tiktok\n\n 📌 Ejemplo : ${usedPrefix + command} https://vm.tiktok.com/ZMFV3HA3J`
 if (!args[0].match(/tiktok/gi)) throw `❎ verifica que el link sea de tiktok`
 m.react(rwait)
 
@@ -17,6 +17,7 @@ try {
     conn.sendButton(m.chat, te, igfg, p.nowm, [['⎘ Stalkig', `${usedPrefix}ttstalk ${p.author.replace(/^@/, '')}`], ['♫ Audio', `${usedPrefix}tomp3`]], m)
     m.react(done)
     } catch {  	
+    try { 
 	const { author: { nickname }, video, description } = await tiktokdl(args[0])
          .catch(async _ => await tiktokdlv2(args[0]))
          .catch(async _ => await tiktokdlv3(args[0]))
@@ -27,6 +28,9 @@ try {
 ▢ *Nickname:* ${nickname} ${description ? `\n▢ *Descripción:* ${description}` : ''}
 └───────────`, igfg, url, [['♫ Audio', `${usedPrefix}tomp3`]], m)
 m.react(done)
+} catch {
+    m.reply(`❎ Error al descargar el video`)
+}
 } 
     
 }  
