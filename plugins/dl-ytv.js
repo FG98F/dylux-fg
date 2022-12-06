@@ -28,7 +28,8 @@ let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) =
 		
 	} catch {
 		
-		const { title, result, quality, size, duration, thumb, channel } = await fg.ytv(args[0]) 
+       m.reply(`✳️ Error al descargar el video intenta con otro`) 
+		/*const { title, result, quality, size, duration, thumb, channel } = await fg.ytv(args[0]) 
 		if (size.split('MB')[0] >= limit) return m.reply(` ≡  *FG YTDL2*\n\n▢ *⚖️Peso* : ${size}\n▢ *🎞️Calidad* : ${quality}\n\n▢ _El archivo supera el límite de descarga_ *+${limit} MB*`)
 	conn.sendFile(m.chat, result, title + '.mp4', `
  ≡  *FG YTDL2*
@@ -37,7 +38,7 @@ let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) =
 ▢ *📟 Ext* : mp4
 ▢ *⚖️Peso* : ${size}
 `.trim(), m, false, { asDocument: chat.useDocument })
-		m.react(done) 
+		m.react(done)*/ 
 	} 
 		 
 }
