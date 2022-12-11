@@ -8,7 +8,7 @@ export async function all(m) {
   Hola @${m.sender.split('@')[0]} 
   puedes alquilar el bot para que se una a un grupo 
   más info click en el botón
-`.trim(), igfg, null, [['Alquilar', '/buyprem']] , m, { mentions: [m.sender] })
+`.trim(), fgig, null, [['Alquilar', '/buyprem']] , m, { mentions: [m.sender] })
     m.react('💎')
   } 
   

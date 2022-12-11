@@ -25,7 +25,7 @@ const sections = [
 
 const listMessage = {
   text: '\nAquí tiene una lista de lo que puede activar y desactivar',
-  footer: igfg,
+  footer: fgig,
   title: `≡ Lista de Opciones`,
   buttonText: "Click Aquí",
   sections
@@ -189,7 +189,7 @@ const listMessage = {
 ▢ ⚙️ *Estado:* ${isEnable ? 'Activo ✅' : 'Desactivado 🔴'}
 ▢ 🏮 *Para:* ${isAll ? 'Este bot' : isUser ? '' : 'Este chat'}
 └───────────
-`,igfg, null, [[`${isEnable ? '🔴 Desactivar' : '✅ Activar'}`, `${isEnable ? `${usedPrefix}off ${type}` : `${usedPrefix}on ${type}`}`], ['⦙☰ Menu', `${usedPrefix}help`]],m)
+`,fgig, null, [[`${isEnable ? '🔴 Desactivar' : '✅ Activar'}`, `${isEnable ? `${usedPrefix}off ${type}` : `${usedPrefix}on ${type}`}`], ['⦙☰ Menu', `${usedPrefix}help`]],m)
 */
 
 m.reply(`

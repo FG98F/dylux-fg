@@ -14,7 +14,7 @@ try {
 ▢ *Username:* ${p.author}
 ▢ *Descripción:* ${p.title}
 └───────────`
-    conn.sendButton(m.chat, te, igfg, p.nowm, [['⎘ Stalkig', `${usedPrefix}ttstalk ${p.author.replace(/^@/, '')}`], ['♫ Audio', `${usedPrefix}tomp3`]], m)
+    conn.sendButton(m.chat, te, fgig, p.nowm, [['⎘ Stalkig', `${usedPrefix}ttstalk ${p.author.replace(/^@/, '')}`], ['♫ Audio', `${usedPrefix}tomp3`]], m)
     m.react(done)
     } catch {  	
     try { 
@@ -26,7 +26,7 @@ try {
     conn.sendButton(m.chat, `
 ┌─⊷ TIKTOK
 ▢ *Nickname:* ${nickname} ${description ? `\n▢ *Descripción:* ${description}` : ''}
-└───────────`, igfg, url, [['♫ Audio', `${usedPrefix}tomp3`]], m)
+└───────────`, fgig, url, [['♫ Audio', `${usedPrefix}tomp3`]], m)
 m.react(done)
 } catch {
     m.reply(`❎ Error al descargar el video`)
