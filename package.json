@@ -1,7 +1,7 @@
 { 
     "name": "dylux-bot",
     "version": "2.2.2",
-    "description": "Customizable WhatsApp  Bot",
+    "description": "Customizable WhatsApp Bot",
     "main": "index.js",
     "type": "module",
     "directories": {
@@ -39,7 +39,7 @@
     },
     "license": "GPL-3.0-or-later",
     "dependencies": {
-        "@adiwajshing/baileys": "^4.4.0",
+        "@adiwajshing/baileys": "github:fgmods/baileys",
         "@bochilteam/scraper": "^3.0.0",
         "awesome-phonenumber": "^3.4.0",
         "axios": "^1.1.2",
@@ -80,7 +80,7 @@
         "hispamemes": "^1.0.7",
         "didyoumean": "^1.2.2",
         "fg-ig": "^0.0.4",
-        "api-dylux": "^1.2.4",
+        "api-dylux": "^1.2.6",
         "@vitalets/google-translate-api": "^8.0.0",
         "yargs": "^17.6.0" 
     },
