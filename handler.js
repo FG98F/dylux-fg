@@ -341,7 +341,7 @@ export async function handler(chatUpdate) {
                 else
                     m.exp += xp
                 if (!isPrems && plugin.diamond && global.db.data.users[m.sender].diamond < plugin.diamond * 1) {
-                    this.sendButton(m.chat, `✳️ Tus diamantes se agotaron \n use el siguiente comando para comprar más diamantes \n*${usedPrefix}buy* <cantidad> \n*${usedPrefix}buyall*`, igfg, null, [['Buy', `${usedPrefix}buy`], ['Buy All', `${usedPrefix}buyall`]], m)
+                    this.sendButton(m.chat, `✳️ Tus diamantes se agotaron \n use el siguiente comando para comprar más diamantes \n*${usedPrefix}buy* <cantidad> \n*${usedPrefix}buyall*`, fgig, null, [['Buy', `${usedPrefix}buy`], ['Buy All', `${usedPrefix}buyall`]], m)
                     continue // Limit habis
                 }
                 if (plugin.level > _user.level) {
@@ -502,7 +502,7 @@ export async function participantsUpdate({ id, participants, action }) {
                                 background: 'https://i.imgur.com/klTSO3d.jpg'
                             }, 'apikey')
                             // this.sendFile(id, pp, 'pp.jpg', text, null, false, { mentions: [user] })
-                            this.sendButton(id, text, igfg, action === 'add' ? wel : lea, [
+                            this.sendButton(id, text, fgig, action === 'add' ? wel : lea, [
                              [(action == 'add' ? '⦙☰ MENU' : 'BYE'), (action == 'add' ? '/help' : 'khajs')], 
                              [(action == 'add' ? '⏍ INFO' : 'ッ'), (action == 'add' ? '/info' : ' ')] ], null, {mentions: [user]})
                           
@@ -587,7 +587,7 @@ global.dfail = (type, m, conn) => {
         unreg: '📇 Regístrese para usar esta función  Escribiendo:\n\n*/reg nombre.edad*\n\n📌Ejemplo : */reg dylux.16*',
         restrict: '🔐 Esta característica está *deshabilitada*'
     }[type]
-    if (msg) return conn.sendButton(m.chat, msg, igfg, null, [['🔖 OK', 'khajs'], ['⦙☰ Menu', '/menu'] ], m)
+    if (msg) return conn.sendButton(m.chat, msg, fgig, null, [['🔖 OK', 'khajs'], ['⦙☰ Menu', '/menu'] ], m)
 }
 
 let file = global.__filename(import.meta.url, true)
