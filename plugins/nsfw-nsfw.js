@@ -14,7 +14,7 @@ switch (type) {
 
 case 'ass':
 case 'culos':
-    let as = await (await fetch(global.API('fgmods', '/api/nsfw/ass', { }, 'apikey'))).json()
+    let as = await (await fetch(global.API('fgmods', '/api/nsfw/ass', { }, 'apikey'))).json() 
     conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, as.result, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
    m.react(xmoji) 
 break
