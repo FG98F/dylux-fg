@@ -5,7 +5,7 @@ let handler = async(m, { conn, usedPrefix, command }) => {
 	//let girl = (await axios.get(`https://raw.githubusercontent.com/FG98F/team-fg/main/img/girl.json`)).data
 	let girl = await conn.getFile(global.API('fgmods', '/api/girl', { }, 'apikey'))
 	let img = girl.data
-   await conn.sendButton(m.chat, '✅ Resultado 🤭', igfg, img, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
+   await conn.sendButton(m.chat, '✅ Resultado 🤭', fgig, img, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]],m)
 }
 handler.help = ['girl']
 handler.tags = ['img']
