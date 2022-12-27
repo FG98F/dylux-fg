@@ -54,7 +54,7 @@ let infobt = `
 *≡ OWNER*
   *FG98*
 ▢ Instagram :
-  • https://instagram.com/fg98._
+  • https://instagram.com/fg98_ff
 ▢ WhatsApp :
   • (escribe solo si es necesario) 
 ▢ GitHub :
@@ -63,9 +63,6 @@ let infobt = `
   • t.me/fgsupp_bot (FG) 
   • t.me/fg98ff (canal)
   • t.me/fgawgp (grupo)
-▢ Facebook : 
-  • https://facebook.com/fg98ff/
-  • https://facebook.com/fg98A/
 ▢ YouTube : 
   • https://youtube.com/fg98f
   
