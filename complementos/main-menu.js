@@ -28,7 +28,7 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-◈ ━━━━━ *DyLux  ┃ ᴮᴼᵀ* ━━━━━ ◈
+◈ ━━━━━ *Loops ┃ ᴮᴼᵀ* ━━━━━ 
  
 👋🏻 _Hola_ *%name*
 🧿 Nivel : *%level* 
@@ -37,8 +37,8 @@ const defaultMenu = {
 ─────────────
 ▢ Crea tu propio bot 
 • https://youtu.be/xFqjKN1Qt80
-▢ Descarga *FGWhatsApp*
-• https://fgmods.epizy.com
+▢ Creditos *PayPal*
+• https://www.paypal.me/Loopsbot
 ─────────────
 %readmore
 Ⓟ = Premium
