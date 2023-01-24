@@ -29,14 +29,15 @@ let tags = {
 const defaultMenu = {
   before: `
 ◈ ━━━━━ *Loops ┃ ᴮᴼᵀ* ━━━━━ 
- 
-👋🏻 _Hola_ *%name*
-🧿 Nivel : *%level* 
+                             
+👋🏻 _Hola_ *%nombre* 
+🧿 Nivel: *%nivel*     
 👥 Usuarios : %totalreg
 📈 Tiempo activo : %muptime
 ─────────────
-▢ Crea tu propio bot 
-• https://youtu.be/xFqjKN1Qt80
+▢ Creador principal
+Loops-bot/jorge
+
 ▢ Creditos *PayPal*
 • https://www.paypal.me/Loopsbot
 ─────────────
@@ -151,12 +152,13 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     
     let pp = './src/fg_logo.jpg'
     
-     /*conn.sendHydrated2(m.chat, text.trim(), '▢ DyLux  ┃ ᴮᴼᵀ\n▢ Sígueme en Instagram\nhttps://www.instagram.com/fg98_ff', pp, fgyt, 'YouTube', 'https://paypal.me/fg98f', 'PayPal', [
+     /*conn.sendHydrated2(m.chat, text.trim(), '▢ Loops ┃ ᴮᴼᵀ\n▢ Sígueme en Instagram\nhttps://www.instagram.com/fg98_ff', pp, fgyt, 'YouTube', 'https://paypal.me/fg98f', 'PayPal', [
       ['ꨄ︎ Apoyar', `${_p}donate`],
       ['⏍ Info', `${_p}botinfo`],
       ['⌬ Grupos', `${_p}gpdylux`]
     ], m)*/  
-    conn.sendButton(m.chat, text.trim(), '▢ DyLux  ┃ ᴮᴼᵀ\n▢ Sígueme en Instagram\nhttps://www.instagram.com/fg98_ff', pp, [
+    contacto _ sendButton ( m . chat , text . trim () , '▢ Loops  ┃ ᴮᴼᵀ\n▢ Sígueme en Instagram\
+f' , pp , [
       ['ꨄ︎ Apoyar', `${_p}donate`],
       ['⏍ Info', `${_p}botinfo`],
       ['⌬ Grupos', `${_p}gpdylux`]
