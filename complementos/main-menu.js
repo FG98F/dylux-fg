@@ -161,8 +161,8 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 f' , pp , [
       ['ꨄ︎ Apoyar', `${_p}donate`],
       ['⏍ Info', `${_p}botinfo`],
-      ['⌬ Grupos', `${_p}gpdylux`]
-    ],m, rpl)
+      ['⌬ Grupos', `      $ { _p } gp loops `],
+    ],m,rpl)
   
     m.react('📚') 
     
