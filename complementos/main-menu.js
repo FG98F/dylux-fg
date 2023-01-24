@@ -152,7 +152,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     
     let pp = './src/fg_logo.jpg'
     
-     /*conn.sendHydrated2(m.chat, text.trim(), '▢ Loops ┃ ᴮᴼᵀ\n▢ Sígueme en Instagram\nhttps://www.instagram.com/fg98_ff', pp, fgyt, 'YouTube', 'https://paypal.me/fg98f', 'PayPal', [
+     /*conn.sendHydrated2(m.chat, text.trim(), '▢ Loops ┃ ᴮᴼᵀ\n▢'https://www.paypal.me/Loopsbot', 'PayPal', [
       ['ꨄ︎ Apoyar', `${_p}donate`],
       ['⏍ Info', `${_p}botinfo`],
       ['⌬ Grupos', `${_p}gpdylux`]
@@ -176,7 +176,7 @@ handler.tags = ['main']
 handler.command = ['menu', 'help', 'menú'] 
 handler.register = false
 
-handler.exp = 3
+manejador.exp = 9
 
 export default handler
 
