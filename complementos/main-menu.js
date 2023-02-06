@@ -28,17 +28,18 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-◈ ━━━━━ *DyLux  ┃ ᴮᴼᵀ* ━━━━━ ◈
- 
-👋🏻 _Hola_ *%name*
-🧿 Nivel : *%level* 
+◈ ━━━━━ *Loops ┃ ᴮᴼᵀ* ━━━━━ 
+                             
+👋🏻 _Hola_ *%nombre* 
+🧿 Nivel: *%nivel*     
 👥 Usuarios : %totalreg
 📈 Tiempo activo : %muptime
 ─────────────
-▢ Crea tu propio bot 
-• https://youtu.be/xFqjKN1Qt80
-▢ Descarga *FGWhatsApp*
-• https://fgmods.epizy.com
+▢ Creador principal
+Loops-bot/jorge
+
+▢ Creditos *PayPal*
+• https://www.paypal.me/Loopsbot
 ─────────────
 %readmore
 Ⓟ = Premium
@@ -151,16 +152,17 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     
     let pp = './src/fg_logo.jpg'
     
-     /*conn.sendHydrated2(m.chat, text.trim(), '▢ DyLux  ┃ ᴮᴼᵀ\n▢ Sígueme en Instagram\nhttps://www.instagram.com/fg98_ff', pp, fgyt, 'YouTube', 'https://paypal.me/fg98f', 'PayPal', [
+     /*conn.sendHydrated2(m.chat, text.trim(), '▢ Loops ┃ ᴮᴼᵀ\n▢'https://www.paypal.me/Loopsbot', 'PayPal', [
       ['ꨄ︎ Apoyar', `${_p}donate`],
       ['⏍ Info', `${_p}botinfo`],
       ['⌬ Grupos', `${_p}gpdylux`]
     ], m)*/  
-    conn.sendButton(m.chat, text.trim(), '▢ DyLux  ┃ ᴮᴼᵀ\n▢ Sígueme en Instagram\nhttps://www.instagram.com/fg98_ff', pp, [
+    contacto _ sendButton ( m . chat , text . trim () , '▢ Loops  ┃ ᴮᴼᵀ\n▢ Sígueme en Instagram\
+f' , pp , [
       ['ꨄ︎ Apoyar', `${_p}donate`],
       ['⏍ Info', `${_p}botinfo`],
-      ['⌬ Grupos', `${_p}gpdylux`]
-    ],m, rpl)
+      ['⌬ Grupos', `      $ { _p } gp loops `],
+    ],m,rpl)
   
     m.react('📚') 
     
@@ -174,7 +176,7 @@ handler.tags = ['main']
 handler.command = ['menu', 'help', 'menú'] 
 handler.register = false
 
-handler.exp = 3
+manejador.exp = 9
 
 export default handler
 
