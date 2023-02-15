@@ -3,9 +3,9 @@ import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 
 global.owner = [
-  ['59172945992', 'FG98', true],
-  ['5492622271736'], 
-  ['5492622271736'] 
+  ['524922108173', 'FG98', true],
+  [''], 
+  [''] 
 ] //Numeros de owner 
 
 global.mods = ['573125484672'] 
@@ -25,14 +25,14 @@ global.APIKeys = { // APIKey Here
 }
 
 // Sticker WM
-global.packname = 'DyLux┃ᴮᴼᵀ' 
-global.author = '@fg98' 
-global.fgig = '▢ Sígueme en Instagram\nhttps://www.instagram.com/fg98_ff\n' 
-global.dygp = 'https://chat.whatsapp.com/IO9jmpI72ejHiN4unRZleU'
-global.fgsc = 'https://github.com/FG98F/dylux-fg' 
-global.fgyt = 'https://youtube.com/fg98f'
-global.fgpyp = 'https://paypal.me/fg98f'
-global.fglog = 'https://i.imgur.com/Owmb93c.png' 
+global.packname = 'Sniperghost-bot┃ᴮᴼᵀ' 
+global.author = '@Sniperghost662009' 
+global.fgig = '▢https://instagram.com/axelnadhirhernandez?igshid=ZDdkNTZiNTM=' 
+global.dygp = ''
+global.fgsc = 'oculto' 
+global.fgyt = 'no existe'
+global.fgpyp = ''
+global.fglog = ' 
 
 global.wait = '*⌛ _Cargando..._*\n*▰▰▰▱▱▱▱▱*'
 global.rwait = '⌛'
