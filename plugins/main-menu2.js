@@ -14,6 +14,8 @@ envíame por t.me/fgsupp_bot el *audio + comando* con en el que responderá
 ▢ Buenos días
 ▢ Buenas tardes 
 ▢ Buenas noches
+▢ Fino señores
+▢ Sad
 └──────────────
 `
 //const pp = await (await fetch('https://i.ibb.co/qMG1JPY/fg.jpg')).buffer()
