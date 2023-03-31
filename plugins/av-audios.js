@@ -1,23 +1,22 @@
 
 let handler = m => m
 handler.all = async function (m) {
-
-    if (/^buenos días$/i.test(m.text) ) {
-      let av = 'https://f.top4top.io/m_2437qgtmd1.mp3'
-      this.sendFile(m.chat, av, 'audio.mp3', null, m, true, { type: 'audioMessage', ptt: true })
-     }
-
-  if (/^buenas tardes$/i.test(m.text) ) {
-     let av = 'https://g.top4top.io/m_2437lm0y21.mp3'
-     this.sendFile(m.chat, av, 'audio.mp3', null, m, true, { type: 'audioMessage', ptt: true })
-   }
-
-  if (/^buenas noches$/i.test(m.text) ) {
-    let av = 'https://e.top4top.io/m_2437afchn1.mp3'
-    this.sendFile(m.chat, av, 'audio.mp3', null, m, true, { type: 'audioMessage', ptt: true })
-   }
-  
-return !0
+  for (const message in audioMsg) {
+    if (new RegExp(`^${message}$`, 'i').test(m.text)) {
+      this.sendFile(m.chat, audioMsg[message], 'audio.mp3', null, m, true)
+      break
+    }
+  }
+  return !0
  }
- 
+
 export default handler
+
+
+let audioMsg = {
+  'buenos días': 'https://j.top4top.io/m_26464yyei1.mp3',
+  'buenas tardes': 'https://i.top4top.io/m_2646qxac91.mp3',
+  'buenas noches': 'https://h.top4top.io/m_26460eg6v1.mp3',
+  'sad': 'https://h.top4top.io/m_2474fhcbh1.mp3',
+  '@5492622271736|@59172945992': 'https://l.top4top.io/m_2492i4mdu1.mp3'
+}
