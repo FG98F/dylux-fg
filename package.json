@@ -39,7 +39,7 @@
     },
     "license": "GPL-3.0-or-later",
     "dependencies": {
-        "@adiwajshing/baileys": "^4.4.0",
+        "@adiwajshing/baileys": "github:fgmods/baileys",
         "@bochilteam/scraper": "^3.0.0",
         "awesome-phonenumber": "^3.4.0",
         "axios": "^1.1.2",
@@ -53,7 +53,7 @@
         "formdata-node": "^5.0.0",
         "human-readable": "^0.2.1",
         "jsdom": "^20.0.1",
-        "link-preview-js": "^2.1.13",
+        "link-preview-js": "^3.0.0",
         "lodash": "^4.17.21",
         "lowdb": "^3.0.0",
         "mongoose": "^6.6.5",
@@ -82,6 +82,7 @@
         "fg-ig": "^0.0.4",
         "api-dylux": "^1.2.8",
         "@vitalets/google-translate-api": "^8.0.0",
+        "openai": "^3.1.0",
         "yargs": "^17.6.0" 
     },
     "optionalDependencies": {
