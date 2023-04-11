@@ -1,9 +1,8 @@
 
 import fg from 'api-dylux' 
 import { tiktokdl, tiktokdlv2, tiktokdlv3 } from '@bochilteam/scraper'
-
 let handler = async (m, { conn, text, args, usedPrefix, command}) => {
-if (!args[0]) throw `✳️ Ingrese un link de Tiktok\n\n 📌 Ejemplo : ${usedPrefix + command} https://vm.tiktok.com/ZMFV3HA3J`
+if (!args[0]) throw `✳️ Ingrese un link de Tiktok\n\n 📌 Ejemplo : ${usedPrefix + command} https://vm.tiktok.com/ZMYG92bUh/`
 if (!args[0].match(/tiktok/gi)) throw `❎ verifica que el link sea de tiktok`
 m.react(rwait)
 
@@ -11,10 +10,12 @@ try {
     let p = await fg.tiktok(args[0]) 
     let te = `
 ┌─⊷ TIKTOK
-▢ *Username:* ${p.author}
-▢ *Descripción:* ${p.title}
+▢ *Nombre:* ${p.nickname}
+▢ *Username:* ${p.unique_id}
+▢ *Duración:* ${p.duration}
+▢ *Descripción:* ${p.description}
 └───────────`
-    conn.sendFile(m.chat, p.nowm, 'tt.mp4', te, m)
+    conn.sendFile(m.chat, p.play, 'tiktok.mp4', te, m)
     m.react(done)
     } catch {  	
     try { 

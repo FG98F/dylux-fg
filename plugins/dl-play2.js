@@ -6,7 +6,7 @@ let handler = async(m, { conn, usedPrefix, text, args, command }) => {
     if (!text) throw `✳️ Ingresa el título de una canción\n\n*📌 Ejemplo*\n*${usedPrefix + command}* Lil Peep hate my fuccn life `
     m.react('📀')
     let result = await yts(text)
-    let ytres = result.all
+    let ytres = result.videos
     let listSections = []
 	Object.values(ytres).map((v, index) => {
 	listSections.push([`${index}┃ ${v.title}`, [

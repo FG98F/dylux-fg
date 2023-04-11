@@ -5,16 +5,14 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
  if (!args[0]) throw `✳️ Envíe el link de un video de Facebook\n\n📌 Ejemplo :\n*${usedPrefix + command}* https://fb.watch/d7nB8-L-gR/`
     m.react(rwait)
    try {
-   let res = await fg.fbdl(args[0])
-    for (let result of res.download) {
-    	  let tex = `
+    let result = await fg.fbdl(args[0]);
+    let tex = `
 ┌─⊷ *FBDL*
-▢ *Calidad:* ${result.quality}
-└───────────`
-    conn.sendFile(m.chat, result.url, 'fb.mp4', tex, m)
-     } 
-     m.react(done)
- } catch {
+▢ *Título:* ${result.title}
+└───────────`;
+    conn.sendFile(m.chat, result.videoUrl, 'fb.mp4', tex, m);
+    m.react(done);
+  } catch (error) {
  	m.reply('Error: Intente de nuevo con otro link')
  	} 
 }
