@@ -511,15 +511,15 @@ export async function participantsUpdate({ id, participants, action }) {
             }
             break
         case 'promote':
-        case 'promover':
             text = (chat.sPromote || this.spromote || conn.spromote || '@user ahora es administrador')
         case 'demote':
-        case 'degradar':
+            let pp = await this.profilePictureUrl(participants[0], 'image').catch(_ => 'https://i.imgur.com/whjlJSf.jpg') 
             if (!text)
                 text = (chat.sDemote || this.sdemote || conn.sdemote || '@user ya no es administrador')
             text = text.replace('@user', '@' + participants[0].split('@')[0])
-            if (chat.detect)
-                this.sendMessage(id, { text, mentions: this.parseMention(text) })
+            if (chat.detect)    
+            this.sendFile(id, pp, 'pp.jpg', text, null, false, { mentions: this.parseMention(text) })
+            //this.sendMessage(id, { text, mentions: this.parseMention(text) })
             break
     }
 }
