@@ -60,21 +60,7 @@ function start(file) {
     }
   })
   //---
-  p.on('exit', (_, code) => {
-    isRunning = false
-    console.error('❎ Ocurrió un error inesperado:', code)
-    if (code === 0) return
-    console.log(`Esperando 5 segundos antes de reiniciar bot...`)
-    setTimeout(() => {
-      console.log(`Reiniciando bot...`)
-      watchFile(args[0], () => {
-        unwatchFile(args[0])
-        start(file)
-      })
-    }, 5000) // tiempo de espera en milisegundos
-  })
-  
-  /*p.on('exit', (_, code) => {
+ p.on('exit', (_, code) => {
     isRunning = false
     console.error('❎ Ocurrió un error inesperado:', code)
     if (code === 0) return
@@ -82,7 +68,7 @@ function start(file) {
       unwatchFile(args[0])
       start(file)
     })
-  })*/
+  })
 
   //----
   let opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
