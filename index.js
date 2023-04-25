@@ -69,7 +69,6 @@ function start(file) {
       start(file)
     })
   })
-
   //----
   let opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
   if (!opts['test'])
