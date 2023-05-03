@@ -23,6 +23,7 @@ try {
     exp: xp,
     avatar: pp,
     level: user.level,
+    ranklog: 'https://i.ibb.co/7gfnyMw/gold.png',
     background: 'https://i.ibb.co/CsNgBYw/qiyana.jpg'
 }, 'apikey')
 
