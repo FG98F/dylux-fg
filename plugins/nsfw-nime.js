@@ -34,15 +34,15 @@ break
 case 'yuri':
 case 'cum':
 case 'xneko':
-    let as = await (await fetch(global.API('fgmods', `/api/nsfw/nime/${command}`, { }, 'apikey'))).json()
-   conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, as.result, [[`▷▷ SIGUIENTE`, `${usedPrefix + command}`]], m)
+    let as = await conn.getFile(global.API('fgmods', `/api/nsfw/nime/${command}`, { }, 'apikey'))
+   conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, as.data, [[`▷▷ SIGUIENTE`, `${usedPrefix + command}`]], m)
    m.react(xmoji) 
 break
 
 case 'hentai':
     let he = pickRandom(['yuri', 'cum', 'xneko', 'blowjob', 'ass', 'pussy'])
-    let les = await (await fetch(global.API('fgmods', `/api/nsfw/nime/${he}`, { }, 'apikey'))).json()
-   conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, les.result, [[`▷▷ SIGUIENTE`, `${usedPrefix + command}`]], m)
+    let les = await conn.getFile(global.API('fgmods', `/api/nsfw/nime/${he}`, { }, 'apikey'))
+   conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, les.data, [[`▷▷ SIGUIENTE`, `${usedPrefix + command}`]], m)
    m.react(xmoji) 
 break
 
