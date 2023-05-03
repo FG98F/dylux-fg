@@ -17,7 +17,7 @@ let handler = async (m, { conn }) => {
 Te falta *${max - user.exp}* de *XP* para subir de nivel
 `.trim()
 try {
-  let imgg = API('fgmods', '/api/rank', {
+  let imgg = API('fgmods', '/api/maker/rank', {
     username: name,
     xp: user.exp - min,
     exp: xp,
@@ -46,7 +46,7 @@ try {
 *_Cuanto más interactúes con los bots, mayor será tu nivel_*
 `.trim()
         try {
-            let img = API('fgmods', '/api/levelup', { 
+            let img = API('fgmods', '/api/maker/levelup', { 
                 avatar: pp 
              }, 'apikey')
       conn.sendFile(m.chat, img, 'levelup.jpg', str, m)
