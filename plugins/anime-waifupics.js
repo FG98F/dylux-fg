@@ -8,23 +8,22 @@ let type = (command).toLowerCase()
 
 switch (type) {
 	
-	case 'loli':
-	     let img = await (await fetch(global.API('fgmods', '/api/loli', {}, 'apikey'))).json()
-	     conn.sendButton(m.chat, `✅ Random ${command}`, fgig, img.result, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
+ case 'loli':
+  case 'neko':
+	     let loli = await conn.getFile(global.API('fgmods', `/api/${command}`, { }, 'apikey'))
+	     conn.sendButton(m.chat, `✅ Random ${command}`, msg.ig(), loli.data, [[`▷▷ ${msg.next()}`, `${usedPrefix + command}`]], m)
 	     m.react(dmoji) 
 	break
 	
 case 'waifu':
 case 'megumin':
-case 'neko':
   let res = await fetch(`https://api.waifu.pics/sfw/${command}`)
     if (!res.ok) throw await res.text()
     let json = await res.json()
     if (!json.url) throw '❎ Error'
-    conn.sendButton(m.chat, `✅ Random ${command}`, fgig, json.url, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
+    conn.sendButton(m.chat, `✅ Random ${command}`, msg.ig(), json.url, [[`▷▷ ${msg.next()}`, `${usedPrefix + command}`]], m)
    m.react(dmoji) 
 break
-
 
 default:
  }
