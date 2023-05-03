@@ -27,7 +27,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
  }
     } else {
         try {
-            let res = await fetch(global.API('fgmods', '/api/search/xnxxsearch', { q: text }, 'apikey'))
+            let res = await fetch(global.API('fgmods', '/api/search/xnxxsearch', { text }, 'apikey'))
             let json = await res.json()
              let listSections = []
               Object.values(json.result).map((v, index) => {
