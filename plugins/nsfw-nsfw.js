@@ -14,28 +14,28 @@ switch (type) {
 
 case 'ass':
 case 'culos':
-    let as = await (await fetch(global.API('fgmods', '/api/nsfw/ass', { }, 'apikey'))).json() 
-    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, as.result, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
+    let as = await conn.getFile(global.API('fgmods', '/api/nsfw/ass', { }, 'apikey'))
+    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, as.data, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
    m.react(xmoji) 
 break
 
 case 'boobs':
 case 'boobies':
-   let xb = await (await fetch(global.API('fgmods', '/api/nsfw/boobs', { }, 'apikey'))).json()
-    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, xb.result, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
+   let xb = await conn.getFile(global.API('fgmods', '/api/nsfw/boobs', { }, 'apikey'))
+    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, xb.data, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
    m.react(xmoji) 
 break
 
 case 'pussy':
-   let xp = await (await fetch(global.API('fgmods', '/api/nsfw/pussy', { }, 'apikey'))).json()
-    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, xp.result, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
+   let xp = await conn.getFile(global.API('fgmods', '/api/nsfw/pussy', { }, 'apikey'))
+    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, xp.data, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
    m.react(xmoji) 
 break
 
 case 'lesbians':
 case 'lesbian':
-   let les = await (await fetch(global.API('fgmods', '/api/nsfw/lesbian', { }, 'apikey'))).json()
-   conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, les.result, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
+   let les = await conn.getFile(global.API('fgmods', '/api/nsfw/lesbian', { }, 'apikey'))
+   conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, les.data, [['▷▷ SIGUIENTE', `${usedPrefix + command}`]], m)
    m.react(xmoji) 
 break
 
