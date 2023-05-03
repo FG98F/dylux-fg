@@ -13,7 +13,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
     if (text.includes('http://') || text.includes('https://')) {
         if (!text.includes('xnxx.com')) return m.reply(`❎ Ingrese un link de *xnxx.com*`)
         try {
-            let xn = await (await fetch(global.API('fgmods', '/api/xnxxdl', { url: text }, 'apikey'))).json()
+            let xn = await (await fetch(global.API('fgmods', '/api/dowloader/xnxxdl', { url: text }, 'apikey'))).json()
             conn.sendFile(m.chat, xn.result.files.high, xn.result.title + '.mp4', `
 ≡  *XNXX DL*
             
@@ -27,7 +27,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
  }
     } else {
         try {
-            let res = await fetch(global.API('fgmods', '/api/xnxxsearch', { q: text }, 'apikey'))
+            let res = await fetch(global.API('fgmods', '/api/search/xnxxsearch', { q: text }, 'apikey'))
             let json = await res.json()
              let listSections = []
               Object.values(json.result).map((v, index) => {
