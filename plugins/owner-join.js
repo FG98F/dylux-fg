@@ -1,8 +1,7 @@
 
 let handler = async (m, { conn, text, usedPrefix, command, args, participants, isOwner }) => {
 	
-   if (!isOwner) return conn.sendButton(m.chat, `*Invitar bot a un grupo*\n\nHola @${m.sender.split('@')[0]}\npuedes alquilar el bot para que se una a un grupo\n\n_más info click en el botón_`.trim(), fgig, null, [
-       ['Alquilar', `${usedPrefix}buyprem`]] , m, { mentions: [m.sender] })
+   if (!isOwner) return conn.reply(m.chat, `*Invitar bot a un grupo*\n\nHola @${m.sender.split('@')[0]}\npuedes alquilar el bot para que se una a un grupo`.trim(), m, { mentions: [m.sender] })
 	
   let time = global.db.data.users[m.sender].lastjoin + 86400000
   let linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})/i
@@ -50,7 +49,7 @@ para ver el Menu del bot escribe
 
 ${usedPrefix}help
 @${conn.user.jid.split('@')[0]} saldrá automáticamente después de \n\n${msToDate(global.db.data.chats[res].expired - now)}`
-  await conn.sendButton(res, mes, fgig, null, [[`✆ Owner`, `${usedPrefix}fgowner`], [`⦙☰ Menu`, `${usedPrefix}help`]], m, {
+  await conn.reply(res, mes, m, {
         mentions: d
          })
      })

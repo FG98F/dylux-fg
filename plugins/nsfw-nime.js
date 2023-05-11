@@ -17,8 +17,8 @@ switch (type) {
         if (!xwai.ok) throw await xwai.text()
         let xwfu = await xwai.json()
         if (!xwfu.url) throw '❎ Error'
-        conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, xwfu.url, [[`▷▷ SIGUIENTE`, `${usedPrefix + command}`]], m)
-       m.react(xmoji)    
+        conn.sendFile(m.chat, xwai.url, 'img.jpg', `✅ Random ${command}`, m)
+        m.react(xmoji)    
   break
 
 case 'blowjob':
@@ -27,23 +27,23 @@ case 'trap':
     if (!res.ok) throw await res.text()
     let json = await res.json()
     if (!json.url) throw '❎ Error'
-    conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, json.url, [[`▷▷ SIGUIENTE`, `${usedPrefix + command}`]], m)
-   m.react(xmoji) 
+    conn.sendFile(m.chat, json.url, 'img.jpg', `✅ Random ${command}`, m)
+    m.react(xmoji) 
 break
 
 case 'yuri':
 case 'cum':
 case 'xneko':
     let as = await conn.getFile(global.API('fgmods', `/api/nsfw-nime/${command}`, { }, 'apikey'))
-   conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, as.data, [[`▷▷ SIGUIENTE`, `${usedPrefix + command}`]], m)
-   m.react(xmoji) 
+    conn.sendFile(m.chat, as.data, 'img.jpg', `✅ Random ${command}`, m)
+    m.react(xmoji) 
 break
 
 case 'hentai':
     let he = pickRandom(['yuri', 'cum', 'xneko', 'blowjob', 'ass', 'pussy'])
     let les = await conn.getFile(global.API('fgmods', `/api/nsfw-nime/${he}`, { }, 'apikey'))
-   conn.sendButton(m.chat, `✅ Random *${command}*`, fgyt, les.data, [[`▷▷ SIGUIENTE`, `${usedPrefix + command}`]], m)
-   m.react(xmoji) 
+    conn.sendFile(m.chat, les.data, 'img.jpg', `✅ Random ${command}`, m)
+    m.react(xmoji) 
 break
 
 default:
