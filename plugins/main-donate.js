@@ -13,9 +13,9 @@ puedes donar si quieres ayudar a mantener el bot activo
 • *N° :* 2622271736
 `
 let img = 'https://i.ibb.co/37FP2bk/donate.jpg'
-conn.sendButton(m.chat, don, 'Haga click en boton si quiere comprar o alquilar al bot', img, [['Buy Premium', `${usedPrefix}buyprem`]],m, rpyp)
-}
+conn.sendFile(m.chat, img, 'img.jpg', don, m)
 
+}
 handler.help = ['donate']
 handler.tags = ['main']
 handler.command = ['apoyar', 'donate', 'donar'] 

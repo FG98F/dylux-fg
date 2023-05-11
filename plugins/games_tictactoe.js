@@ -77,10 +77,10 @@ Escriba *surrender* para darse por vencido
             room[room.game._currentTurn ^ isSurrender ? 'x' : 'o'] = m.chat
         const btn = isTie ? ['TicTacToe', '/ttt'] : ['Surrender', 'surrender']
         if (room.x !== room.o)
-            await this.sendButton(room.x, str, fgig, btn, m, {
+            await this.reply(room.x, str, m, {
                 mentions: this.parseMention(str)
             })
-        await this.sendButton(room.o, str, fgig, btn, m, {
+        await this.reply(room.o, str, m, {
             mentions: this.parseMention(str)
         })
         if (isTie || isWin) {

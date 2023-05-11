@@ -28,10 +28,11 @@ async function handler(m, { conn, args, usedPrefix, command }) {
 ¿Está seguro de que desea transferir *${count}* _*${type}*_ a  *@${(who || '').replace(/@s\.whatsapp\.net/g, '')}* ? 
 
 - Tienes  *60s* 
-_presiona un boton_
+_responde *si* o *no*_
 `.trim()
    
-    conn.sendButton(m.chat, confirm, fgig, null, [['si'], ['no']], m, { mentions: [who] })
+    //conn.sendButton(m.chat, confirm, fgig, null, [['si'], ['no']], m, { mentions: [who] })
+    m.reply(confirm, null, { mentions: [who] })
     confirmation[m.sender] = {
         sender: m.sender,
         to: who,

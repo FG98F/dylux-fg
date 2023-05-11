@@ -179,18 +179,32 @@ const listMessage = {
       break
       
     default:
-      if (!/[01]/.test(command)) return await conn.sendMessage(m.chat, listMessage, { quoted: m })
+      if (!/[01]/.test(command)) return m.reply(`
+≡ Lista de Opciones
+
+┌─⊷ *ADMIN*
+▢ welcome
+▢ antilink
+▢ detect 
+▢ document
+▢ nsfw
+▢ onlylatinos
+└───────────── 
+┌─⊷ *USERS*
+▢ autolevelup
+▢ chatbot 
+└─────────────
+┌─⊷ *OWNER*
+▢ public
+▢ solopv
+▢ sologp
+└─────────────
+*📌 Ejemplo :*
+*${usedPrefix}on* welcome
+*${usedPrefix}off* welcome
+`)
       throw false
-  }
-  /*conn.sendButton(m.chat, `
-≡ *OPCIONES*
-┌───────────
-▢ 🗂️ *Tipo:* ${type} 
-▢ ⚙️ *Estado:* ${isEnable ? 'Activo ✅' : 'Desactivado 🔴'}
-▢ 🏮 *Para:* ${isAll ? 'Este bot' : isUser ? '' : 'Este chat'}
-└───────────
-`,fgig, null, [[`${isEnable ? '🔴 Desactivar' : '✅ Activar'}`, `${isEnable ? `${usedPrefix}off ${type}` : `${usedPrefix}on ${type}`}`], ['⦙☰ Menu', `${usedPrefix}help`]],m)
-*/
+}
 
 m.reply(`
 ✅ *${type}* Se *${isEnable ? 'Activó' : 'Desactivó'}* ${isAll ? 'para este bot' : isUser ? '' : 'para este chat'}

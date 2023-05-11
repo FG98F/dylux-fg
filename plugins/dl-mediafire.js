@@ -30,6 +30,8 @@ ${isLimit ? `\n▢ El archivo supera el límite de descarga *+${free} MB*\nPása
     m.react(done)
     
     } catch {
+
+        try {
 	let res = await fg.mediafireDl(args[0])
     let { link, name, ext, size, sizeN } = res
    
@@ -45,6 +47,10 @@ if (size.includes('GB')) return m.reply(`${msg.limitdl()} *+${free} MB* ${msg.li
 await conn.sendFile(m.chat, ss, 'ssweb.png', caption, m)
 await conn.sendFile(m.chat, link, name, '', m, null, { mimetype: ext, asDocument: true })
     m.react(done)
+} catch {
+    m.reply(`Error: intenta con otro link`)
+}
+
   }
   
 }

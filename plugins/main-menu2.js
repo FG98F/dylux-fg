@@ -18,12 +18,9 @@ envíame por t.me/fgsupp_bot el *audio + comando* con en el que responderá
 ▢ Sad
 └──────────────
 `
-//const pp = await (await fetch('https://i.ibb.co/qMG1JPY/fg.jpg')).buffer()
+
     let pp = './src/fg_logo.jpg' 
-    conn.sendButton(m.chat, m2, fgig, pp, [
-      ['⏍ Info', `${usedPrefix}botinfo`],
-      ['⌬ Grupos', `${usedPrefix}gpdylux`]
-    ],m, rpyt)
+    conn.sendFile(m.chat, pp, 'menu.jpg', m2, m, null, rpl)
    
 }
 

@@ -39,10 +39,10 @@ ${arr.slice(6).join('')}
 ‣ Haz 3 filas de símbolos verticales, horizontales o diagonales para ganar
 ‣ Escribe *surrender* para salir del juego y ser declarado derrotado.
 `.trim()
-        if (room.x !== room.o) await conn.sendButton(room.x, str, fgig, ['Surrender', 'surrender'], m, {
+        if (room.x !== room.o) await conn.reply(room.x, str, m, {
             mentions: conn.parseMention(str)
         })
-        await conn.sendButton(room.o, str, fgig, ['Surrender', 'surrender'], m, {
+        await conn.reply(room.o, str, m, {
             mentions: conn.parseMention(str)
         })
     } else {
@@ -55,10 +55,10 @@ ${arr.slice(6).join('')}
         }
         if (text) room.name = text
         
-     conn.sendButton(m.chat, `⏳ *Esperando pareja*\nEscriba el siguiente comando para aceptar o presiona el botón 
+     conn.reply(m.chat, `⏳ *Esperando pareja*\nEscriba el siguiente comando para aceptar
 ▢ *${usedPrefix + command} ${text}*
 
-🎁 Recompensa: *4999 XP*`, fgig, ['👍🏻 Aceptar', `${usedPrefix + command} ${text}`], m, {
+🎁 Recompensa: *4999 XP*`, m, {
             mentions: conn.parseMention(text)
         })
         
