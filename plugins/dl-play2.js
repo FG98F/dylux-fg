@@ -11,7 +11,7 @@ let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comman
   let vid = res.videos[0]
   if (!vid) throw `✳️ Vídeo/Audio no encontrado`
   let isVideo = /vid$/.test(command)
-  m.react(rwait)
+  m.react('🎧') 
   
   try {
   let q = isVideo ? '360p' : '128kbps' 
@@ -20,6 +20,17 @@ let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comman
   let dl_url = await (isVideo ? yt.video[q].download() : yt.audio[q].download())
   let title = await yt.title
   let size = await (isVideo ? yt.video[q].fileSizeH : yt.audio[q].fileSizeH)
+  let play = `
+	≡ *FG MUSIC*
+┌──────────────
+▢ 📌 *Título* : ${vid.title}
+▢ 📆 *Publicado:* ${vid.ago}
+▢ ⌚ *Duración:* ${vid.timestamp}
+▢ 👀 *Vistas:* ${vid.views}
+└──────────────
+
+_Enviando..._`
+conn.sendFile(m.chat, vid.thumbnail, 'play', play, m, null, rpl)
 
 if (size.split('MB')[0] >= limit) return m.reply(` ≡  *FG YTDL*\n\n▢ *⚖️Peso* : ${size}\n▢ *🎞️Calidad* : ${q}\n\n▢ _El archivo supera el límite de descarga_ *+${limit} MB*`) 
 if (size.includes('GB')) return m.reply(` ≡  *FG YTDL*\n\n▢ *⚖️Peso* : ${size}\n▢ *🎞️Calidad* : ${q}\n\n▢ _El archivo supera el límite de descarga_ *+${limit} MB*`)   
