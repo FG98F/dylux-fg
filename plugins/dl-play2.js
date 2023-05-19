@@ -51,4 +51,4 @@ handler.help = ['play']
 handler.tags = ['dl']
 handler.command = ['play', 'playvid']
 
-export default handler;
+export default handler
