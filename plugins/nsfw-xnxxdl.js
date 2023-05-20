@@ -13,7 +13,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
     if (text.includes('http://') || text.includes('https://')) {
         if (!text.includes('xnxx.com')) return m.reply(`❎ Ingrese un link de *xnxx.com*`)
         try {
-            let xn = await (await fetch(global.API('fgmods', '/api/dowloader/xnxxdl', { url: text }, 'apikey'))).json()
+            let xn = await fg.xnxxdl(text)
             conn.sendFile(m.chat, xn.result.files.high, xn.result.title + '.mp4', `
 ≡  *XNXX DL*
             
@@ -27,17 +27,9 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
  }
     } else {
         try {
-            let res = await fetch(global.API('fgmods', '/api/search/xnxxsearch', { text }, 'apikey'))
-            let json = await res.json()
-             let listSections = []
-              Object.values(json.result).map((v, index) => {
-              listSections.push([`${index}┃ ${v.title}`, [
-                    ['🎥 MP4', `${usedPrefix}xnxxdl ${v.link}`, `▢ 📌 *Título* : ${v.title}`]
-                  ]])
-              })
-              //return conn.sendList(m.chat, '  ≡ *XNXX DL*🔎', `\n 🔞 Resultados de:\n *${text}*`, fgig, `Click Aquí`, listSections, m)
-              let ff = json.result.map((v, i) => `${i + 1}┃ *Titulo* : ${v.title}\n*Link:* ${v.link}\n`).join('\n') 
-              if (json.status) m.reply(ff)
+            let res = await fg.xnxxSearch(text)
+            let ff = res.result.map((v, i) => `${i + 1}┃ *Titulo* : ${v.title}\n*Link:* ${v.link}\n`).join('\n') 
+              if (res.status) m.reply(ff)
             } catch (e) {
               m.reply(`🔴 Error: intenta mas tarde`)
                }
