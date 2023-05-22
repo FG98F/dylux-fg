@@ -43,7 +43,7 @@ ${isLimit ? `\n▢ El archivo supera el límite de descarga *+${free} MB*\nPása
 ▢ *Extension:* ${ext}
 `
 if (size.split('MB')[0] >= limit) return m.reply(`▢ El archivo supera el límite de descarga *+${free} MB*\nPásate a premium para poder descargar archivos más de *${prem} MB*`)
-if (size.includes('GB')) return m.reply(`${msg.limitdl()} *+${free} MB* ${msg.limitdlTe()} *${prem} MB*`)
+if (size.includes('GB')) return m.reply(`▢ El archivo supera el límite de descarga *+${free} MB*\nPásate a premium para poder descargar archivos más de *${prem} MB*`)
 await conn.sendFile(m.chat, ss, 'ssweb.png', caption, m)
 await conn.sendFile(m.chat, link, name, '', m, null, { mimetype: ext, asDocument: true })
     m.react(done)
