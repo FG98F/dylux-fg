@@ -1,5 +1,5 @@
 
-import translate from '@vitalets/google-translate-api'
+import { translate } from '@vitalets/google-translate-api'
 const defaultLang = 'es'
 const tld = 'cn'
 
