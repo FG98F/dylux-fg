@@ -1,31 +1,21 @@
 
 let handler = async (m, { conn }) => {
 
-m.reply(`
-≡  *DyLuxᴮᴼᵀ ┃ SUPPORT*
+m.reply( `
+≡  *KanBot 🥀┃ GRUPOS*
 
 ◈ ━━━━━━━━━━━━━━━━━━━━ ◈
 ▢ Grupo *1*
-https://chat.whatsapp.com/IO9jmpI72ejHiN4unRZleU
+https://chat.whatsapp.com/F7xxlnQ0VHg73IW5gJPtBA 
 
 ▢ Grupo *2*
-https://chat.whatsapp.com/CDUqNRu5Kh5KY5uqQI0BKE
+https://chat.whatsapp.com/GSJKM1ggtyC45gu7RhCXgM 
 
-▢ Grupo *NSFW* 🔞
-https://chat.whatsapp.com/F0JTTyZ3hsoL7OlU8TEpuH
+escribe /menu para ver los comandos 
 
-◈ ━━━━━━━━━━━━━━━━━━━━ ◈
-▢ Todos los Grupos
- https://instabio.cc/fg98ff
+◈ ━━━━━━━━━━━━━━━━━━━━◈` ) 
 
-▢ *Telegram*
-• https://t.me/fgawgp
-
- ▢ *PayPal*
-• https://paypal.me/fg98f
-
-▢ *YouTube*
-• https://www.youtube.com/fg98f`)
+m.react('👻')
 
 }
 handler.help = ['support']

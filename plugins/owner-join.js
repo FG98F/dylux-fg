@@ -1,7 +1,8 @@
 
 let handler = async (m, { conn, text, usedPrefix, command, args, participants, isOwner }) => {
 	
-   if (!isOwner) return conn.reply(m.chat, `*Invitar bot a un grupo*\n\nHola @${m.sender.split('@')[0]}\npuedes alquilar el bot para que se una a un grupo`.trim(), m, { mentions: [m.sender] })
+   if (!isOwner) return conn.sendButton(m.chat, `*Invitar bot a un grupo*\n\nHola @${m.sender.split('@')[0]}\npuedes alquilar el bot para que se una a un grupo\n\nhabla con el creador en *Alquilar*`.trim(), fgig, null, [
+       ['☰ Menu', `${usedPrefix}help`], ['⌲ Alquilar', '/owner']], m, { mentions: [m.sender] })
 	
   let time = global.db.data.users[m.sender].lastjoin + 86400000
   let linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})/i
@@ -14,7 +15,7 @@ let handler = async (m, { conn, text, usedPrefix, command, args, participants, i
   if (!args[1]) throw `📌 Falta el número de días\n\n Ejemplo:\n *${usedPrefix + command}* <linkwa> 2`
   if (isNaN(args[1])) throw `✳️ Solo número, que representa los días que el bot estará en el grupo!`
   let owbot = global.owner[1] 
-  m.reply(`😎 Espere 3 segundos, me uniré al grupo`)
+  m.reply(`😎 Espera 3 segundos mi pai, me uniré al grupo`)
   await delay(3000)
   try {
   let res = await conn.groupAcceptInvite(code)
@@ -43,13 +44,13 @@ fui invitado por *${m.name}*`, m, {
      if (!e.length) await m.reply(`✳️ Invitar con éxito al bot al grupo\n\n${await conn.getName(res)}\n\nEl bot saldrá automáticamente después de *${msToDate(global.db.data.chats[res].expired - now)}*`).then(async () => {
      let mes = `Hola a todos 👋🏻
      
-*${conn.user.name}* es uno de los bots multidispositivo de WhatsApp construido con Node.js, *${conn.user.name}* Recién invitado por *${m.name}*
+*${conn.user.name}* es uno de los bots multidispositivo de WhatsApp construido con Node.js, *${conn.user.name}* Recién invitado por el creador mas facha *${m.name}*
 
 para ver el Menu del bot escribe
 
 ${usedPrefix}help
 @${conn.user.jid.split('@')[0]} saldrá automáticamente después de \n\n${msToDate(global.db.data.chats[res].expired - now)}`
-  await conn.reply(res, mes, m, {
+  await conn.sendButton(res, mes, fgig, null, [[`✆ Owner`, `${usedPrefix}owner`], [`⦙☰ Menu`, `${usedPrefix}help`]], m, {
         mentions: d
          })
      })
