@@ -5,7 +5,7 @@ import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
 //import { plugins } from '../lib/plugins.js'
 let tags = {
-  'main': 'ACERCA DE'
+  'main': 'ACERCA DE',
   'game': 'JUEGOS',
   'econ': 'NIVEL & ECONOMIA',
   'rg': 'REGISTRO',
@@ -28,17 +28,16 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-◈ ━━━━━ *DyLux  ┃ ᴮᴼᵀ* ━━━━━ ◈
+◈ ━━━━━ *KanBot 🥀 ┃ ᵒᶠᶜ* ━━━━━ ◈
  
-👋🏻 _Hola_ *%name*
+👋🏻 Hola pana *%name*
 🧿 Nivel : *%level* 
 👥 Usuarios : %totalreg
 📈 Tiempo activo : %muptime
+👑 Owner : Kanixxx
 ─────────────
-▢ Crea tu propio bot 
-• https://youtu.be/xFqjKN1Qt80
-▢ Descarga *FGWhatsApp*
-• https://fgmods.epizy.com
+▢ Unete bro xd
+• https://chat.whatsapp.com/F7xxlnQ0VHg73IW5gJPtBA 
 ─────────────
 %readmore
 Ⓟ = Premium
@@ -158,7 +157,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
       ['⌬ Grupos', `${_p}gpdylux`]
     ],m, rpl)*/
   
-    m.react('📚') 
+    m.react('😎') 
     
   } catch (e) {
     conn.reply(m.chat, '❎ Lo sentimos, el menú tiene un error', m)
