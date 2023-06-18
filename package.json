@@ -39,7 +39,7 @@
     },
     "license": "GPL-3.0-or-later",
     "dependencies": {
-        "@adiwajshing/baileys": "npm:baileys-md@5.0.5",
+        "@adiwajshing/baileys": "npm:baileys@6.0.9",
         "@adiwajshing/keyed-db": "^0.2.4",
         "@bochilteam/scraper": "^3.0.0",
         "awesome-phonenumber": "^3.4.0",
@@ -80,8 +80,7 @@
         "yt-search": "^2.10.3", 
         "hispamemes": "^1.0.7",
         "didyoumean": "^1.2.2",
-        "fg-ig": "^0.0.4",
-        "api-dylux": "^1.4.4",
+        "api-dylux": "^1.5.5",
         "@vitalets/google-translate-api": "^9.2.0",
         "openai": "^3.1.0",
         "yargs": "^17.6.0" 
