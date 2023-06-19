@@ -1,42 +1,39 @@
+//import db from '../lib/database.js'
 
 import { createHash } from 'crypto'
-let Reg = /\|?(.*)([.|] *?)([0-9]*)([.|] *?)([MFNO])?$/i
+let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 let handler = async function (m, { conn, text, usedPrefix, command }) {
   let user = global.db.data.users[m.sender]
   let name2 = conn.getName(m.sender)
-  let pp = await conn.profilePictureUrl(m.sender, 'image').catch(_ => './src/avatar_contact.png')
- if (user.registered === true) throw `✳️ ${mssg.regIsOn}\n\n${usedPrefix}unreg <sn>`
-
-  let te = `✳️ ${mssg.useCmd}: *${usedPrefix + command} ${mssg.name}+${mssg.age}+${mssg.gender}*\n📌 ${mssg.example}: *${usedPrefix + command}* Manolo+16+M\n\n▢ ${mssg.genderList}:\n*- M* = ${mssg.man}\n*- F* ${mssg.woman}\n*- N* = ${mssg.other}`
-  if (!Reg.test(text)) throw te
-  let [_, name, splitter, age, splitter2, gen] = text.match(Reg)
-  if (!name) throw te
-  if (!age) throw te
-  if (name.length >= 30) throw `✳️ ${mssg.nameMax}`
+  if (user.registered === true) throw `✳️ Ya estás registrado\n\n¿Quiere volver a registrarse?\n\n 📌 Use este comando para eliminar su registro \n*${usedPrefix}unreg* <Número de serie>`
+  if (!Reg.test(text)) throw `⚠️ Formato incorrecto\n\n ✳️ Uso del comamdo: *${usedPrefix + command} nombre.edad*\n📌Ejemplo : *${usedPrefix + command}* ${name2}.16`
+  let [_, name, splitter, age] = text.match(Reg)
+  if (!name) throw '✳️ El nombre no puede estar vacío'
+  if (!age) throw '✳️ La edad no puede estar vacía'
+  if (name.length >= 30) throw '✳️ El nombre es demasiado largo' 
   age = parseInt(age)
-  if (age > 60) throw `👴🏻 ${mssg.oldReg}`
-  if (age < 10) throw '🚼 Vaya a ver la vaca lola'
-  let genStr = gen && gen.toUpperCase() === 'M' ? `🙆🏻‍♂️ ${mssg.man}` : (gen && gen.toUpperCase() === 'F' ? `🤵🏻‍♀️ ${mssg.woman}` : (gen && gen.toUpperCase() === 'N' ? `⚧ ${mssg.other}` : null))
-  if (!genStr) throw `✳️ ${mssg.genderList}: M, F o N\n\n*- M* = ${mssg.man}\n*- F*- ${mssg.woman}\n*- N* = ${mssg.other}`
+  if (age > 100) throw '👴🏻 Wow el abuelo quiere jugar al bot'
+  if (age < 5) throw '🚼  hay un abuelo bebé jsjsj '
   user.name = name.trim()
   user.age = age
-  user.genero = genStr
   user.regTime = + new Date
   user.registered = true
   let sn = createHash('md5').update(m.sender).digest('hex')
-  let regi = `
-┌─「 *${mssg.regOn.toUpperCase()}* 」─
-▢ *${mssg.name}:* ${name}
-▢ *${mssg.age}:* ${age}
-▢ *${mssg.gender}:* ${genStr}
-▢ *${mssg.numSn}:*
+  m.reply(`
+┌─「 *REGISTRADO* 」─
+▢ *Nombre:* ${name}
+▢ *Edad* : ${age} años
+▢ *Numero de serie* :
 ${sn}
-└──────────────`
-  conn.sendFile(m.chat, pp, 'img.jpg', regi, m)
-}
+└──────────────
 
-handler.help = ['reg'].map(v => v + ' <nombre.edad.género>')
+ *${usedPrefix}help* para ver el Menu
+`.trim())
+}
+handler.help = ['reg'].map(v => v + ' <nombre.edad>')
 handler.tags = ['rg']
+
 handler.command = ['verify', 'reg', 'register', 'registrar'] 
 
 export default handler
+
