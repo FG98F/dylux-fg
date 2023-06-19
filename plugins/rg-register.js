@@ -1,4 +1,3 @@
-//import db from '../lib/database.js'
 
 import { createHash } from 'crypto'
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
