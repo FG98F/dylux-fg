@@ -12,7 +12,7 @@ export async function before(m,{conn }) {
     global.rpyp = { contextInfo: { externalAdReply: { mediaUrl: fgpyp, mediaType: 'VIDEO', description: 'Donate', title: 'PayPal', body: 'ayuda a mantener el bot activo', thumbnailUrl: pp, sourceUrl: fgpyp }}}
     
     //reply Instagram 
-    global.rpig = { contextInfo: { externalAdReply: { mediaUrl: fgig, mediaType: 'VIDEO', description: 'Sigueme por Instagram', title: 'Instagram', body: 'sigueme por Instagram', thumbnailUrl: pp, sourceUrl: fgig }}} 
+    global.rpig = { contextInfo: { externalAdReply: { mediaUrl: fgig, mediaType: 'VIDEO', description: 'Sigueme por Instagram', title: 'FG98', body: 'sigueme por Instagram', thumbnailUrl: pp, sourceUrl: fgig }}} 
 	
 	//reply link yt
     global.rpyt = { contextInfo: { externalAdReply: { showAdAttribution: true, mediaUrl: fgyt, mediaType: 'VIDEO', description: 'Suscribete : ' + fgyt, title: 'FG YouTube', body: 'aprende a crear tus propios bots', thumbnailUrl: pp, sourceUrl: fgyt }}}
