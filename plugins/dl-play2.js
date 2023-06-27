@@ -30,7 +30,7 @@ let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comman
 └──────────────
 
 _Enviando..._`
-conn.sendFile(m.chat, vid.thumbnail, 'play', play, m, null, rpl)
+conn.sendFile(m.chat, vid.thumbnail, 'play', play, m, null, rpig)
 
 if (size.split('MB')[0] >= limit) return m.reply(` ≡  *FG YTDL*\n\n▢ *⚖️Peso* : ${size}\n▢ *🎞️Calidad* : ${q}\n\n▢ _El archivo supera el límite de descarga_ *+${limit} MB*`) 
 if (size.includes('GB')) return m.reply(` ≡  *FG YTDL*\n\n▢ *⚖️Peso* : ${size}\n▢ *🎞️Calidad* : ${q}\n\n▢ _El archivo supera el límite de descarga_ *+${limit} MB*`)   
