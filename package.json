@@ -39,7 +39,7 @@
     },
     "license": "GPL-3.0-or-later",
     "dependencies": {
-        "@adiwajshing/baileys": "npm:baileys@6.0.9",
+        "@adiwajshing/baileys": "npm:@ferdiz-afk/baileys@6.3.10",
         "@adiwajshing/keyed-db": "^0.2.4",
         "@bochilteam/scraper": "^4.2.3",
         "awesome-phonenumber": "^3.4.0",
