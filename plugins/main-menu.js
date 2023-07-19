@@ -36,7 +36,7 @@ const defaultMenu = {
 📈 Tiempo activo : %muptime
 ─────────────
 ▢ Crea tu propio bot 
-• https://youtu.be/xFqjKN1Qt80
+• الكنج عبدالله الاسطوره
 ▢ Descarga *FGWhatsApp*
 • https://fgmods.epizy.com
 ─────────────
