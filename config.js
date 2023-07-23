@@ -21,7 +21,7 @@ global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
   'https://api.xteam.xyz': 'd90a9e986e18778b',
   'https://zenzapis.xyz': '675e34de8a', 
-  'https://api-fgmods.ddns.net': 'fg-dylux'
+  'https://api-fgmods.ddns.net': 'TU-APIKEY' //Regístrese en https://api-fgmods.ddns.net/
 }
 
 // Sticker WM
