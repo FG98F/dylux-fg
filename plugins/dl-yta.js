@@ -1,5 +1,5 @@
 
-import { youtubedl, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper';
+import { youtubedl, youtubedlv2 } from '@bochilteam/scraper';
 let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
   if (!args || !args[0]) throw `✳️ Ejemplo :\n${usedPrefix + command} https://youtu.be/YzkTFFwxtXI`
   if (!args[0].match(/youtu/gi)) throw `❎ Verifica que el link de YouTube`
@@ -8,7 +8,7 @@ let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comman
   try {
 		let q = '128kbps'
 		let v = args[0]
-		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v)).catch(async () => await youtubedlv3(v))
+		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
 		const dl_url = await yt.audio[q].download()
 		const title = await yt.title
 		const size = await yt.audio[q].fileSizeH
