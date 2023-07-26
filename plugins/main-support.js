@@ -6,7 +6,7 @@ m.reply(`
 
 ◈ ━━━━━━━━━━━━━━━━━━━━ ◈
 ▢ Grupo *1*
-https://chat.whatsapp.com/IO9jmpI72ejHiN4unRZleU
+https://chat.whatsapp.com/HYsBDXQ5M2x5auQPZaYz93
 
 ▢ Grupo *2*
 https://chat.whatsapp.com/CDUqNRu5Kh5KY5uqQI0BKE
@@ -14,16 +14,20 @@ https://chat.whatsapp.com/CDUqNRu5Kh5KY5uqQI0BKE
 ▢ Grupo *NSFW* 🔞
 https://chat.whatsapp.com/F0JTTyZ3hsoL7OlU8TEpuH
 
+▢ 𝐌𝐘 - 𝐌𝐚𝐲𝐥𝐮𝐱 | ᴮᴼᵀ⚡
+https://chat.whatsapp.com/CTILZXSriIE3M40anVyPT4
+
+▢ 📲💻ANDROID WORLD🎬🎮
+https://chat.whatsapp.com/Ly4I2LObSvW8VgOnJjofgA
+
 ◈ ━━━━━━━━━━━━━━━━━━━━ ◈
 ▢ Todos los Grupos
  https://instabio.cc/fg98ff
 
 ▢ *Telegram*
 • https://t.me/fgawgp
-
  ▢ *PayPal*
 • https://paypal.me/fg98f
-
 ▢ *YouTube*
 • https://www.youtube.com/fg98f`)
 
