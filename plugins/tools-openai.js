@@ -1,15 +1,14 @@
 
-import cheerio from 'cheerio'
-import gpt from 'api-dylux'
+import fetch from 'node-fetch'
 let handler = async (m, { conn, text }) => {
 	
 if (!text) throw `✳️ Ingresa el texto`
 m.react('💬')
 
 	try {
-        let syms = `Eres DyLux Bot, un gran modelo de lenguaje entrenado por OpenAI. Siga cuidadosamente las instrucciones del usuario. Responde usando Markdown.`
-        let res = await gpt.ChatGpt(text, syms)
-         await m.reply(res.text)
+        let gpt = await fetch(global.API('fgmods', '/api/info/openai2', { text }, 'apikey'));
+        let res = await gpt.json()
+        await m.reply(res.result)
 	} catch {
 		m.reply(`❎ Error: intenta más tarde`)
 	}
