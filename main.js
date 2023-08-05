@@ -1,6 +1,6 @@
+ 
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 import './config.js'; 
-
 import { createRequire } from "module"; // Bring in the ability to create the 'require' method
 import path, { join } from 'path'
 import { fileURLToPath, pathToFileURL } from 'url'
@@ -19,7 +19,11 @@ import { Low, JSONFile } from 'lowdb';
 import pino from 'pino';
 import { mongoDB, mongoDBV2 } from './lib/mongoDB.js';
 import store from './lib/store.js'
-const { DisconnectReason, useMultiFileAuthState } = await import('@adiwajshing/baileys')
+import {
+    useMultiFileAuthState,
+    DisconnectReason,
+    fetchLatestBaileysVersion 
+   } from '@adiwajshing/baileys'
 const { CONNECTING } = ws
 const { chain } = lodash
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
@@ -50,7 +54,7 @@ global.db = new Low(
 )
 
 
-global.DATABASE = global.db // Backwards Compatibility
+global.DATABASE = global.db 
 global.loadDatabase = async function loadDatabase() {
   if (global.db.READ) return new Promise((resolve) => setInterval(async function () {
     if (!global.db.READ) {
@@ -76,18 +80,45 @@ global.loadDatabase = async function loadDatabase() {
 loadDatabase()
 
 //-- SESSION
-//global.authFile = `${opts._[0] || 'session'}.data.json`
-//const { state, saveState } = store.useSingleFileAuthState(global.authFile)
-global.authFile = `sessions`
-const { state, saveState, saveCreds } = await useMultiFileAuthState(global.authFile)
-
-const connectionOptions = {
+global.authFolder = `sessions`
+const { state, saveCreds } = await useMultiFileAuthState(global.authFolder)
+let { version, isLatest } = await fetchLatestBaileysVersion() 
+/*const connectionOptions = {
   printQRInTerminal: true,
   auth: state,
   logger: pino({ level: 'silent'}),
   browser: ['dylux-bot','Safari','1.0.0']
-}
+}*/ 
+const connectionOptions = {
+	    version,
+        printQRInTerminal: true,
+        auth: state,
+        browser: ['dylux-bot', 'Safari', '3.1.0'], 
+	      patchMessageBeforeSending: (message) => {
+                const requiresPatch = !!(
+                    message.buttonsMessage 
+                    || message.templateMessage
+                    || message.listMessage
+                );
+                if (requiresPatch) {
+                    message = {
+                        viewOnceMessage: {
+                            message: {
+                                messageContextInfo: {
+                                    deviceListMetadataVersion: 2,
+                                    deviceListMetadata: {},
+                                },
+                                ...message,
+                            },
+                        },
+                    };
+                }
 
+                return message;
+            }, 
+      logger: pino({ level: 'silent' })
+} 
+//--
 global.conn = makeWASocket(connectionOptions)
 conn.isInit = false
 
@@ -112,23 +143,24 @@ async function clearTmp() {
   //---
   return filename.map(file => {
     const stats = statSync(file)
-    if (stats.isFile() && (Date.now() - stats.mtimeMs >= 1000 * 60 * 1)) return unlinkSync(file) // 1 minuto
+    if (stats.isFile() && (Date.now() - stats.mtimeMs >= 1000 * 60 * 3)) return unlinkSync(file) // 3 minuto
     return false
   })
 }
 setInterval(async () => {
 	var a = await clearTmp()
 	console.log(chalk.cyan(`✅  Auto clear  | Se limpio la carpeta tmp`))
-}, 60000) //1 munto
+}, 180000) //3 muntos
 
 async function connectionUpdate(update) {
-  const { connection, lastDisconnect, isNewLogin } = update
-  if (isNewLogin) conn.isInit = true
-  const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
-  if (code && code !== DisconnectReason.loggedOut && conn?.ws.readyState !== CONNECTING) {
-    console.log(await global.reloadHandler(true).catch(console.error))
-    global.timestamp.connect = new Date
+  const {connection, lastDisconnect, isNewLogin} = update;
+  if (isNewLogin) conn.isInit = true;
+  const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode;
+  if (code && code !== DisconnectReason.loggedOut && conn?.ws.socket == null) {
+    console.log(await global.reloadHandler(true).catch(console.error));
+    global.timestamp.connect = new Date;
   }
+  
   if (global.db.data == null) loadDatabase()
 }
 
@@ -174,7 +206,6 @@ global.reloadHandler = async function (restatConn) {
   conn.groupsUpdate = handler.groupsUpdate.bind(global.conn)
   conn.onDelete = handler.deleteUpdate.bind(global.conn)
   conn.connectionUpdate = connectionUpdate.bind(global.conn)
-  //conn.credsUpdate = saveState.bind(global.conn, true)
   conn.credsUpdate = saveCreds.bind(global.conn, true)
 
   conn.ev.on('messages.upsert', conn.handler)
@@ -208,12 +239,12 @@ global.reload = async (_ev, filename) => {
   if (pluginFilter(filename)) {
     let dir = global.__filename(join(pluginFolder, filename), true)
     if (filename in global.plugins) {
-      if (existsSync(dir)) conn.logger.info(` updated plugin - '${filename}'`)
+      if (existsSync(dir)) conn.logger.info(`🌟 Plugin Actualizado - '${filename}'`)
       else {
-        conn.logger.warn(`deleted plugin - '${filename}'`)
+        conn.logger.warn(`🗑️ Plugin Eliminado - '${filename}'`)
         return delete global.plugins[filename]
       }
-    } else conn.logger.info(`new plugin - '${filename}'`)
+    } else conn.logger.info(`✨ Nuevo plugin - '${filename}'`)
     let err = syntaxerror(readFileSync(dir), filename, {
       sourceType: 'module',
       allowAwaitOutsideFunction: true
@@ -275,5 +306,5 @@ async function _quickTest() {
 }
 
 _quickTest()
-  .then(() => conn.logger.info('Quick Test Done'))
+  .then(() => conn.logger.info('✅ Prueba rápida realizado!'))
   .catch(console.error)
