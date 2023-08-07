@@ -23,7 +23,7 @@ import {
     useMultiFileAuthState,
     DisconnectReason,
     fetchLatestBaileysVersion 
-   } from '@adiwajshing/baileys'
+   } from '@whiskeysockets/baileys'
 const { CONNECTING } = ws
 const { chain } = lodash
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
