@@ -1,6 +1,6 @@
-
+ 
 <p align="center"> 
-<img src="https://gpvc.arturio.dev/FG98F" />
+<img src="https://komarev.com/ghpvc/?username=FG98F&color=brightgreen" />
 <p/>
 <p align="center">
 <a href="https://github.com/FG98F"><img title="Author" src="https://img.shields.io/badge/DyLux Bot-black?style=for-the-badge&logo=whatsApp"></a>
