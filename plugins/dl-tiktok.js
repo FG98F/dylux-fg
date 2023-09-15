@@ -1,41 +1,35 @@
+ 
+import fg from 'api-dylux'
+import fetch from 'node-fetch'
+let handler = async (m, { conn, text, args, usedPrefix, command }) => {
+    try {
+        if (!args[0]) throw `✳️ Ingrese un link de Tiktok\n\n 📌 Ejemplo : ${usedPrefix + command} https://vm.tiktok.com/ZMjkj76X6/`
+        if (!args[0].match(/tiktok/gi)) throw `❎ verifica que el link sea de tiktok`
+        m.react(rwait)
 
-import fg from 'api-dylux' 
-import { tiktokdl } from '@bochilteam/scraper'
-let handler = async (m, { conn, text, args, usedPrefix, command}) => {
-if (!args[0]) throw `✳️ Ingrese un link de Tiktok\n\n 📌 Ejemplo : ${usedPrefix + command} https://vm.tiktok.com/ZMjkj76X6/`
-if (!args[0].match(/tiktok/gi)) throw `❎ verifica que el link sea de tiktok`
-m.react(rwait)
-
-try {
-    let p = await fg.tiktok(args[0]) 
-    let te = `
-┌─⊷ TIKTOK
-▢ *Nombre:* ${p.nickname}
-▢ *Username:* ${p.unique_id}
-▢ *Duración:* ${p.duration}
-▢ *Descripción:* ${p.description}
-└───────────`
-    conn.sendFile(m.chat, p.play, 'tiktok.mp4', te, m)
-    m.react(done)
-    } catch {  	
-    try { 
-	const { author: { nickname }, video, description } = await tiktokdl(args[0])
-    const url = video.no_watermark || video.no_watermark2 || video.no_watermark_raw
-    if (!url) throw '❎ Error al descargar el video'
-    conn.sendFile(m.chat, url, 'fb.mp4', `
-┌─⊷ *TIKTOK DL-2*
-▢ *Nickname:* ${nickname} ${description ? `\n▢ *Descripción:* ${description}` : ''}
-└───────────`, m)
-m.react(done)
-} catch {
-    m.reply(`❎ Error al descargar el video`)
+        let res = await fetch(global.API('fgmods', '/api/downloader/tiktok2', { url: args[0] }, 'apikey'))
+        let data = await res.json()
+        
+            let tex = `
+┌─⊷ *TIKTOK DL*
+▢ *Nombre:* ${data.result.author.name}
+▢ *Username:* ${data.result.author.unique_id}
+▢ *Duración:* ${data.result.video.durationFormatted}
+▢ *Calidad:* ${data.result.video.ratio}
+▢ *Likes:* ${data.result.stats.likeCount}
+▢ *Vistas:* ${data.result.stats.playCount}
+▢ *Descripción:* ${data.result.title}
+└───────────
+`
+            conn.sendFile(m.chat, data.result.video.noWatermark, 'tiktok.mp4', tex, m);
+            m.react(done)
+    } catch (error) {
+        m.reply(`❎ Error al descargar el video`)
+    }
 }
-} 
-    
-}  
 handler.help = ['tiktok']
 handler.tags = ['dl']
-handler.command = /^(tiktok|ttdl|tiktokdl|tiktoknowm)$/i
+handler.command = ['tiktok', 'tt', 'tiktodl']
 handler.diamond = true
 
 export default handler
