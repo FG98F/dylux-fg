@@ -15,13 +15,13 @@ global.APIs = { // API Prefix
   xteam: 'https://api.xteam.xyz', 
   nrtm: 'https://fg-nrtm.ddns.net',
   bg: 'http://bochil.ddns.net',
-  fgmods: 'https://api-fgmods.ddns.net'
+  fgmods: 'https://api.fgmods.xyz'
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
   'https://api.xteam.xyz': 'd90a9e986e18778b',
   'https://zenzapis.xyz': '675e34de8a', 
-  'https://api-fgmods.ddns.net': 'dEBWvxCY' //--- 100 de límite diario --- Regístrese en https://api-fgmods.ddns.net/
+  'https://api.fgmods.xyz': 'dEBWvxCY' //--- 100 de límite diario --- Regístrese en https://api-fgmods.ddns.net/
 }
 
 // Sticker WM
