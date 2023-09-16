@@ -9,7 +9,7 @@ m.reply(`
 https://chat.whatsapp.com/HYsBDXQ5M2x5auQPZaYz93
 
 ▢ Grupo *2*
-https://chat.whatsapp.com/L5kbWiRRjvtGYjEtNDKIey
+https://chat.whatsapp.com/I7bvd8XCAOUHjgkHteqFC7
 
 ▢ Grupo *NSFW* 🔞
 https://chat.whatsapp.com/F0JTTyZ3hsoL7OlU8TEpuH
