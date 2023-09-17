@@ -82,7 +82,7 @@
         "yt-search": "^2.10.3", 
         "hispamemes": "^1.0.7",
         "didyoumean": "^1.2.2",
-        "api-dylux": "^1.6.3",
+        "api-dylux": "^1.6.7",
         "@vitalets/google-translate-api": "^9.2.0",
         "openai": "^3.3.0",
         "aptoide-scraper": "^1.0.1",
