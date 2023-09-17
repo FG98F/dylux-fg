@@ -14,12 +14,12 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
         if (!text.includes('xnxx.com')) return m.reply(`❎ Ingrese un link de *xnxx.com*`)
         try {
             let xn = await fg.xnxxdl(text)
-            conn.sendFile(m.chat, xn.result.files.high, xn.result.title + '.mp4', `
+            conn.sendFile(m.chat, xn.url_dl, xn.title + '.mp4', `
 ≡  *XNXX DL*
             
-▢ *📌Título*: ${xn.result.title}
-▢ *⌚Duración:* ${xn.result.duration}
-▢ *🎞️Calidad:* ${xn.result.quality}
+▢ *📌Título*: ${xn.title}
+▢ *⌚Duración:* ${xn.duration}
+▢ *🎞️Calidad:* ${xn.quality}
 `.trim(), m, false, { asDocument: chat.useDocument })
  m.react(done)
  } catch (e) {
