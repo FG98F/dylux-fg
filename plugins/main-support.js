@@ -6,7 +6,7 @@ m.reply(`
 
 ◈ ━━━━━━━━━━━━━━━━━━━━ ◈
 ▢ Grupo *1*
-https://chat.whatsapp.com/HYsBDXQ5M2x5auQPZaYz93
+${dygp}
 
 ▢ Grupo *2*
 https://chat.whatsapp.com/I7bvd8XCAOUHjgkHteqFC7
